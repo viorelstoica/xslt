@@ -1,0 +1,226 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="NAME">import</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NAME">as</span><span class="WHIT"> </span><span class="NAME">fs</span><span class="WHIT"> </span><span class="NAME">from</span><span class="WHIT"> </span><span class="STRN">'fs'</span><span class="WHIT">
+<span class='line'>  2</span> </span><span class="NAME">import</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NAME">as</span><span class="WHIT"> </span><span class="NAME">readline</span><span class="WHIT"> </span><span class="NAME">from</span><span class="WHIT"> </span><span class="STRN">'readline'</span><span class="WHIT">
+<span class='line'>  3</span> </span><span class="NAME">import</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NAME">as</span><span class="WHIT"> </span><span class="NAME">xml2json</span><span class="WHIT"> </span><span class="NAME">from</span><span class="WHIT"> </span><span class="STRN">'xml2json'</span><span class="WHIT">
+<span class='line'>  4</span> 
+<span class='line'>  5</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">logsPath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'../data'</span><span class="WHIT">
+<span class='line'>  6</span> 
+<span class='line'>  7</span> </span><span class="COMM">/**
+<span class='line'>  8</span>  * Represents a book.
+<span class='line'>  9</span>  * @constructor
+<span class='line'> 10</span>  * @param {string} title - The title of the book.
+<span class='line'> 11</span>  * @param {string} author - The author of the book.
+<span class='line'> 12</span>  */</span><span class="WHIT">
+<span class='line'> 13</span> </span><span class="NAME">export</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">getFile</span><span class="PUNC">(</span><span class="NAME">file</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 14</span> </span><span class="WHIT">  </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Promise</span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">resolve</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 15</span> </span><span class="WHIT">    </span><span class="NAME">fs.readFile</span><span class="PUNC">(</span><span class="STRN">'../data/tti/batch/20251022_161103_070_45_msgin_BatchCsdThirdPartyInsider_00c9a029-19d9-40f0-9a75-dce4c905c8e0.xml'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'utf8'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">err</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 16</span> </span><span class="WHIT">      </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">json</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">xml2json.toJson</span><span class="PUNC">(</span><span class="NAME">data</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="STRN">"object"</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 17</span> </span><span class="WHIT">      </span><span class="NAME">resolve</span><span class="PUNC">(</span><span class="NAME">json</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 18</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 19</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 20</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 21</span> 
+<span class='line'> 22</span> </span><span class="NAME">export</span><span class="WHIT"> </span><span class="NAME">async</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">outputProcessedStats</span><span class="PUNC">(</span><span class="NAME">day</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 23</span> </span><span class="WHIT">  </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">promises</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="WHIT">
+<span class='line'> 24</span> </span><span class="WHIT">  </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">folders</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">fs.readdirSync</span><span class="PUNC">(</span><span class="STRN">'../data/static/output_processed'</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="WHIT">  </span><span class="NAME">folders.forEach</span><span class="PUNC">(</span><span class="NAME">async</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">fo</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">files</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">fs.readdirSync</span><span class="PUNC">(</span><span class="TOKN">`</span><span class="PUNC">.</span><span class="PUNC">.</span><span class="REGX">/data/</span><span class="NAME">static</span><span class="PUNC">/</span><span class="NAME">output_processed</span><span class="PUNC">/</span><span class="NAME">$</span><span class="PUNC">{</span><span class="NAME">fo</span><span class="PUNC">}</span><span class="TOKN">`</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">    </span><span class="NAME">files.forEach</span><span class="PUNC">(</span><span class="NAME">fi</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="WHIT">      </span><span class="NAME">promises.push</span><span class="PUNC">(</span><span class="NAME">scanSucErr</span><span class="PUNC">(</span><span class="NAME">fo</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">fi</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">  </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">ret</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">await</span><span class="WHIT"> </span><span class="NAME">Promise.all</span><span class="PUNC">(</span><span class="NAME">promises</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="WHIT">  </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ret</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 34</span> 
+<span class='line'> 35</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">scanSucErr</span><span class="PUNC">(</span><span class="NAME">fo</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">fi</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="WHIT">  </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">fileName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="TOKN">`</span><span class="PUNC">.</span><span class="PUNC">.</span><span class="REGX">/data/</span><span class="NAME">static</span><span class="PUNC">/</span><span class="NAME">output_processed</span><span class="PUNC">/</span><span class="NAME">$</span><span class="PUNC">{</span><span class="NAME">fo</span><span class="PUNC">}</span><span class="REGX">/${fi}`
+<span class='line'> 37</span>   return new Promise((resolve) => {
+<span class='line'> 38</span>     var cnt = 0, suc = 0, err = 0
+<span class='line'> 39</span>     var lineReader = readline.createInterface({
+<span class='line'> 40</span>       input: fs.createReadStream(fileName)
+<span class='line'> 41</span>     });
+<span class='line'> 42</span> 
+<span class='line'> 43</span>     lineReader.on('line', function (line) {
+<span class='line'> 44</span>       cnt = cnt + 1
+<span class='line'> 45</span>       if (line.startsWith("SUC"))
+<span class='line'> 46</span>         suc = suc + 1
+<span class='line'> 47</span>       if (line.startsWith("ERR"))
+<span class='line'> 48</span>         err = err + 1
+<span class='line'> 49</span>     });
+<span class='line'> 50</span> 
+<span class='line'> 51</span>     lineReader.on('close', function () {
+<span class='line'> 52</span>       resolve({ folder: fo, file: fi, cnt: cnt, suc: suc, err: err })
+<span class='line'> 53</span>     });
+<span class='line'> 54</span>   })
+<span class='line'> 55</span> }
+<span class='line'> 56</span> 
+<span class='line'> 57</span> 
+<span class='line'> 58</span> 
+<span class='line'> 59</span> export async function outputProcessedStats2() {
+<span class='line'> 60</span>   const promises = []
+<span class='line'> 61</span>   var folders = fs.readdirSync(`../</span><span class="NAME">data</span><span class="PUNC">/</span><span class="NAME">static</span><span class="PUNC">/</span><span class="NAME">output_processed</span><span class="TOKN">`</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="WHIT">  </span><span class="NAME">folders.forEach</span><span class="PUNC">(</span><span class="NAME">async</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">fo</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">files</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">fs.readdirSync</span><span class="PUNC">(</span><span class="TOKN">`</span><span class="PUNC">.</span><span class="PUNC">.</span><span class="REGX">/data/</span><span class="NAME">static</span><span class="PUNC">/</span><span class="NAME">output_processed</span><span class="PUNC">/</span><span class="NAME">$</span><span class="PUNC">{</span><span class="NAME">fo</span><span class="PUNC">}</span><span class="TOKN">`</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">    </span><span class="NAME">files.forEach</span><span class="PUNC">(</span><span class="NAME">fi</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">      </span><span class="NAME">promises.push</span><span class="PUNC">(</span><span class="NAME">scanCmdSucErr</span><span class="PUNC">(</span><span class="NAME">fo</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">fi</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">  </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">ret</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">await</span><span class="WHIT"> </span><span class="NAME">Promise.all</span><span class="PUNC">(</span><span class="NAME">promises</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">  </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">ret2</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">  </span><span class="NAME">ret.forEach</span><span class="PUNC">(</span><span class="NAME">p</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">    </span><span class="NAME">p.forEach</span><span class="PUNC">(</span><span class="NAME">r</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">      </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">elm</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ret2.find</span><span class="PUNC">(</span><span class="NAME">v</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="NAME">v.cmd</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">r.cmd</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">      </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">elm</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="WHIT">        </span><span class="NAME">elm.suc</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">elm.suc</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">r.suc</span><span class="WHIT">
+<span class='line'> 75</span> </span><span class="WHIT">        </span><span class="NAME">elm.err</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">elm.err</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">r.err</span><span class="WHIT">
+<span class='line'> 76</span> </span><span class="WHIT">      </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="WHIT">      </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="WHIT">        </span><span class="NAME">ret2.push</span><span class="PUNC">(</span><span class="NAME">r</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="WHIT">      </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">  </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ret2</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 84</span> 
+<span class='line'> 85</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">scanCmdSucErr</span><span class="PUNC">(</span><span class="NAME">fo</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">fi</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 86</span> </span><span class="WHIT">  </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">fileName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="TOKN">`</span><span class="NAME">$</span><span class="PUNC">{</span><span class="NAME">fo</span><span class="PUNC">}</span><span class="REGX">/${fi}`
+<span class='line'> 87</span>   return new Promise((resolve) => {
+<span class='line'> 88</span>     var ret = []
+<span class='line'> 89</span>     var currRet
+<span class='line'> 90</span>     var lineReader = readline.createInterface({
+<span class='line'> 91</span>       input: fs.createReadStream(fileName)
+<span class='line'> 92</span>     });
+<span class='line'> 93</span> 
+<span class='line'> 94</span>     lineReader.on('line', function (line) {
+<span class='line'> 95</span>       if (line.startsWith("CMD")) {
+<span class='line'> 96</span>         currRet = ret.find((el) => el.cmd === line.substring(4))
+<span class='line'> 97</span>         if (currRet == undefined) {
+<span class='line'> 98</span>           currRet = ret[ret.push({ cmd: line.substring(4), suc: 0, err: 0 }) - 1]
+<span class='line'> 99</span>         }
+<span class='line'>100</span>       }
+<span class='line'>101</span>       if (line.startsWith("SUC"))
+<span class='line'>102</span>         currRet.suc = currRet.suc + 1
+<span class='line'>103</span>       if (line.startsWith("ERR"))
+<span class='line'>104</span>         currRet.err = currRet.err + 1
+<span class='line'>105</span>     });
+<span class='line'>106</span> 
+<span class='line'>107</span>     lineReader.on('close', function () {
+<span class='line'>108</span>       resolve(ret)
+<span class='line'>109</span>     });
+<span class='line'>110</span>   })
+<span class='line'>111</span> }
+<span class='line'>112</span> 
+<span class='line'>113</span> export async function outputProcessedStats3(date) {
+<span class='line'>114</span>   const promises = []
+<span class='line'>115</span>   const fo = `${logsPath}/</span><span class="NAME">$</span><span class="PUNC">{</span><span class="NAME">date</span><span class="PUNC">}</span><span class="REGX">/output_processed`
+<span class='line'>116</span>   var files = fs.readdirSync(fo)
+<span class='line'>117</span>   files.forEach(fi => {
+<span class='line'>118</span>     promises.push(scanCmdSucErr(fo, fi))
+<span class='line'>119</span>   })
+<span class='line'>120</span>   const ret = await Promise.all(promises)
+<span class='line'>121</span>   var ret2 = []
+<span class='line'>122</span>   ret.forEach(p => {
+<span class='line'>123</span>     p.forEach(r => {
+<span class='line'>124</span>       var elm = ret2.find(v => v.cmd === r.cmd)
+<span class='line'>125</span>       if (elm != undefined) {
+<span class='line'>126</span>         elm.suc = elm.suc + r.suc
+<span class='line'>127</span>         elm.err = elm.err + r.err
+<span class='line'>128</span>       }
+<span class='line'>129</span>       else {
+<span class='line'>130</span>         ret2.push(r)
+<span class='line'>131</span>       }
+<span class='line'>132</span>     })
+<span class='line'>133</span>   })
+<span class='line'>134</span>   return ret2
+<span class='line'>135</span> }
+<span class='line'>136</span> 
+<span class='line'>137</span> function onP(m, tm) {
+<span class='line'>138</span>   return new Promise((resolve) => {
+<span class='line'>139</span>     setTimeout(() => {
+<span class='line'>140</span>       console.log(m)
+<span class='line'>141</span>       resolve(1)
+<span class='line'>142</span>     }, tm)
+<span class='line'>143</span>   })
+<span class='line'>144</span> }
+<span class='line'>145</span> 
+<span class='line'>146</span> 
+<span class='line'>147</span> 
+<span class='line'>148</span> async function getPrice() {
+<span class='line'>149</span>   const [choice, prices] = await Promise.all([
+<span class='line'>150</span>     promptForDishChoice(),
+<span class='line'>151</span>     fetchPrices(),
+<span class='line'>152</span>   ]);
+<span class='line'>153</span>   return prices[choice];
+<span class='line'>154</span> }
+<span class='line'>155</span> 
+<span class='line'>156</span> 
+<span class='line'>157</span> 
+<span class='line'>158</span> export async function o() {
+<span class='line'>159</span>   const ret = await Promise.all([
+<span class='line'>160</span>     scanSingleFile('../</span><span class="NAME">data</span><span class="PUNC">/</span><span class="NAME">static</span><span class="PUNC">/</span><span class="NAME">output_processed</span><span class="PUNC">/</span><span class="NAME">ACCOUNT</span><span class="PUNC">/</span><span class="NUMB">20251022</span><span class="NAME">_192947_00007_Fi</span><span class="PUNC">-</span><span class="NAME">Batch</span><span class="PUNC">-</span><span class="NAME">cashAccount1007000500055127x47x0x1761154186144.output</span><span class="STRN">'),
+<span class='line'>161</span>     scanSingleFile('</span><span class="PUNC">.</span><span class="PUNC">.</span><span class="REGX">/data/</span><span class="NAME">static</span><span class="PUNC">/</span><span class="NAME">output_processed</span><span class="PUNC">/</span><span class="NAME">ACCOUNT</span><span class="PUNC">/</span><span class="NUMB">20251022</span><span class="NAME">_192947_00006_Fi</span><span class="PUNC">-</span><span class="NAME">Batch</span><span class="PUNC">-</span><span class="NAME">cashAccount1007000500032053x47x0x1761154185454.output</span><span class="STRN">')
+<span class='line'>162</span>   ])
+<span class='line'>163</span>   return ret
+<span class='line'>164</span> }
+<span class='line'>165</span> 
+<span class='line'>166</span> 
+<span class='line'>167</span> // TTI stuff
+<span class='line'>168</span> 
+<span class='line'>169</span> 
+<span class='line'>170</span> export async function ttiStats(date) {
+<span class='line'>171</span>   var ret = []
+<span class='line'>172</span>   var folders = fs.readdirSync(`../data/logs/${date}/trace`)
+<span class='line'>173</span>   folders.forEach(async (fo) => {
+<span class='line'>174</span>     var files = fs.readdirSync(`../data/logs/${date}/trace/${fo}`)
+<span class='line'>175</span>     files.forEach(fi => {
+<span class='line'>176</span>       const tokens = fi.split('</span><span class="NAME">_</span><span class="STRN">')
+<span class='line'>177</span>       ret.push({date: tokens[0], time: tokens[1], millis: tokens[2], thread: tokens[3], type: tokens[4], flow: tokens[5], uuid: tokens[6]})
+<span class='line'>178</span>     })
+<span class='line'>179</span>   })
+<span class='line'>180</span>   var ret2 = []
+<span class='line'>181</span>   ret.forEach(r=>{
+<span class='line'>182</span>      var elm = ret2.find(v => v.type === r.type)
+<span class='line'>183</span>       if (elm != undefined) {
+<span class='line'>184</span>         elm.count = elm.count + 1
+<span class='line'>185</span>       }
+<span class='line'>186</span>       else {
+<span class='line'>187</span>         ret2.push({type: r.type, count: 1})
+<span class='line'>188</span>       }
+<span class='line'>189</span> 
+<span class='line'>190</span>   })
+<span class='line'>191</span>   return ret2
+<span class='line'>192</span> }
+<span class='line'>193</span> 
+<span class='line'>194</span> export async function opStatsForDay(day) {
+<span class='line'>195</span>   const promises = []
+<span class='line'>196</span>   var files = fs.readdirSync(`${logsPath}/${day}/output_processed`)
+<span class='line'>197</span>     files.forEach(fi => {
+<span class='line'>198</span>       promises.push(scanSucErr2(`${logsPath}/${day}/output_processed/${fi}`))
+<span class='line'>199</span>     })
+<span class='line'>200</span>   const ret = await Promise.all(promises)
+<span class='line'>201</span>   return ret
+<span class='line'>202</span> }
+<span class='line'>203</span> 
+<span class='line'>204</span> function scanSucErr2(fi) {
+<span class='line'>205</span>   return new Promise((resolve) => {
+<span class='line'>206</span>     var cnt = 0, suc = 0, err = 0
+<span class='line'>207</span>     var lineReader = readline.createInterface({
+<span class='line'>208</span>       input: fs.createReadStream(fi)
+<span class='line'>209</span>     });
+<span class='line'>210</span> 
+<span class='line'>211</span>     lineReader.on('</span><span class="NAME">line</span><span class="STRN">', function (line) {
+<span class='line'>212</span>       cnt = cnt + 1
+<span class='line'>213</span>       if (line.startsWith("SUC"))
+<span class='line'>214</span>         suc = suc + 1
+<span class='line'>215</span>       if (line.startsWith("ERR"))
+<span class='line'>216</span>         err = err + 1
+<span class='line'>217</span>     });
+<span class='line'>218</span> 
+<span class='line'>219</span>     lineReader.on('</span><span class="NAME">close</span><span class="TOKN"></span></pre></body></html>

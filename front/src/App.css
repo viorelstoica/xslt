@@ -1,0 +1,76 @@
+html { margin: 0 ; padding: 0; height: 100%;}
+body { margin: 0 ; padding: 0; height: 100%;}
+#root { height: 100%; }
+
+#chartdiv { 
+  margin: 0 ; 
+  padding: 0; 
+  height: 90%; 
+  width: 99%;
+  border: 1px solid green;
+}
+
+.MainPage {
+  margin: 5px;
+  height: 90%;
+}
+
+#Graph1Div {
+  width: 100%;
+  height: 500px;
+}
+
+#GwpackTimeSpentDiv {
+  width: 100%;
+  height: 500px;
+}
+
+#Days1Div {
+  width: 100%;
+  height: 500px;
+}
+
+#HeatMap1Div {
+  width: 100%;
+  height: 100%;
+}
+
+.my-form-select {
+    width: 150px !important;
+}
+.lineCount {
+    color: blueviolet;
+}
+
+@media (min-width: 768px) {
+.navbar-brand.abs
+    {
+        position: absolute;
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+}
+
+div .title {
+  height:30px;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.card:hover {
+  border: 3px;
+}
+
+.sortable:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.loader {
+    width: 100%;
+    text-align: center;
+}
+
+.loader>Spinner{
+    display: inline-block;
+    width: 150px; 
+}
+
+
