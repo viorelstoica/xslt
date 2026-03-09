@@ -7,38 +7,15 @@ import Form from 'react-bootstrap/Form';
 import { useState, useEffect, useContext } from 'react';
 import './App.css'
 
-function TheMenu({onDate}) {
-
-  const [dates, setDates] = useState([])
-  const [cnt, setCnt] = useState(0)
-
-  const {
-    services: {
-      serviceApi
-    }
-  } = useContext(AppContext)
-
-  useEffect(() => {
-    serviceApi.getDates().then(data => {
-      setDates(data)
-      onDate(data[0])
-    });
-  }, []);
-
-  const loadFolderIndex = (value) => {
-    serviceApi.loadFolderIndex(value).then(data => {
-      setCnt(data.cnt)
-    })
-  }
+function TheMenu({onFileName}) {
 
   return (
     <AppProvider>
-
       <Navbar expand="lg" className="navbar-expand-sm navbar-dark bg-secondary">
-        <Form.Select className='my-form-select' onChange={(ev) => { console.log(ev.target.value) ; onDate(ev.target.value) }}>
-          {dates.map(date => (
-            <option key={date} value={date}>{date}</option>
-          ))}
+        <Form.Select className='my-form-select' onChange={(ev) => { console.log(ev.target.value); onFileName(ev.target.value) }}>
+            <option key={1} value={'version.txt'}>version.txt</option>
+            <option key={2} value={'config/tti-flowmap.xml'}>tti-flowmap.xml</option>
+            <option key={3} value={'xslt/AcAccrual/AcAccrual-Filter-Core.xsl'}>AcAccrual-Filter-Core.xsl</option>
         </Form.Select>
         <Nav className="justify-content-end">
           <Nav.Link href="/folders">Folders</Nav.Link>

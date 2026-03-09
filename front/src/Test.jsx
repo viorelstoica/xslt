@@ -1,16 +1,15 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import XMLViewer from 'react-xml-viewer'
+import { useLayoutEffect, useRef, useContext, useEffect, useState } from 'react'
 
-import { useLayoutEffect, useRef, useContext, useEffect, useState } from 'react';
-
-export default function Test({date}) {
+export default function Test({file}) {
 
   const [data, setData] = useState([])
 
   const fetchData = async () => {
-
-    if (!!date) {
-      const response = await fetch(`http://localhost:3000/xmluuid/${date}`);
+    if (!!file) {
+      const response = await fetch(`http://localhost:3000/file/${file.replaceAll("/", "%2F")}`);
       const data = await response.json();
       setData(data)
     }
@@ -18,14 +17,21 @@ export default function Test({date}) {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [file])
 
   return (
-    <div>
-      <p>
-        Time spent in GWPACK on {date}
-      </p>
-      <div id="chartdiv"></div>
-    </div>
+ <div>
+      <XMLViewer xml={data} collapsible={true}   initialCollapsedDepth={3}/>
+    </div>    
   )
 }
+
+/*
+  return (
+    <div>
+      <p style={{whiteSpace: 'pre-wrap'}}>
+        {data}
+      </p>
+    </div>
+  )
+*/
