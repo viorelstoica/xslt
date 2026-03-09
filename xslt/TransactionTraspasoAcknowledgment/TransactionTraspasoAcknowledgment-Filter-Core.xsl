@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.odcgroup.com/F2B" xmlns:b="http://www.temenos.com/T24/event/TTI/EsfundTraspasoRequest" xmlns:batch="http://www.temenos.com/T24/event/TTI/BatchEsfundTraspasoRequest"
+                xmlns:c="http://www.temenos.com/T24/event/TTI/MultiEsfundTraspasoRequest" xmlns:infra="http://www.odcgroup.com/InfraPMS" xmlns:multibatch="http://www.temenos.com/T24/event/TTI/BatchMultiEsfundTraspasoRequest"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="b c batch multibatch" version="1.0">
+	<!-- START of protected area  -->
+	<!-- Do not change ! -->
+	<xsl:template match="@* | node()">
+		<xsl:copy>
+			<xsl:apply-templates select="@* | node()"/>
+		</xsl:copy>
+	</xsl:template>
+	<!-- END of protected area  -->
+	<!-- Filter out this flow since this is only ESP(Spain) business entity specific -->
+	<xsl:template match="b:EsfundTraspasoRequest">
+		<xsl:apply-templates select="self::b:EsfundTraspasoRequest[0]" mode="filter-custo"/>
+	</xsl:template>
+	<!-- Custo placeholder -->
+	<xsl:template match="b:EsfundTraspasoRequest" mode="filter-custo">
+		<xsl:apply-templates select="self::b:EsfundTraspasoRequest" mode="filter-final"/>
+	</xsl:template>
+	<!-- Copy block -->
+	<xsl:template match="b:EsfundTraspasoRequest" mode="filter-final">
+		<xsl:copy>
+			<xsl:apply-templates select="@* | node()"/>
+		</xsl:copy>
+	</xsl:template>
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios/>
+</metaInformation>
+-->

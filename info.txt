@@ -1,0 +1,1 @@
+ grep "test=.\$diaryType"  xslt/GlobalTemplate/GlobalTemplate-Custo.xsl | cut -d \> -f 2|cut -d \< -f 1|sort -u|tr -s '[[:punct:][:space:]]' '\n'|sort

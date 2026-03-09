@@ -1,0 +1,38 @@
+<message-driven>
+    <display-name>Transacted Listener MDB for OFSML</display-name>
+    <ejb-name>OFSMLTransactedMDB</ejb-name>
+    <ejb-class>com.temenos.tafj.mdb.TransactedMDB</ejb-class>
+    <messaging-type>javax.jms.MessageListener</messaging-type>
+    <transaction-type>Container</transaction-type>
+    <message-destination-type>javax.jms.Queue</message-destination-type>
+    <ejb-local-ref>
+        <ejb-ref-name>ejb/OFSProcessingBeanLocal</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>com.temenos.tafj.sb.OFSProcessingBeanLocal</local>
+        <ejb-link>OFSMLProcessingBean</ejb-link>
+    </ejb-local-ref>
+    <env-entry>
+        <description>service name for property injection set by default to EJB prefix to lower case</description>
+        <env-entry-name>channelName</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>ofsml</env-entry-value>
+    </env-entry>
+    <resource-ref>
+        <description>Used to get connections to JMS for OFS queues</description>
+        <res-ref-name>jms/TAFJQueueConnectionFactory</res-ref-name>
+        <res-type>javax.jms.ConnectionFactory</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+    <message-destination-ref>
+        <description>OFSML queue</description>
+        <message-destination-ref-name>jms/ReplyQueue</message-destination-ref-name>
+        <message-destination-type>javax.jms.Queue</message-destination-type>
+        <message-destination-usage>Produces</message-destination-usage>
+        <message-destination-link>jms/OFSMLReplyQueue</message-destination-link>
+    </message-destination-ref>
+    <env-entry>
+        <env-entry-name>defaultFormatter</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>OFSML</env-entry-value>
+    </env-entry>
+</message-driven>

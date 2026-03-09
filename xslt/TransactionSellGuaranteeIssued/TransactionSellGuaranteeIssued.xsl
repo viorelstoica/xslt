@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.odcgroup.com/TransactionPMS" xmlns:b="http://www.temenos.com/T24/event/TTI/TransactionSellGuaranteeIssued" xmlns:batch="http://www.temenos.com/T24/event/TTI/BatchTransactionSellGuaranteeIssued" xmlns:c="http://www.temenos.com/T24/event/TTI/MultiTransactionSellGuaranteeIssued" xmlns:infra="http://www.odcgroup.com/InfraPMS" xmlns:multibatch="http://www.temenos.com/T24/event/TTI/BatchMultiTransactionSellGuaranteeIssued" xmlns:ns0="http://www.temenos.com/T24/event/Common/EventCommon" exclude-result-prefixes="b c batch multibatch ns0" version="1.0">
+   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
+   <xsl:template match="c:MultiTransactionSellGuaranteeIssued">
+      <xsl:apply-templates select="c:CurrentEvent/b:TransactionSellGuaranteeIssued"/>
+   </xsl:template>
+   <xsl:template match="batch:BatchTransactionSellGuaranteeIssued">
+      <xsl:element xmlns="http://www.temenos.com/T24/event/TTI/BatchTransactionSellGuaranteeIssued" name="BatchTransactionSellGuaranteeIssued">
+         <xsl:apply-templates select="b:TransactionSellGuaranteeIssued"/>
+      </xsl:element>
+   </xsl:template>
+   <xsl:template match="multibatch:BatchMultiTransactionSellGuaranteeIssued">
+      <xsl:element xmlns="http://www.temenos.com/T24/event/TTI/BatchMultiTransactionSellGuaranteeIssued" name="BatchMultiTransactionSellGuaranteeIssued">
+         <xsl:apply-templates select="c:MultiTransactionSellGuaranteeIssued"/>
+      </xsl:element>
+   </xsl:template>
+   <xsl:template match="b:TransactionSellGuaranteeIssued">
+      <TransactionPMS mode="INSUPD">
+         <xsl:attribute name="output">
+            <xsl:value-of select="concat('TransactionSellGuaranteeIssued',b:id)"/>
+         </xsl:attribute>
+         <DataGroup>
+            <Security>
+               <xsl:attribute name="description">
+                  <xsl:value-of select="concat('TransactionSellGuaranteeIssued.xsl+', name(/*), '+', b:eventCommon/ns0:eventId, '+', b:eventCommon/ns0:creationTime)"/>
+               </xsl:attribute>
+               <xsl:attribute name="sequenceNumber">
+                  <xsl:call-template name="calcSeqNum">
+                     <xsl:with-param name="creationTime">
+                        <xsl:value-of select="b:eventCommon/ns0:creationTime"/>
+                     </xsl:with-param>
+                  </xsl:call-template>
+               </xsl:attribute>
+               <transferOut>
+                  <xsl:call-template name="account1"/>
+                  <xsl:call-template name="account1CcyTradeCcyExchangeRate"/>
+                  <xsl:call-template name="account1NetAmount"/>
+                  <xsl:call-template name="account2"/>
+                  <xsl:call-template name="account2CcyTradeCcyExchangeRate"/>
+                  <xsl:call-template name="account2NetAmount"/>
+                  <xsl:call-template name="account3"/>
+                  <xsl:call-template name="account3CcyTradeCcyExchangeRate"/>
+                  <xsl:call-template name="account3NetAmount"/>
+                  <xsl:call-template name="accountingCode"/>
+                  <xsl:call-template name="accountingDate"/>
+                  <xsl:call-template name="cashPortfolio"/>
+                  <xsl:call-template name="commonReference"/>
+                  <xsl:call-template name="ContractNumber"/>
+                  <xsl:call-template name="intermediary"/>
+				  <xsl:call-template name="market"/>
+                  <xsl:call-template name="notepad"/>
+                  <xsl:call-template name="portfolio"/>
+                  <xsl:call-template name="portfolioManager"/>
+                  <xsl:call-template name="remark"/>
+                  <xsl:call-template name="reversalIndicator"/>
+                  <xsl:call-template name="reversedTransactionCode"/>
+                  <xsl:call-template name="sourceSystemCode"/>
+                  <xsl:call-template name="status"/>
+                  <xsl:call-template name="subType"/>
+                  <xsl:call-template name="transactionCode"/>
+                  <xsl:call-template name="transactionFeesTaxesCounter"/>
+                  <xsl:call-template name="type"/>
+                  <xsl:call-template name="valueDate"/>
+                  <xsl:call-template name="userDefinedField"/>
+                  <xsl:call-template name="mbFields"/>
+                  <xsl:call-template name="accountCurrency"/>
+                  <xsl:call-template name="accruedInterestCounter"/>
+                  <xsl:call-template name="accruedInterests"/>
+                  <xsl:call-template name="depositaryAccount"/>
+                  <xsl:call-template name="histOpExchRate"/>
+                  <xsl:call-template name="histOpNetAmount"/>
+                  <xsl:call-template name="histQuote"/>
+                  <xsl:call-template name="initiatedBy"/>
+                  <xsl:call-template name="positionCriteria1"/>
+                  <xsl:call-template name="positionCriteria2"/>
+                  <xsl:call-template name="positionCriteria3"/>
+                  <xsl:call-template name="quantity"/>
+                  <xsl:call-template name="security"/>
+                  <xsl:call-template name="trader"/>
+                  <xsl:call-template name="transactionCcyGrossAmount"/>
+                  <xsl:call-template name="transactionCcyNetAmount"/>
+                  <xsl:call-template name="transactionCcyPortfolioCcyExchangeRate"/>
+                  <xsl:call-template name="transactionCurrency"/>
+                  <xsl:call-template name="transactionDate"/>
+                  <xsl:call-template name="transferPrice"/>
+               </transferOut>
+            </Security>
+         </DataGroup>
+      </TransactionPMS>
+   </xsl:template>
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios>
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\..\Test\AUTO_TEST\Online\TransactionSellGuaranteeIssued\TransactionSellGuaranteeIssued_TransactionSellGuaranteeIssued.xml" htmlbaseurl=""
+		          outputurl="..\..\Test\AUTO_TEST\Online\TransactionSellGuaranteeIssued\TransactionSellGuaranteeIssued_TransactionSellGuaranteeIssuedGWP.xml" processortype="jaxp" useresolver="no" profilemode="0" profiledepth="" profilelength=""
+		          urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal"
+		          customvalidator="">
+			<advancedProp name="sInitialMode" value=""/>
+			<advancedProp name="bXsltOneIsOkay" value="true"/>
+			<advancedProp name="bSchemaAware" value="false"/>
+			<advancedProp name="bGenerateByteCode" value="false"/>
+			<advancedProp name="bXml11" value="false"/>
+			<advancedProp name="iValidation" value="0"/>
+			<advancedProp name="bExtensions" value="true"/>
+			<advancedProp name="iWhitespace" value="0"/>
+			<advancedProp name="sInitialTemplate" value=""/>
+			<advancedProp name="bTinyTree" value="true"/>
+			<advancedProp name="xsltVersion" value="2.0"/>
+			<advancedProp name="bWarnings" value="true"/>
+			<advancedProp name="bUseDTD" value="false"/>
+			<advancedProp name="iErrorHandling" value="fatal"/>
+		</scenario>
+	</scenarios>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->

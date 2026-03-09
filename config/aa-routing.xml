@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<aaroutings>
+	<aarouting name="Accrued interests">
+		<condition>
+			<xpath>/a:AAAFlow/a:aatxncontext/ns1:aaMasterActivity = 'DEPOSITS-ACCRUE-INTEREST' or
+                   /a:AAAFlow/a:aatxncontext/ns1:aaMasterActivity = 'LENDING-ACCRUE-PRINCIPALINT' or
+				   /a:AAAFlow/a:aatxncontext/ns1:aaMasterActivity = 'LENDING-ACCRUE-PENALTYINT' or
+				   /a:AAAFlow/a:aatxncontext/ns1:aaMasterActivity = 'DEPOSITS-ACCRUE-DEPOSITINT'</xpath>
+			<namespace prefix="a" uri="http://www.temenos.com/T24/event/AAAExtractor/AAAFlow"/>
+			<namespace prefix="ns1" uri="http://www.temenos.com/T24/AaActivityExtractorService/AaTransactionContext"/>
+		</condition>
+		<xslts>
+			<xslt>FinancialInstrumentAAAccruedInterests</xslt>
+		</xslts>
+	</aarouting>
+	<aarouting name="default">
+		<xslts>
+			<xslt>FinancialInstrumentAAAccruedReset</xslt>
+			<xslt>FinancialInstrumentAADepositAndLoan</xslt>
+			<xslt>FinancialInstrumentAADepositFloatingCondition</xslt>
+			<xslt>FinancialInstrumentAADepositsInterestRate</xslt>
+			<xslt>RevTransactionAADepositsInterestPayment</xslt>
+			<xslt>RevTransactionAALendingsInterestPayment</xslt>
+			<xslt>RevTransactionCloseAADeposits</xslt>
+			<xslt>RevTransactionCloseAALending</xslt>
+			<xslt>RevTransactionOpenAADeposits</xslt>
+			<xslt>RevTransactionOpenAALendings</xslt>
+			<xslt>RevTransactionPayOffAAInterest</xslt>
+			<xslt>RevTransactionPayOffAALending</xslt>
+			<xslt>TransactionAACapitaliseInterestDeposit</xslt>
+			<xslt>TransactionAACapitaliseInterestLending</xslt>
+			<xslt>TransactionAACloseLending</xslt>
+			<xslt>TransactionAADepositInterestPayment</xslt>
+			<xslt>TransactionAALendingsCapitalInt</xslt>
+			<xslt>TransactionAALendingsIntPayment</xslt>
+			<xslt>TransactionAALendingsPenaltyIntPayment</xslt>
+			<xslt>TransactionAAOpenLending</xslt>
+			<xslt>TransactionAAPayOffInterest</xslt>
+			<xslt>TransactionAAPayOffLending</xslt>
+			<xslt>TransactionAAPrincDecrease</xslt>
+			<xslt>TransactionCloseAADeposits</xslt>
+			<xslt>TransactionOpenAADeposits</xslt>
+			<xslt>TransactionAARedemptionFeeDeposits</xslt>
+			<xslt>TransactionAADepositInterstCapitalisation</xslt>
+		</xslts>
+	</aarouting>
+</aaroutings>

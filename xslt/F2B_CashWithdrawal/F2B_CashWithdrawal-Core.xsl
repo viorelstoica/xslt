@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.temenos.com/T24/OFSML/150" xmlns:b="http://www.odcgroup.com/F2B_MM_FX" xmlns:infra="http://www.odcgroup.com/InfraPMS" exclude-result-prefixes="b" version="1.0">
+
+	<xsl:template name="TAP.EVENT.ID">
+		<field name="TAP.EVENT.ID">
+			<xsl:value-of select="../../@eventIdentifier"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="TAP.REF.ID">
+		<field name="TAP.REF.ID">
+			<xsl:value-of select="b:pmsReferenceCode"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="TAP.OPER.NATURE">
+		<field name="TAP.OPER.NATURE">
+			<xsl:value-of select="'WI'"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="PAYMENT.ORDER.PRODUCT">
+		<field name="PAYMENT.ORDER.PRODUCT">
+			<xsl:value-of select="$PAYMENT_ORDER_PRODUCT"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="DEBIT.ACCOUNT">
+		<field name="DEBIT.ACCOUNT">
+			<xsl:value-of select="b:account/infra:code"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="DEBIT.CCY">
+		<field name="DEBIT.CCY">
+			<xsl:value-of select="b:accountCurrency/infra:code"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="DEBIT.ACCOUNT.IBAN"/>
+	<xsl:template name="PAYMENT.CURRENCY">
+		<field name="PAYMENT.CURRENCY">
+			<xsl:value-of select="b:accountCurrency/infra:code"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="PAYMENT.AMOUNT">
+		<field name="PAYMENT.AMOUNT">
+			<xsl:value-of select="b:quantity"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="PAYMENT.EXECUTION.DATE">
+		<field name="PAYMENT.EXECUTION.DATE">
+			<xsl:value-of select="translate(b:transactionDate,'-','')"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="CREDIT.ACCOUNT">
+		<field name="CREDIT.ACCOUNT">
+			<xsl:value-of select="b:counterpartAccount"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="ID"/>
+	<xsl:template name="ORDERING.COMPANY"/>
+	<xsl:template name="ORDERING.CUSTOMER"/>
+	<xsl:template name="ORDERING.CUSTOMER.BIC"/>
+	<xsl:template name="ORDERING.CUST.NAME"/>
+	<xsl:template name="ORDERING.PORTFOLIO"/>
+	<xsl:template name="DEBIT.PL"/>
+	<xsl:template name="DEBIT.VALUE.DATE">
+		<field name="DEBIT.VALUE.DATE">
+			<xsl:value-of select="translate(b:valueDate,'-','')"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="ORDERING.REFERENCE"/>
+	<xsl:template name="SIGNATORY"/>
+	<xsl:template name="BENEFICIARY.ID"/>
+	<xsl:template name="CREDIT.PORTFOLIO"/>
+	<xsl:template name="CREDIT.PL"/>
+	<xsl:template name="BENEFICIARY.IBAN"/>
+	<xsl:template name="BENEFICIARY.NAME">
+		<field name="BENEFICIARY.NAME">
+			<xsl:value-of select="b:extBankOwnerName"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="BENEFICIARY.COUNTRY.CODE"/>
+	<xsl:template name="INTERMED.BANK.IBAN"/>
+	<xsl:template name="REQUESTED.CURRENCY"/>
+	<xsl:template name="REQUESTED.AMOUNT"/>
+	<xsl:template name="REQUIRED.CREDIT.VALUE.DATE"/>
+	<xsl:template name="REGULATORY.REPORT"/>
+	<xsl:template name="MESSAGE.PRIORITY"/>
+	<xsl:template name="BANK.TO.BANK.INFO"/>
+	<xsl:template name="PAYMENT.PURPOSE"/>
+	<xsl:template name="INVOICE.REFERENCE"/>
+	<xsl:template name="STRUCTURED.COMMUNICATION.CODE"/>
+	<xsl:template name="STRUCTURED.ISSUER"/>
+	<xsl:template name="STRUCTURED.CREDITOR.REFERENCE"/>
+	<xsl:template name="END.TO.END.REFERENCE"/>
+	<xsl:template name="CHARGE.BEARER"/>
+	<xsl:template name="WAIVE.ALL.CHARGES"/>
+	<xsl:template name="PAY.REQ.FX.CUST.RATE"/>
+	<xsl:template name="PAY.REQ.FX.SPREAD"/>
+	<xsl:template name="PAY.REQ.TREASURY.RATE"/>
+	<xsl:template name="ORDERING.PAYMENT.FX.CUST.RATE"/>
+	<xsl:template name="ORDERING.PAYMENT.FX.SPREAD"/>
+	<xsl:template name="ORDERING.PAYMENT.TREASURY.RATE"/>
+	<xsl:template name="CURRENCY.MARKET"/>
+	<xsl:template name="INTERNAL.ORDER.DETAILS"/>
+	<xsl:template name="INTERNAL.STATUS"/>
+	<xsl:template name="ORDER.EXECUTION.DATE.TIME"/>
+	<xsl:template name="PAYMENT.SYSTEM.STATUS"/>
+	<xsl:template name="STATE.HIST"/>
+	<xsl:template name="LOCAL.REF"/>
+	<xsl:template name="RECORD.STATUS"/>
+	<xsl:template name="CURR.NO"/>
+	<xsl:template name="INPUTTER"/>
+	<xsl:template name="DATE.TIME"/>
+	<xsl:template name="AUTHORISER"/>
+	<xsl:template name="CO.CODE"/>
+	<xsl:template name="DEPT.CODE"/>
+	<xsl:template name="AUDITOR.CODE"/>
+	<xsl:template name="AUDIT.DATE.TIME"/>
+	<xsl:template name="NARRATIVE"/>
+	<xsl:template name="TERMS.AND.CONDITIONS"/>
+	<xsl:template name="ADDITIONAL.INFO"/>
+	<xsl:template name="OVERRIDE"/>
+	<xsl:template name="BEN.BANK.CLEARING.CODE"/>
+	<xsl:template name="INDICATIVE.RATE"/>
+	<xsl:template name="ORDERING.POST.ADDRESS.TYPE"/>
+	<xsl:template name="ORDERING.POST.SWIFT.ADDR"/>
+	<xsl:template name="ORDERING.POST.ADDR.LINE"/>
+	<xsl:template name="CREDIT.ACCOUNT.IBAN"/>
+	<xsl:template name="BENEFICIARY.ACCOUNT.NO"/>
+	<xsl:template name="BEN.POST.ADDRESS.TYPE"/>
+	<xsl:template name="BEN.POST.SWIFT.ADDR"/>
+	<xsl:template name="BEN.POST.ADDR.LINE"/>
+	<xsl:template name="ACCT.WITH.BANK.IBAN"/>
+	<xsl:template name="ACCT.WITH.BANK.BIC">
+		<field name="ACCT.WITH.BANK.BIC">
+			<xsl:value-of select="b:extBankBIC"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="ACCT.WITH.BANK.POST.ADDR.TYPE"/>
+	<xsl:template name="ACCT.WITH.BANK.SWIFT.ADDR"/>
+	<xsl:template name="ACCT.WITH.BANK.RESERVED.3"/>
+	<xsl:template name="ACCT.WITH.BANK.RESERVED.2"/>
+	<xsl:template name="ACCT.WITH.BANK.RESERVED.1"/>
+	<xsl:template name="INTERMED.BIC"/>
+	<xsl:template name="INTERMED.BANK.CUSTOMER"/>
+	<xsl:template name="INTERMED.BANK.POSTAL.ADDR.TYPE"/>
+	<xsl:template name="INTERMED.SWIFT.ADDR"/>
+	<xsl:template name="INTERMED.POSTAL.ADDR.LINE"/>
+	<xsl:template name="INSTRUCTION.ID.REF"/>
+	<xsl:template name="CLEARING.CHANNEL"/>
+	<xsl:template name="BENEFICIARY.BIC"/>
+	<xsl:template name="BENEFICIARY.CUSTOMER"/>
+	<xsl:template name="ACCT.WITH.BANK.CUSTOMER"/>
+	<xsl:template name="ACCT.WITH.BANK.CLEARING.CODE"/>
+	<xsl:template name="INTERMED.BANK.CLEARING.CODE"/>
+	<xsl:template name="INTERMED.BANK.RESERVED.3"/>
+	<xsl:template name="INTERMED.BANK.RESERVED.2"/>
+	<xsl:template name="INTERMED.BANK.RESERVED.1"/>
+	<xsl:template name="REMITTANCE.INFORMATION"/>
+	<xsl:template name="PAYMENT.SYSTEM.ID"/>
+	<xsl:template name="PAYMENT.STATUS.UPDATE.DATE"/>
+	<xsl:template name="ORDER.INITIATION.TYPE"/>
+	<xsl:template name="BEN.IDENTIFIER"/>
+	<xsl:template name="ACCT.WITH.BANK.IDENTIFIER"/>
+	<xsl:template name="INTERMED.BANK.IDENTIFIER"/>
+	<xsl:template name="ACCT.WITH.BANK.COUNTRY"/>
+	<xsl:template name="INTERMED.BANK.COUNTRY"/>
+	<xsl:template name="PAYMENT.CATEGORY"/>
+	<xsl:template name="PAYMENT.METHOD"/>
+	<xsl:template name="ORDER.TYPE"/>
+	<xsl:template name="INITIATOR.NAME"/>
+	<xsl:template name="INITIATOR.BIC"/>
+	<xsl:template name="INITIATOR.POST.ADDR.TYPE"/>
+	<xsl:template name="INITIATOR.SWIFT.ADDRESS"/>
+	<xsl:template name="INITIATOR.POST.ADDR.LINE"/>
+	<xsl:template name="DEBTOR.AGENT.NAME"/>
+	<xsl:template name="DEBTOR.AGENT.BIC"/>
+	<xsl:template name="DEBTOR.AGENT.ADDR.TYPE"/>
+	<xsl:template name="DEBTOR.AGENT.ADDR.LINE"/>
+	<xsl:template name="DEBTOR.AGENT.CLEARING.CODE"/>
+	<xsl:template name="DEBTOR.AGENT.IDENTIFIER"/>
+	<xsl:template name="DEBTOR.AGENT.RESERVED.5"/>
+	<xsl:template name="DEBTOR.AGENT.RESERVED.4"/>
+	<xsl:template name="DEBTOR.AGENT.RESERVED.3"/>
+	<xsl:template name="DEBTOR.AGENT.RESERVED.2"/>
+	<xsl:template name="DEBTOR.AGENT.RESERVED.1"/>
+	<xsl:template name="ULTIMATE.DEBTOR.NAME"/>
+	<xsl:template name="ULTIMATE.DEBTOR.ADDR.TYPE"/>
+	<xsl:template name="ULTIMATE.DEBTOR.ADDR.LINE"/>
+	<xsl:template name="ULTIMATE.DEBTOR.BIC"/>
+	<xsl:template name="ULTIMATE.DEBTOR.COUNTRY"/>
+	<xsl:template name="ULTIMATE.CREDITOR.NAME"/>
+	<xsl:template name="ULTIMATE.CREDITOR.ADDR.TYPE"/>
+	<xsl:template name="ULTIMATE.CREDITOR.BIC"/>
+	<xsl:template name="ULTIMATE.CREDITOR.COUNTRY"/>
+	<xsl:template name="INSTRUCTION.CODE"/>
+	<xsl:template name="INSTRUCTION.CODE.TEXT"/>
+	<xsl:template name="PYMT.INFO.SER.LEVEL.CODE"/>
+	<xsl:template name="CURRENT.STATE"/>
+	<xsl:template name="PAYMENT.SYSTEM"/>
+	<xsl:template name="CHARGE.ACCOUNT"/>
+	<xsl:template name="CHARGE.ACCOUNT.CCY"/>
+	<xsl:template name="CHARGE.TYPE"/>
+	<xsl:template name="CHARGE.DESCRIPTION"/>
+	<xsl:template name="CHARGE.CURRENCY"/>
+	<xsl:template name="CHARGE.AMOUNT"/>
+	<xsl:template name="CHARGE.AC.CCY.AMOUNT"/>
+	<xsl:template name="CREDIT.VALUE.DATE">
+		<field name="CREDIT.VALUE.DATE">
+			<xsl:value-of select="translate(b:valueDate,'-','')"/>
+		</field>
+	</xsl:template>
+	<xsl:template name="CUT.OFF.TIME"/>
+	<xsl:template name="PSD.COMPLIANT"/>
+	<xsl:template name="LAST.TC.SIM.TIME"/>
+	<xsl:template name="TC.SIM.CHECKED"/>
+	<xsl:template name="CONTEXT.NAME"/>
+	<xsl:template name="CONTEXT.VALUE"/>
+    <xsl:template name="SUBMIT.ORDER">
+        <field name="SUBMIT.ORDER">Y</field>    
+    </xsl:template>
+	<xsl:template name="TOTAL.DEBIT.AMOUNT"/>
+	<xsl:template name="STATUS.REASON.CODE"/>
+	<xsl:template name="ACCT.WITH.BANK.POST.ADDR.LN"/>
+	<xsl:template name="INT.OVERRIDE.ID"/>
+	<xsl:template name="INT.OVERRIDE.VAL"/>
+	<xsl:template name="ACTIVITY.CODE"/>
+	<xsl:template name="MESSAGE.TYPE"/>
+	<xsl:template name="DELIVERY.REF"/>
+	<xsl:template name="ULTIMATE.CRED.ADDR.LN"/>
+	<xsl:template name="ORDERING.CUSTOMER.SSI"/>
+	<xsl:template name="PAYMENT.STATUS.ADD.INFO"/>
+	<xsl:template name="PAYMENT.COMPLETE"/>
+	<xsl:template name="MANUAL.PAYMENT.STATUS"/>
+	<xsl:template name="MANUAL.PAY.STATUS.ADD.INFO"/>
+	<xsl:template name="MANUAL.COMPLETE"/>
+	<xsl:template name="MANUAL.STATUS.UPDATE.DATE"/>
+	<xsl:template name="LOCAL.INSTR.CODE"/>
+	<xsl:template name="INIT.OTHER.ID.TYPE"/>
+	<xsl:template name="INIT.OTHER.ID"/>
+	<xsl:template name="FRAUD.CHECK.INDICATOR"/>
+	<xsl:template name="AC.FUNDS.AUTH.ID"/>
+	<xsl:template name="LOCKED.EVENT.ID"/>
+	<xsl:template name="LOCAL.INSTR.PROP"/>
+	<xsl:template name="INITIAL.PRODUCT"/>
+	<xsl:template name="ONUS.INDICATOR"/>
+	<xsl:template name="ORD.ACCOUNT.LOCATION"/>
+	<xsl:template name="ORD.ACCOUNT.VALIDATED"/>
+	<xsl:template name="BEN.ACCOUNT.LOCATION"/>
+	<xsl:template name="BEN.ACCOUNT.VALIDATED"/>
+	<xsl:template name="CHEQUE.NUMBER"/>
+	<xsl:template name="ISSUE.CHEQUE.TYPE"/>
+	<xsl:template name="STOCK.REGISTER.ID"/>
+	<xsl:template name="STOCK.SERIES.ID"/>
+	<xsl:template name="BENEFICIARY.DOB"/>
+	<xsl:template name="BENEFICIARY.BR.PRVNC"/>
+	<xsl:template name="BENEFICIARY.BR.CITY"/>
+	<xsl:template name="BENEFICIARY.BR.COUNTRY"/>
+	<xsl:template name="BENEFICIARY.OT.ID.TYPE"/>
+	<xsl:template name="ACCT.WITH.BANK.ACC"/>
+	<xsl:template name="INTERMED.BANK.ACC"/>
+	<xsl:template name="ULTIMATE.CREDITOR.DOB"/>
+	<xsl:template name="ULTIMATE.CREDITOR.BR.PRVNC"/>
+	<xsl:template name="ULTIMATE.CREDITOR.BR.CITY"/>
+	<xsl:template name="ULTIMATE.CREDITOR.BR.COUNTRY"/>
+	<xsl:template name="ULTIMATE.CREDITOR.OT.ID.TYPE"/>
+	<xsl:template name="BENEFICIARY.OT.ID"/>
+	<xsl:template name="BENEFICIARY.SCHME.CDE"/>
+	<xsl:template name="BENEFICIARY.SCH.PRTY"/>
+	<xsl:template name="BENEFICIARY.SCH.ISSUR"/>
+	<xsl:template name="ULTIMATE.CREDITOR.OT.ID"/>
+	<xsl:template name="ULTIMATE.CREDITOR.SCHME.CDE"/>
+	<xsl:template name="ULTIMATE.CREDITOR.SCH.PRTY"/>
+	<xsl:template name="ULTIMATE.CREDITOR.SCH.ISSUR"/>
+	<xsl:template name="ORDERING.COUNTRY.RESIDENCE"/>
+	<xsl:template name="ULTIMATE.DEBTOR.DOB"/>
+	<xsl:template name="ULTIMATE.DEBTOR.BR.PRVNC"/>
+	<xsl:template name="ULTIMATE.DEBTOR.BR.CITY"/>
+	<xsl:template name="ULTIMATE.DEBTOR.BR.COUNTRY"/>
+	<xsl:template name="ULTIMATE.DEBTOR.OT.ID.TYPE"/>
+	<xsl:template name="ULTIMATE.DEBTOR.OT.ID"/>
+	<xsl:template name="ULTIMATE.DEBTOR.SCHME.CDE"/>
+	<xsl:template name="ULTIMATE.DEBTOR.SCH.PRTY"/>
+	<xsl:template name="ULTIMATE.DEBTOR.SCH.ISSUR"/>
+	<xsl:template name="ModelBankSpecificFields"/>
+	<xsl:template name="ModelBankSpecificFields-Custo"/>
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios/>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->

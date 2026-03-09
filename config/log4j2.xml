@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+	<Appenders>
+		<File name="TTI" fileName="${TTI_LOG}/log/logger.log" append="true">
+			<PatternLayout pattern="Thread=%t , %m%n" />
+		</File>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t]]] %C{2} (%F:%L) - %m%n" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="DIAGNOSTIC.T24JMS" level="INFO" additivity="false">
+	      <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+	    </Logger>
+	    <Logger name="DIAGNOSTIC.TTI" level="INFO" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+		<Logger name="DIAGNOSTIC.TTIB2F" level="INFO" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+        <Logger name="DIAGNOSTIC.TTI2TAP" level="INFO" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+        <Logger name="DIAGNOSTIC.TTIF2B" level="INFO" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+        <Logger name="ALERT.T24JMS" level="ERROR" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+        <Logger name="ALERT.TTI" level="ERROR" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+		<Logger name="ALERT.TTIB2F" level="ERROR" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+        <Logger name="ALERT.TTI2TAP" level="ERROR" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+        <Logger name="ALERT.TTIF2B" level="ERROR" additivity="false">
+          <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+        </Logger>
+		<Root level="DEBUG">
+		  <AppenderRef ref="TTI"/>
+	      <AppenderRef ref="STDOUT" />
+		</Root>
+	</Loggers>
+</Configuration>

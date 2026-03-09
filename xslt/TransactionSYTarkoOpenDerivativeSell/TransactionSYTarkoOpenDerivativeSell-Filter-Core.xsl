@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.odcgroup.com/TransactionPMS" xmlns:b="http://www.temenos.com/T24/event/TTI/SyFxForwardsCob" xmlns:batch="http://www.temenos.com/T24/event/TTI/BatchSyFxForwardsCob" xmlns:c="http://www.temenos.com/T24/event/TTI/MultiSyFxForwardsCob" xmlns:infra="http://www.odcgroup.com/InfraPMS" xmlns:multibatch="http://www.temenos.com/T24/event/TTI/BatchMultiSyFxForwardsCob" xmlns:ns0="http://www.temenos.com/T24/event/Common/EventCommon" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="b c batch multibatch ns0" version="1.0">
+  <!-- START of protected area  -->
+  <!-- Do not change ! -->
+  <xsl:template match="@* | node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
+  <!-- END of protected area  -->
+  <!-- Condition 1 -->
+  <xsl:template match="b:SyFxForwardsCob">
+    <xsl:apply-templates select="self::b:SyFxForwardsCob[b:suppressUnderlying = 'NO']" mode="filter1"/>
+  </xsl:template>
+  <!-- Condition 2 -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter1">
+    <xsl:apply-templates select="self::b:SyFxForwardsCob[(b:contractStatus = 'MATURED') or (b:contractStatus = 'KNOCKEDOUT') or  (b:contractStatus = 'UNWOUND')]" mode="filter2"/>
+  </xsl:template>
+  <!-- Condition 3 -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter2">
+    <xsl:apply-templates select="self::b:SyFxForwardsCob[(b:bKnockoutIntrinsic!='') and (b:sKnockoutIntrinsic!='')]" mode="filter3"/>
+  </xsl:template>
+  <!-- Condition 4 -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter3">
+    <xsl:apply-templates select="self::b:SyFxForwardsCob[(b:sTradeStatus = 'CLOSED' or b:bTradeStatus = 'CLOSED')]" mode="filter4"/>
+  </xsl:template>
+  <!-- Condition 5 -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter4">
+    <xsl:variable name="check_MaturityDate">
+      <xsl:choose>
+        <xsl:when test="string-length(b:maturityDate) ='8'">
+          <xsl:value-of select="b:maturityDate"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="substring(translate(b:maturityDate,'-',''),1,8)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="check_toDay">
+      <xsl:choose>
+        <xsl:when test="string-length(b:eventCommon/ns0:today) ='8'">
+          <xsl:value-of select="b:eventCommon/ns0:today"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="substring(translate(b:eventCommon/ns0:today,'-',''),1,8)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+	<xsl:variable name="check_Unwindeffdate">
+      <xsl:choose>
+        <xsl:when test="string-length(b:unwindEffDate) ='8'">
+          <xsl:value-of select="b:unwindEffDate"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="substring(translate(b:unwindEffDate,'-',''),1,8)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:apply-templates select="self::b:SyFxForwardsCob[(number($check_MaturityDate) &gt;= number($check_toDay)) or (number($check_Unwindeffdate) &gt;= number($check_toDay))]" mode="filter5"/>
+  </xsl:template>
+  <!-- Condition 6 -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter5">
+    <xsl:apply-templates select="self::b:SyFxForwardsCob[b:portfolio != '']" mode="filter6"/>
+  </xsl:template>
+  <!-- Condition 7 - Portfolio Filter -->
+	<xsl:template match="b:SyFxForwardsCob" mode="filter6">
+		<xsl:variable name="checkPortfolioConditionVar">
+			<xsl:call-template name="checkPortfolioCondition">
+				<xsl:with-param name="xsltName" select="'TransactionSYTarkoOpenDerivativeSell'"/>
+				<xsl:with-param name="memoAccount" select="b:memoAccount"/>
+				<xsl:with-param name="dealerBook" select="b:dealerBook"/>
+				<xsl:with-param name="customerType" select="b:customerTypeList/b:customerType"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<xsl:apply-templates select="self::b:SyFxForwardsCob[$checkPortfolioConditionVar = 'true']" mode="filter7"/>
+	</xsl:template>
+	 <!-- Condition 8 -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter7">
+    <xsl:apply-templates select="self::b:SyFxForwardsCob[(b:bUndoKnockout = 'YES' or not(b:bUndoKnockout)) or (b:sUndoKnockout = 'YES' or not(b:sUndoKnockout))]" mode="filter8"/>
+  </xsl:template>
+   <!-- Condition 9 -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter8">
+    <xsl:apply-templates select="self::b:SyFxForwardsCob[(b:bUndoFixing = 'YES' or not(b:bUndoFixing)) or (b:sUndoFixing = 'YES' or not(b:sUndoFixing))]" mode="filter-custo"/>
+  </xsl:template>
+  <!-- Custo placeholder -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter-custo">
+    <xsl:apply-templates select="self::b:SyFxForwardsCob" mode="filter-final"/>
+  </xsl:template>
+  <!-- Copy block -->
+  <xsl:template match="b:SyFxForwardsCob" mode="filter-final">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
+</xsl:stylesheet>
+<!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios/>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->

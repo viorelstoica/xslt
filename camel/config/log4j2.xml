@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration status="WARN" monitorInterval="30" shutdownHook="disable">
+    <Properties>
+        <Property name="TEMN_LOG_PATTERN">Thread=%t , %m%n</Property>
+        <Property name="TEMN_TTI_LOG_PATH">logs</Property>
+        <Property name="TEMN_TTI_LOG_TARGET">FILE_AND_CONSOLE</Property>
+        <Property name="TEMN.TTI.LOG.LEVEL">INFO</Property>
+        <Property name="TEMN_TTI_LOG_LEVEL_CONSOLE">ERROR</Property>
+    </Properties>
+
+    <Appenders>
+        <Routing name="TtiRouter">
+            <Routes pattern="${env:TEMN_TTI_LOG_TARGET}">
+                <Route ref="Console" key="CONSOLE"/>
+                <Route ref="TtiFileAppender" key="FILE"/>
+                <Route ref="ConsoleAndFileAppender" key="FILE_AND_CONSOLE"/>
+            </Routes>
+        </Routing>
+      
+        <!-- Composite appender combining both -->
+    <Rewrite name="ConsoleAndFileAppender">
+        <AppenderRef ref="Console" level="${env:TEMN_TTI_LOG_LEVEL_CONSOLE}"/>
+        <AppenderRef ref="TtiFileAppender" level="${env:TEMN_TTI_LOG_LEVEL_FILE}"/>
+    </Rewrite>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %p %tid %m%n" />
+            <ThresholdFilter level="${env:TEMN_TTI_LOG_LEVEL_CONSOLE}" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+
+        <RollingFile name="TtiFileAppender" fileName="${env:TEMN_TTI_LOG_PATH}/tti.log" filePattern="${env:TEMN_TTI_LOG_PATH}/archive/tti-%i.log">
+            <PatternLayout pattern="${TEMN_LOG_PATTERN}" />
+            <ThresholdFilter level="${env:TEMN_TTI_LOG_LEVEL_FILE}" onMatch="ACCEPT" onMismatch="DENY"/>
+            <SizeBasedTriggeringPolicy size="10 MB" />
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="DEBUG">
+<!--            <AppenderRef ref="ConsolePrimary"/>-->
+            <AppenderRef ref="TtiRouter"/>
+        </Root>
+        <Logger name="DIAGNOSTIC.B2F" additivity="false">
+            <AppenderRef ref="TtiRouter"/>
+        </Logger>
+        <Logger name="DIAGNOSTIC.F2B" additivity="false">
+            <AppenderRef ref="TtiRouter"/>
+        </Logger>
+        <Logger name="DIAGNOSTIC.GEN" additivity="false">
+            <AppenderRef ref="TtiRouter"/>
+        </Logger>
+    </Loggers>
+</Configuration>

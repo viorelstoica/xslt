@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.odcgroup.com/PositionPMS" xmlns:b="http://www.temenos.com/T24/event/TTI/FuturePosition" xmlns:batch="http://www.temenos.com/T24/event/TTI/BatchFuturePosition"
+                xmlns:c="http://www.temenos.com/T24/event/TTI/MultiFuturePosition" xmlns:infra="http://www.odcgroup.com/InfraPMS" xmlns:multibatch="http://www.temenos.com/T24/event/TTI/BatchMultiFuturePosition"
+                xmlns:ns0="http://www.temenos.com/T24/event/Common/EventCommon" exclude-result-prefixes="b c batch multibatch ns0" version="1.0">
+	<xsl:output encoding="UTF-8" indent="yes" method="xml"/>
+	<xsl:template match="c:MultiFuturePosition">
+		<xsl:apply-templates select="c:CurrentEvent/b:FuturePosition"/>
+	</xsl:template>
+	<xsl:template match="batch:BatchFuturePosition">
+		<xsl:element xmlns="http://www.temenos.com/T24/event/TTI/BatchFuturePosition" name="BatchFuturePosition">
+			<xsl:apply-templates select="b:FuturePosition"/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="multibatch:BatchMultiFuturePosition">
+		<xsl:element xmlns="http://www.temenos.com/T24/event/TTI/BatchMultiFuturePosition" name="BatchMultiFuturePosition">
+			<xsl:apply-templates select="c:MultiFuturePosition"/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="b:FuturePosition">
+		<PositionPMS>
+			<xsl:attribute name="output">
+				<xsl:value-of select="concat('futurePosition',translate(translate(b:id,'/',''),':',''))"/>
+			</xsl:attribute>
+			<DataGroup>
+				<xsl:for-each select="b:transactionIdsGroup">
+					<FuturePosition>
+						<xsl:attribute name="description">
+							<xsl:value-of select="concat('FuturePosition.xsl+', name(/*), '+', ../b:eventCommon/ns0:eventId, '+', ../b:eventCommon/ns0:creationTime)"/>
+						</xsl:attribute>
+						<xsl:attribute name="sequenceNumber">
+							<xsl:call-template name="calcSeqNum">
+								<xsl:with-param name="creationTime">
+									<xsl:value-of select="../b:eventCommon/ns0:creationTime"/>
+								</xsl:with-param>
+							</xsl:call-template>
+						</xsl:attribute>
+						<xsl:call-template name="accountExchangeRate"/>
+						<xsl:call-template name="cashAccount"/>
+						<xsl:call-template name="deposit"/>
+						<xsl:call-template name="future"/>
+						<xsl:call-template name="initialLoadDate"/>
+						<xsl:call-template name="instrumentExchangeRate"/>
+						<xsl:call-template name="intermediary"/>
+						<xsl:call-template name="nature"/>
+						<xsl:call-template name="operationDate"/>
+						<xsl:call-template name="portfolio"/>
+						<xsl:call-template name="positionCode"/>
+						<xsl:call-template name="positionCriteria1"/>
+						<xsl:call-template name="positionCriteria2"/>
+						<xsl:call-template name="positionCriteria3"/>
+						<xsl:call-template name="positionCurrency"/>
+						<xsl:call-template name="positionExchangeRate"/>
+						<xsl:call-template name="price"/>
+						<xsl:call-template name="quantity"/>
+						<xsl:call-template name="status"/>
+						<xsl:call-template name="referenceNature"/>
+						<xsl:call-template name="referenceOperationCode"/>
+						<xsl:call-template name="sourceCode"/>
+						<xsl:call-template name="type"/>
+						<xsl:call-template name="valueDate"/>
+						<xsl:call-template name="userDefinedField"/>
+						<xsl:call-template name="mbFields"/>
+					</FuturePosition>
+				</xsl:for-each>
+			</DataGroup>
+		</PositionPMS>
+	</xsl:template>
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios/>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema targetNamespace="http://www.odcgroup.com/BusIndicator" xmlns="http://www.odcgroup.com/BusIndicator" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:infra="http://www.odcgroup.com/InfraPMS" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.odcgroup.com/InfraPMS" schemaLocation="InfraPMS.xsd"/>
+	<xs:element name="BusIndicator">
+		<xs:annotation>
+			<xs:documentation>Odyssey Bus Indicator Schema</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DataGroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BusIndicator" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="BusIndicator">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BusIndicatorElt" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="BusIndicatorElt">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BiValueType" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="BiValueType">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BiType" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="BiType">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="InstrBiValue" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="InstrBiValue">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ThirdBiValue" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="ThirdBiValue">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="output" type="xs:string" use="optional"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="mode" type="infra:ModeEnum" use="optional"/>
+			<xs:attributeGroup ref="infra:businessEntity_AttrGrp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="BusIndicator">
+		<xs:sequence>
+			<xs:element name="code" type="infra:Identifier"/>
+			<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="multilingualLongName" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Denomination">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="instrF" type="xs:integer"/>
+			<xs:element name="portF" type="xs:integer"/>
+			<xs:element name="stratF" type="xs:integer"/>
+			<xs:element name="thirdF" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BusIndicatorElt">
+		<xs:sequence>
+			<xs:element name="busIndicator" type="infra:Identifier"/>
+			<xs:element name="code" type="infra:Identifier"/>
+			<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="multilingualLongName" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Denomination">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parentBiElt" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="parentBiEltBusIndicator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="thresholdAllowed" type="xs:integer"/>
+			<xs:element name="rank" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BiValueType">
+		<xs:sequence>
+			<xs:element name="code" type="infra:Identifier"/>
+			<xs:element name="busIndicatorElt" type="infra:Identifier"/>
+			<xs:element name="busIndicatorEltbusIndicator" type="infra:Identifier"/>
+			<xs:element name="provider" type="infra:Identifier"/>
+			<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="multilingualLongName" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Denomination">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="rank" type="xs:nonNegativeInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BiType">
+		<xs:sequence>
+			<xs:element name="code" type="infra:Identifier"/>
+			<xs:element name="busIndicatorElt" type="infra:Identifier"/>
+			<xs:element name="busIndicatorEltbusIndicator" type="infra:Identifier"/>			
+			<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="multilingualLongName" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Denomination">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="rank" type="xs:nonNegativeInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InstrBiValue">
+		<xs:sequence>
+			<xs:element name="busIndicatorElt" type="infra:Identifier"/>
+			<xs:element name="busIndicatorEltbusIndicator" type="infra:Identifier"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="provider" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biTypeBusIndicatorElt" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biTypeBusIndicatorEltbusIndicator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="status" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="dateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="validity" type="xs:date" minOccurs="0"/>
+			<xs:element name="flag" type="xs:integer" minOccurs="0"/>
+			<xs:element name="number" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="percentForThreshold" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="percent" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="text" type="xs:string" minOccurs="0"/>
+			<xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="biValueType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biValueTypeBusIndicatorElt" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biValueTypeBusIndicatorEltbusIndicator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biValueTypeProvider" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ThirdBiValue">
+		<xs:sequence>
+			<xs:element name="busIndicatorElt" type="infra:Identifier"/>
+			<xs:element name="busIndicatorEltbusIndicator" type="infra:Identifier"/>
+			<xs:element name="thirdParty" type="infra:Identifier"/>
+			<xs:element name="provider" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biTypeBusIndicatorElt" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biTypeBusIndicatorEltbusIndicator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="status" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="dateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="validity" type="xs:date" minOccurs="0"/>
+			<xs:element name="flag" type="xs:integer" minOccurs="0"/>
+			<xs:element name="number" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="percentForThreshold" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="percent" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="text" type="xs:string" minOccurs="0"/>
+			<xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="biValueType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biValueTypeBusIndicatorElt" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biValueTypeBusIndicatorEltbusIndicator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="biValueTypeProvider" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Denomination">
+		<xs:sequence>
+			<xs:element name="language" type="xs:string"/>
+			<xs:element name="longName" type="xs:string"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

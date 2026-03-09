@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<TtiConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="tti-config.xsd">
+  <InitialLoadMode>auto</InitialLoadMode>
+  <InitialLoadStage>1</InitialLoadStage>
+  <!-- InitialLoadTransactionStage needs to be changed to "INITIAL-LOAD" for R17 -->
+  <InitialLoadTransactionStage>INITIAL-LOAD</InitialLoadTransactionStage>
+  <FileOutputMode>file</FileOutputMode>
+  <SaveEmptyFiles>false</SaveEmptyFiles>
+  <AllowParentOrder>false</AllowParentOrder>
+  <SendCorrelationIdToT24>true</SendCorrelationIdToT24>
+  <!-- Initial load mode detailed configuration -->
+  <InitialLoadConfig>
+    <Mappings>
+      <Positions mode="INITIAL-LOAD">
+        <!-- Flows -->
+        <Flow>PositionsForex</Flow>
+        <Flow>PositionsGuarantees</Flow>
+        <!-- =================================== XSLTS =================================== -->
+        <!-- Fiduciary -->
+        <Xslt>PositionFiduciary</Xslt>
+        <Xslt>PositionFiduciaryFWD</Xslt>
+        <Xslt>FinancialInstrumentFiduciaryIL</Xslt>
+        <!-- LD -->
+        <Xslt>LDPositionIL</Xslt>
+        <!-- SY.IMF -->
+        <Xslt>SyIMFPositionsDeposit</Xslt>
+        <Xslt>SyIMFPositionsLoan</Xslt>
+        <!-- SY.DCI -->
+        <Xslt>SyDCIPositions</Xslt>
+        <!-- SY.TCI -->
+        <Xslt>SyTCIPositions</Xslt>
+        <!-- SY.FX.FORWARDS -->
+        <!-- SWAP -->
+        <Xslt>TransactionIRSPurchaseOpenIL</Xslt>
+        <!-- CG.TXN.BASE -->
+        <Xslt>TaxLotIL</Xslt>
+      </Positions>
+      <Transactions mode="ONLINE">
+        <Flow>TransactionsForex</Flow>
+        <!-- The flow LdLoansAndDepositsOldNew covers a series of XSLTs that are all online xslts -->
+        <Flow>LdLoansAndDepositsOldNew</Flow>
+        <!-- MD.DEAL related -->
+        <Flow>TransactionAdjustmentGuaranteeQuantity</Flow>
+        <Flow>TransactionBuyGuaranteeReceived</Flow>
+        <Flow>TransactionRevIssuedGuarantee</Flow>
+        <Flow>TransactionRevReceivedGuarantee</Flow>
+        <Flow>TransactionSellGuaranteeIssued</Flow>
+        <!-- SY.IMF -->
+        <Flow>SyIMFDepositReversal</Flow>
+        <Flow>SyIMFLoanReversal</Flow>
+        <Flow>SyImfRollover</Flow>
+        <!-- SY.ACCU.DECU -->
+        <Flow>TransactionAccuDecuBuyReversal</Flow>
+        <!-- SY.DCI -->
+        <Flow>SyDciReversal</Flow>
+        <!-- SY.TCI -->
+        <Flow>SyTciReversal</Flow>
+        <!-- SY.FX.FORWARDS -->
+        <Flow>TransactionSYFXOpenDerivativeBuy</Flow>
+        <Flow>TransactionSYTarkoOpenDerivativeBuy</Flow>
+        <Flow>TransOpenSYFXDerivativeBuyRev</Flow>
+        <Flow>TransSYTarkoDerivativeBuyRev</Flow>
+        <!-- SECURITY.MASTER last price should only be posted online -->
+        <Flow>LastPrice</Flow>
+        <!-- CUSTOMER based deposit update should be switched off during IL so we declare it as transactional flow -->
+        <Flow>DepositCustomerUpdate</Flow>
+        <!-- =================================== XSLTS =================================== -->
+        <!-- LD -->
+        <Xslt>RevTransactionOpenLDDeposits</Xslt>
+        <Xslt>RevTransactionOpenLDLoans</Xslt>
+        <Xslt>TransactionLDCommAndChrg</Xslt>
+        <!-- Fiduciary -->
+        <Xslt>FinancialInstrumentFiduciaryInit</Xslt>
+        <Xslt>TransactionFiduciaryInitiate</Xslt>
+        <Xslt>FiduciaryAccruedInterest</Xslt>
+        <!-- SY.ACCU.DECU avoid lock/unlock during IL -->
+        <Xslt>TransactionSPAccuDecuClose</Xslt>
+        <Xslt>SYBlockUnblockSecPos</Xslt>
+        <Xslt>SYBlockUnblockAccPos</Xslt>
+        <!-- SY.IMF -->
+        <Xslt>IMFDepositInterest</Xslt>
+        <Xslt>IMFLoanInterest</Xslt>
+        <Xslt>UnwindingFee</Xslt>
+        <Xslt>SyIMFOpenDeposit</Xslt>
+        <Xslt>SyIMFOpenLoan</Xslt>
+        <Xslt>SyIMFUnwindDeposit</Xslt>
+        <Xslt>SyIMFUnwindLoan</Xslt>
+        <Xslt>SyIMFCloseDeposit</Xslt>
+        <Xslt>SyIMFCloseLoan</Xslt>
+        <!-- SY.DCI -->
+        <Xslt>SyDciOpenDeposit</Xslt>
+        <Xslt>SyDCICloseDeposit</Xslt>
+        <Xslt>SyDCIDepositInterest</Xslt>
+        <Xslt>SyDCIForexSpotSale</Xslt>
+        <!-- SY.TCI -->
+        <Xslt>SyTciOpenDeposit</Xslt>
+        <Xslt>SyTCICloseDeposit</Xslt>
+        <Xslt>SyTCIDepositInterest</Xslt>
+        <Xslt>SyTCIForexSpotSale</Xslt>
+        <!-- SY.FX.FORWARDS -->
+        <Xslt>TransOpenSYFXDerivativeBuyRev</Xslt>
+        <Xslt>TransSYTarkoDerivativeBuyRev</Xslt>
+        <!-- SWAP -->
+        <Xslt>TransactionIRSPurchaseOpen</Xslt>
+        <!-- DX.TRADE -->
+        <Xslt>TransactionOpenDerivativeSell</Xslt>
+        <Xslt>TransactionSettleFutureSell</Xslt>
+        <Xslt>FinancialInstrumentFutureSYDX</Xslt>
+        <Xslt>TransactionOpenDerivativeBuyReversal</Xslt>
+        <Xslt>TransactionSettleFutureBuy</Xslt>
+        <Xslt>TransactionOpenDerivativeSellReversal</Xslt>
+        <Xslt>TransactionSettleOptionBuy</Xslt>
+        <Xslt>TransactionOpenDerivativeBuy</Xslt>
+        <Xslt>TransactionSettleOptionSell</Xslt>
+      </Transactions>
+    </Mappings>
+    <Stages>
+      <!-- Not taking into account recycling, only errors for now -->
+      <!-- Prior to accounts -->
+      <Stage number="1">
+        <!-- up until and including CashAccount -->
+        <Flow>DEPRECATED</Flow>
+      </Stage>
+      <Stage number="2">
+        <!-- from Portfolio on -->
+        <Flow>DEPRECATED</Flow>
+      </Stage>
+    </Stages>
+  </InitialLoadConfig>
+  <LogMonitor>on</LogMonitor>
+  <LogError>on</LogError>
+  <XsltTrace>MsgIn MsgOut AdapterIn AdapterOut AdapterErr PostFilter PostMap</XsltTrace>
+  <XmlSchemaValidator>on</XmlSchemaValidator>
+  <XsltTraceDir>/oams/TTIServer/camel/trace</XsltTraceDir>
+  <ModelBankConfig active="true">
+    <XPath>//*[local-name()='companyId'][1]</XPath>
+    <Mapping value="LU0010001" mb="ESP"/>
+    <Mapping value="CH0010002" mb="ESP"/>
+    <Mapping value="CH0010001" mb="ESP"/>
+    <Mapping value="AE0010001" mb="ESP"/>
+    <Mapping value="CA0010001" mb="ESP"/>
+  </ModelBankConfig>
+</TtiConfiguration>

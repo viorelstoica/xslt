@@ -1,0 +1,2370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema targetNamespace="http://www.odcgroup.com/F2B_MM_FX" xmlns="http://www.odcgroup.com/F2B_MM_FX" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:infra="http://www.odcgroup.com/InfraPMS" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.odcgroup.com/InfraPMS" schemaLocation="InfraPMS.xsd"/>
+	<xs:element name="F2B_MM_FX">
+		<xs:annotation>
+			<xs:documentation>Odyssey Transaction PMS Schema</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DataGroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DepositLoan" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Deposit" type="DepositF2BTransaction"/>
+										<xs:element name="Loan" type="LoanF2BTransaction"/>
+									</xs:choice>
+									<xs:attribute name="eventIdentifier" type="xs:unsignedLong"/>
+									<xs:attribute name="eventStatus" type="xs:unsignedByte"/>
+									<xs:attribute name="description" type="xs:string" use="optional"/>
+									<xs:attribute name="priority" type="xs:decimal"/>
+									<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ForexForward" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Forward" type="ForwardF2BTransaction"/>
+										<xs:element name="ForexSpot" type="ForexSpotF2BTransaction"/>
+										<xs:element name="ForexSwap" type="ForexSwapF2BTransaction"/>
+									</xs:choice>
+									<xs:attribute name="eventIdentifier" type="xs:unsignedLong"/>
+									<xs:attribute name="eventStatus" type="xs:unsignedByte"/>
+									<xs:attribute name="description" type="xs:string" use="optional"/>
+									<xs:attribute name="priority" type="xs:decimal"/>
+									<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Cash" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="CashF2BTransaction">
+											<xs:attribute name="eventIdentifier" type="xs:unsignedLong"/>
+											<xs:attribute name="eventStatus" type="xs:unsignedByte"/>
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="priority" type="xs:decimal"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="output" type="xs:string" use="optional"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="mode" type="infra:ModeEnum" use="optional"/>
+			<xs:attributeGroup ref="infra:businessEntity_AttrGrp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ForexSpotPurchaseAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="purchasedCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotSaleAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="purchasedCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchaseCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotPurchaseRequestObject">
+		<xs:sequence>
+			<xs:element name="boAccount" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="boCashAccount" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="boPortfolio" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="cashPortfolio" type="CashPortfolioObject"
+				minOccurs="0" />
+			<xs:element name="contractNumber" type="xs:token"
+				minOccurs="0" />
+			<xs:element name="initiatedBy" type="xs:unsignedByte"
+				minOccurs="0" />
+			<xs:element name="initiationDateTime" type="xs:dateTime"
+				minOccurs="0" />
+			<xs:element name="initiator" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="mainBusinessEntity"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="notepad" type="infra:Notepad"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="orderMode" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="orderStatus" type="xs:unsignedByte" />
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier" />
+			<xs:element name="portfolioManager" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="purchasedCcyCurrentAccount"
+				type="infra:Identifier" />
+			<xs:element name="currentAccountCcyPortfolioCcyExchangeRate"
+				type="xs:decimal" minOccurs="0" />
+			<xs:element name="quantity" type="xs:decimal" />
+			<xs:element name="remark" type="xs:string" minOccurs="0" />
+			<xs:element name="soldCcyCurrentAccount"
+				type="infra:Identifier" />
+			<xs:element name="soldCcyNetAmount" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal" />
+			<xs:element name="subType" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="trader" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="transactionDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="type" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="compoundOrderCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="valueDate" type="xs:date" />
+			<xs:element name="userDefinedField"
+				type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="mbFields" type="infra:mbFields"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSwapPurchaseRequestObject">
+		<xs:sequence>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="marginPips" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="paidCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="paidCurrencyAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="paidCurrencyAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="settlementDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="startingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="swapAmount" type="xs:decimal"/>
+			<xs:element name="swapContract" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="swapCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="swapCurrencyAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSwapSaleRequestObject">
+		<xs:sequence>
+			<xs:element name="initiatedBy" type="xs:unsignedByte"
+				minOccurs="0" />
+			<xs:element name="initiationDateTime" type="xs:dateTime"
+				minOccurs="0" />
+			<xs:element name="initiator" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="mainBusinessEntity"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="marginPips" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="notepad" type="infra:Notepad"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="orderMode" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="orderStatus" type="xs:unsignedByte" />
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier" />
+			<xs:element name="portfolioManager" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="remark" type="xs:string" minOccurs="0" />
+			<xs:element name="settlementDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="soldCurrency" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="soldCurrencyAccount"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="soldCurrencyAmount" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="startingDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="subType" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="swapAmount" type="xs:decimal" />
+			<xs:element name="swapContract" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="swapCurrency" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="swapCurrencyAccount"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="trader" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="transactionDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="type" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="compoundOrderCode" type="xs:string"
+				maxOccurs="1" minOccurs="0">
+			</xs:element>
+			<xs:element name="referenceOperationCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="userDefinedField"
+				type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="mbFields" type="infra:mbFields"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotSaleRequestObject">
+		<xs:sequence>
+			<xs:element name="boAccount" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="boCashAccount" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="boPortfolio" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="cashPortfolio" type="CashPortfolioObject"
+				minOccurs="0" />
+			<xs:element name="contractNumber" type="xs:token"
+				minOccurs="0" />
+			<xs:element name="initiatedBy" type="xs:unsignedByte"
+				minOccurs="0" />
+			<xs:element name="initiationDateTime" type="xs:dateTime"
+				minOccurs="0" />
+			<xs:element name="initiator" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="mainBusinessEntity"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="notepad" type="infra:Notepad"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="orderMode" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="orderStatus" type="xs:unsignedByte" />
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier" />
+			<xs:element name="portfolioManager" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="purchasedCcyCurrentAccount"
+				type="infra:Identifier" />
+			<xs:element name="currentAccountCcyPortfolioCcyExchangeRate"
+				type="xs:decimal" minOccurs="0" />
+			<xs:element name="purchaseCcyNetAmount" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="quantity" type="xs:decimal" />
+			<xs:element name="remark" type="xs:string" minOccurs="0" />
+			<xs:element name="soldCcyCurrentAccount"
+				type="infra:Identifier" />
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal" />
+			<xs:element name="subType" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="trader" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="transactionDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="type" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="compoundOrderCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="valueDate" type="xs:date" />
+			<xs:element name="userDefinedField"
+				type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="mbFields" type="infra:mbFields"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotCancelPurchaseObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="oldStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchasedCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotCancelSaleObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="oldStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchasedCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchaseCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotCancellationPurchaseAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="purchasedCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotCancellationSaleAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="purchasedCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchaseCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotCancelOkObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForexSpotF2BTransaction">
+		<xs:choice>
+			<xs:element name="OrderLifeCycle">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="purchaseRequest" type="ForexSpotPurchaseRequestObject"/>
+						<xs:element name="saleRequest" type="ForexSpotSaleRequestObject"/>
+						<xs:element name="purchaseAcknowledgment" type="ForexSpotPurchaseAcknowledgmentObject"/>
+						<xs:element name="saleAcknowledgment" type="ForexSpotSaleAcknowledgmentObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Cancellation">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="purchaseRequest" type="ForexSpotCancelPurchaseObject"/>
+						<xs:element name="saleRequest" type="ForexSpotCancelSaleObject"/>
+						<xs:element name="purchaseAcknowledgment" type="ForexSpotCancellationPurchaseAcknowledgmentObject"/>
+						<xs:element name="saleAcknowledgment" type="ForexSpotCancellationSaleAcknowledgmentObject"/>
+						<xs:element name="CancelOk" type="ForexSpotCancelOkObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ForexSwapF2BTransaction">
+		<xs:choice>
+			<xs:element name="OrderLifeCycle">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="purchaseRequest" type="ForexSwapPurchaseRequestObject"/>
+						<xs:element name="saleRequest" type="ForexSwapSaleRequestObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ForwardF2BTransaction">
+		<xs:choice>
+			<xs:element name="OrderLifeCycle">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="purchaseRequest" type="ForwardPurchaseRequestObject"/>
+						<xs:element name="saleRequest" type="ForwardSaleRequestObject"/>
+						<xs:element name="purchaseAcknowledgment" type="ForwardPurchaseAcknowledgmentObject"/>
+						<xs:element name="saleAcknowledgment" type="ForwardSaleAcknowledgmentObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Cancellation">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="purchaseRequest" type="ForwardCancelPurchaseObject"/>
+						<xs:element name="saleRequest" type="ForwardCancelSaleObject"/>
+						<xs:element name="purchaseAcknowledgment" type="ForwardPurchaseCancellationAcknowledgmentObject"/>
+						<xs:element name="saleAcknowledgment" type="ForwardSaleCancellationAcknowledgmentObject"/>
+						<xs:element name="CancelOk" type="ForwardCancelOkObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ForwardPurchaseAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="forwardContract" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="forwardExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="purchasedCcyCurrentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchaseQuantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchasedCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="settlementDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="soldCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="startingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForwardSaleAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="forwardContract" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="forwardExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="purchaseCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchaseCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchasedCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="settlementDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="soldCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldQuantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="startingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForwardPurchaseRequestObject">
+		<xs:sequence>
+			<xs:element name="autoClosing" type="xs:unsignedByte"
+				minOccurs="0" />
+			<xs:element name="cashPortfolio" type="CashPortfolioObject"
+				minOccurs="0" />
+			<xs:element name="contractNumber" type="xs:token"
+				minOccurs="0" />
+			<xs:element name="fixingDate" type="xs:dateTime"
+				minOccurs="0" />
+			<xs:element name="forwardContract" type="infra:Identifier" />
+			<xs:element name="forwardExchangeRate" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="initiatedBy" type="xs:unsignedByte"
+				minOccurs="0" />
+			<xs:element name="initiationDateTime" type="xs:dateTime"
+				minOccurs="0" />
+			<xs:element name="initiator" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="mainBusinessEntity"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="notepad" type="infra:Notepad"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="orderMode" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="orderStatus" type="xs:unsignedByte" />
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier" />
+			<xs:element name="portfolioManager" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element
+				name="purchasedCcyCurrentAccountCcyPortfolioCcyExchangeRate"
+				type="xs:decimal" minOccurs="0" />
+			<xs:element name="purchasedCurrency" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="purchaseQuantity" type="xs:decimal" />
+			<xs:element name="remark" type="xs:string" minOccurs="0" />
+			<xs:element name="settlementDate" type="xs:date" />
+			<xs:element name="soldCcyCurrentAccount"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="soldCurrency" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="soldCcyNetAmount" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="startingDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="subType" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="transactionDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="trader" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="type" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="compoundOrderCode" type="xs:string"
+				maxOccurs="1" minOccurs="0">
+			</xs:element>
+			<xs:element name="referenceOperationCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="userDefinedField"
+				type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="mbFields" type="infra:mbFields"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForwardSaleRequestObject">
+		<xs:sequence>
+			<xs:element name="autoClosing" type="xs:unsignedByte"
+				minOccurs="0" />
+			<xs:element name="contractNumber" type="xs:token"
+				minOccurs="0" />
+			<xs:element name="cashPortfolio" type="CashPortfolioObject"
+				minOccurs="0" />
+			<xs:element name="fixingDate" type="xs:dateTime"
+				minOccurs="0" />
+			<xs:element name="forwardContract" type="infra:Identifier" />
+			<xs:element name="forwardExchangeRate" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="initiatedBy" type="xs:unsignedByte"
+				minOccurs="0" />
+			<xs:element name="initiationDateTime" type="xs:dateTime"
+				minOccurs="0" />
+			<xs:element name="initiator" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="mainBusinessEntity"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="notepad" type="infra:Notepad"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="orderMode" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="orderStatus" type="xs:unsignedByte" />
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier" />
+			<xs:element name="portfolioManager" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="purchaseCcyCurrentAccount"
+				type="infra:Identifier" minOccurs="0" />
+			<xs:element name="purchaseCcyNetAmount" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="purchasedCurrency" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="remark" type="xs:string" minOccurs="0" />
+			<xs:element name="settlementDate" type="xs:date" />
+			<xs:element
+				name="soldCcyCurrentAccountCcyPortfolioCcyExchangeRate"
+				type="xs:decimal" minOccurs="0" />
+			<xs:element name="soldCurrency" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="soldQuantity" type="xs:decimal" />
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal"
+				minOccurs="0" />
+			<xs:element name="startingDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="subType" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="trader" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="transactionDate" type="xs:date"
+				minOccurs="0" />
+			<xs:element name="type" type="infra:Identifier"
+				minOccurs="0" />
+			<xs:element name="compoundOrderCode" type="xs:string"
+				maxOccurs="1" minOccurs="0">
+			</xs:element>
+			<xs:element name="referenceOrderCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="userDefinedField"
+				type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="mbFields" type="infra:mbFields"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForwardCancelPurchaseObject">
+		<xs:sequence>
+			<xs:element name="autoClosing" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="forwardContract" type="infra:Identifier"/>
+			<xs:element name="forwardExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="oldStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchasedCcyCurrentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchasedCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchaseQuantity" type="xs:decimal"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="settlementDate" type="xs:date"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="soldCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="startingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForwardCancelSaleObject">
+		<xs:sequence>
+			<xs:element name="autoClosing" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="forwardContract" type="infra:Identifier"/>
+			<xs:element name="forwardExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="oldStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchasedCcyCurrentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchasedCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchaseQuantity" type="xs:decimal"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="settlementDate" type="xs:date"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="soldCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="startingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForwardPurchaseCancellationAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="forwardContract" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="forwardExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="purchasedCcyCurrentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchasedCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchaseQuantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="settlementDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="soldCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="startingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForwardSaleCancellationAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="forwardContract" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="forwardExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="purchaseCcyCurrentAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchaseCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchasedCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="settlementDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="soldCcyCurrentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="soldCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="soldQuantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="spotExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="startingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForwardCancelOkObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepositF2BTransaction">
+		<xs:choice>
+			<xs:element name="OrderLifeCycle">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="openAcknowledgment" type="depositAcknowledgmentObject"/>
+						<xs:element name="closingAcknowledgment" type="depositClosingAcknowledgmentObject"/>
+						<xs:element name="closingRequest" type="DepositClosingRequestObject"/>
+						<xs:element name="capitalDecrease" type="DepositCapitalDecreaseObject"/>
+						<xs:element name="capitalIncrease" type="DepositCapitalIncreaseObject"/>
+						<xs:element name="rateChange" type="DepositRateChangeObject"/>
+						<xs:element name="openRequest" type="DepositRequestObject"/>
+						<xs:element name="renewal" type="DepositRenewalObject"/>
+						<xs:element name="transfer" type="DepositTransferObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Cancellation">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="Acknowledgment" type="depositCancelAcknowledgmentObject"/>
+						<xs:element name="cancelOk" type="depositCancelOkObject"/>
+						<xs:element name="cancelRequest" type="DepositCancelRequestObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="DepositTransferObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="adjustedPortfolio" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="adjustmentNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositAmount" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="status" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepositRequestObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contactMethod" type="xs:NMTOKEN" minOccurs="0"/>
+			<xs:element name="contractLength" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="contractLengthUnit" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>None</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Day(s)</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Weeks(s)</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation>Month(s)</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositAmount" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="depositInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="remark1" type="xs:string" minOccurs="0"/>
+			<xs:element name="remark2" type="xs:string" minOccurs="0"/>
+			<xs:element name="remark3" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepositClosingRequestObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositAmount" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="depositInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="remark1" type="xs:string" minOccurs="0"/>
+			<xs:element name="remark2" type="xs:string" minOccurs="0"/>
+			<xs:element name="remark3" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepositRateChangeObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositAmount" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="depositInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepositCapitalIncreaseObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositCapitalIncrease" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="depositInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepositCapitalDecreaseObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositCapitalDecrease" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="depositInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepositRenewalObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositAmountChange" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="depositInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="incDecreaseIndicator" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="depositAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositAmount" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="depositInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepositCancelRequestObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="depositAmount" type="xs:decimal"/>
+			<xs:element name="depositCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="depositInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="oldStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="depositCancelAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="oldStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="depositCancelOkObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="depositClosingAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoanF2BTransaction">
+		<xs:choice>
+			<xs:element name="OrderLifeCycle">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="openAcknowledgment" type="loanAcknowledgmentObject"/>
+						<xs:element name="closingAcknowledgment" type="loanClosingAcknowledgmentObject"/>
+						<xs:element name="closingRequest" type="LoanClosingRequestObject"/>
+						<xs:element name="capitalDecrease" type="LoanCapitalDecreaseObject"/>
+						<xs:element name="capitalIncrease" type="LoanCapitalIncreaseObject"/>
+						<xs:element name="rateChange" type="LoanRateChangeObject"/>
+						<xs:element name="openRequest" type="LoanRequestObject"/>
+						<xs:element name="renewal" type="LoanRenewalObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Cancellation">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="Acknowledgment" type="loanCancelAcknowledgmentObject"/>
+						<xs:element name="cancelOk" type="loanCancelOkObject"/>
+						<xs:element name="cancelRequest" type="LoanCancelRequestObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="LoanRequestObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="loanAmount" type="xs:decimal"/>
+			<xs:element name="loanCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loanInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoanClosingRequestObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="loanAmount" type="xs:decimal"/>
+			<xs:element name="loanCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loanInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoanRateChangeObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="loanAmount" type="xs:decimal"/>
+			<xs:element name="loanCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loanInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoanCapitalIncreaseObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="loanCapitalIncrease" type="xs:decimal"/>
+			<xs:element name="loanCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loanInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoanCapitalDecreaseObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="loanCapitalDecrease" type="xs:decimal"/>
+			<xs:element name="loanCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loanInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoanRenewalObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="loanAmountChange" type="xs:decimal"/>
+			<xs:element name="loanCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loanInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="incDecreaseIndicator" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="renewalAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="renewalInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalMode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="renewalPeriodNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="renewalTreatment" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="source" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="loanAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="loanAmount" type="xs:decimal"/>
+			<xs:element name="loanCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loanInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoanCancelRequestObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="counterparty" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="loanAmount" type="xs:decimal"/>
+			<xs:element name="loanCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="loanInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="oldStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="loanCancelAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="oldStatus" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="loanCancelOkObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="referenceNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="loanClosingAcknowledgmentObject">
+		<xs:sequence>
+			<xs:element name="boReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="closingpmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="loan" type="infra:Identifier"/>
+			<xs:element name="fusionRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="pmsReferenceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CashPortfolioObject">
+		<xs:sequence>
+			<xs:element name="portfolio" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="exchangeRate" type="xs:decimal" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CashInvestmentRequestObject">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier"/>
+			<xs:element name="accountCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="counterpartAccount" type="xs:string" minOccurs="0"/>
+			<xs:element name="counterpartCcy" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="extBankBIC" type="xs:string" minOccurs="0"/>
+			<xs:element name="extBankOwnerName" type="xs:string" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orderMode" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:decimal"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CashSellRequestObject">
+		<xs:sequence>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="boAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="boCashAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="boPortfolio" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="counterpartCcy" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="creditAccount" type="infra:Identifier"/>
+			<xs:element name="creditAccountCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="debitAccount" type="infra:Identifier"/>
+			<xs:element name="debitCcy" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="initiatedBy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="initiationDateTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:unsignedByte"/>
+			<xs:element name="ownerBusinessEntity">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pmsReferenceCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:decimal"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourceCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="trader" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionDate" type="xs:date"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueDate" type="xs:date"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CashF2BTransaction">
+		<xs:choice>
+			<xs:element name="OrderLifeCycle">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="InvestmentRequest" type="CashInvestmentRequestObject"/>
+						<xs:element name="WithdrawalRequest" type="CashInvestmentRequestObject"/>
+						<xs:element name="SellRequest" type="CashSellRequestObject"/>
+						<xs:element name="InvestmentRequestAcknowledgment" type="CashInvestmentRequestObject"/>
+						<xs:element name="WithdrawalRequestAcknowledgment" type="CashInvestmentRequestObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Cancellation">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="InvestmentRequest" type="CashInvestmentRequestObject"/>
+						<xs:element name="WithdrawalRequest" type="CashInvestmentRequestObject"/>
+						<xs:element name="SellRequest" type="CashSellRequestObject"/>
+						<xs:element name="InvestmentRequestAcknowledgment" type="CashInvestmentRequestObject"/>
+						<xs:element name="WithdrawalRequestAcknowledgment" type="CashInvestmentRequestObject"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

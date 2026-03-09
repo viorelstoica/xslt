@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+    <bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
+        <property name="environment">
+            <props>
+                <prop key="java.naming.factory.initial">org.jboss.naming.remote.client.InitialContextFactory</prop>
+                <prop key="java.naming.provider.url">http-remoting://localhost:9089</prop>
+                <prop key="java.naming.security.principal">INPUTT</prop>
+                <prop key="java.naming.security.credentials">${temn.tti.jms.security.password}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="jmsConnectionFactoryActual" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiTemplate" ref="jndiTemplate"/>
+        <property name="jndiName" value="jms/RemoteConnectionFactory"/>
+        <property name="lookupOnStartup" value="false"/>
+        <property name="proxyInterfaces" value="javax.jms.ConnectionFactory"/>
+    </bean>
+    
+    <bean id="jmsConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <constructor-arg ref="jmsConnectionFactoryActual"/>
+        <property name="sessionCacheSize" value="100"/>
+    </bean>
+
+    <bean id="jmsConnectionFactoryInOut" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiTemplate" ref="jndiTemplate"/>
+        <property name="jndiName" value="jms/RemoteConnectionFactory"/>
+    </bean>
+
+    <bean id="jmsTransactionManager" class="org.springframework.jms.connection.JmsTransactionManager">
+        <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    </bean>
+
+    <bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+        <property name="connectionFactory" ref="jmsConnectionFactory"/>
+        <property name="transactionManager" ref="jmsTransactionManager"/>
+        <property name="transacted" value="true"/>
+        <property name="concurrentConsumers" value="1"/>
+        <property name="maxConcurrentConsumers" value="1"/>
+        <property name="cacheLevelName" value="CACHE_CONSUMER"/>
+    </bean>
+
+</beans>

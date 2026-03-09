@@ -1,0 +1,1330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema targetNamespace="http://www.odcgroup.com/InfraPMS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.odcgroup.com/InfraPMS" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="InfraPMS">
+		<xs:annotation>
+			<xs:documentation>Odyssey Infrastructure PMS Schema</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DataGroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Category" type="Category" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Codification" type="Codification" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Country" type="Country" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Currency" type="Currency" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Deposit" type="Deposit" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ExchangeRate" type="ExchangeRate" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Manager" type="Manager" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Rating" type="Rating" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Sector" type="Sector" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="StockExchange" type="StockExchange" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ThirdParty" type="ThirdParty" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ChronologicalData" type="ChronologicalData" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="TimeZone" type="TimeZone" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Type" type="Type" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Calendar" type="Calendar" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="DataGroup" type="DataGroup" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="DataGroupProfile" type="DataGroupProfile" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="AccountingProfile" type="AccountingProfile" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="AccountingRuleCompo" type="AccountingRuleCompo" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="BeAccProfileHisto" type="BeAccProfileHisto" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="FtConvention" type="FtConvention" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="FtRate" type="FtRate" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="FtConventionHistory" type="FtConventionHistory" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="BusinessEntityFtConvention" type="BusinessEntityFtConvention" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="FiscalPeriod" type="FiscalPeriod" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="FiscalPeriodCompo" type="FiscalPeriodCompo" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="BusinessEntity" type="BusinessEntity" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="BusinessEntityCodifCompo" type="BusinessEntityCodifCompo" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ThirdRelation" type="ThirdRelation" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="output" type="xs:string" use="optional"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="mode" type="ModeEnum" use="optional"/>
+			<xs:attributeGroup ref="businessEntity_AttrGrp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Type">
+		<xs:choice>
+			<xs:element name="basicType">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="BasicType">
+							<xs:sequence>
+								<xs:element name="entity">
+									<xs:simpleType>
+										<xs:restriction base="xs:Name">
+											<xs:maxLength value="60"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="basicSubType">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="BasicSubType">
+							<xs:sequence>
+								<xs:element name="entity">
+									<xs:simpleType>
+										<xs:restriction base="xs:Name">
+											<xs:maxLength value="60"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="clientType" type="BasicType"/>
+			<xs:element name="exchangeRateType" type="BasicType"/>
+			<xs:element name="instrumentType" type="InstrumentType"/>
+			<xs:element name="instrumentSubType" type="InstrumentSubType"/>
+			<xs:element name="instrumentPriceType" type="BasicType"/>
+			<xs:element name="operationType" type="OperationType"/>
+			<xs:element name="operationSubType" type="OperationSubType"/>
+			<xs:element name="portfolioType" type="PortfolioType"/>
+			<xs:element name="documentType" type="DocumentType"/>
+			<xs:element name="InstrumentComplexityLevelType" type="InstrumentComplexityLevelType"/>
+		</xs:choice>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BasicType">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="attribute">
+						<xs:simpleType>
+							<xs:restriction base="xs:Name">
+								<xs:maxLength value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BasicSubType">
+		<xs:complexContent>
+			<xs:extension base="BasicType">
+				<xs:sequence>
+					<xs:element name="parentType" type="Identifier"/>
+					<xs:element name="parentTypeAttribute">
+						<xs:simpleType>
+							<xs:restriction base="xs:Name">
+								<xs:maxLength value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="InstrumentType">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="attribute">
+						<xs:simpleType>
+							<xs:restriction base="xs:Name">
+								<xs:maxLength value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="nature" type="InstrumentNatureEnum" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="InstrumentSubType">
+		<xs:complexContent>
+			<xs:extension base="InstrumentType">
+				<xs:sequence>
+					<xs:element name="parentType" type="Identifier"/>
+					<xs:element name="parentTypeAttribute">
+						<xs:simpleType>
+							<xs:restriction base="xs:Name">
+								<xs:maxLength value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OperationType">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="attribute">
+						<xs:simpleType>
+							<xs:restriction base="xs:Name">
+								<xs:maxLength value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="nature" type="OperationNatureEnum" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OperationSubType">
+		<xs:complexContent>
+			<xs:extension base="OperationType">
+				<xs:sequence>
+					<xs:element name="parentType" type="Identifier"/>
+					<xs:element name="parentTypeAttribute">
+						<xs:simpleType>
+							<xs:restriction base="xs:Name">
+								<xs:maxLength value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PortfolioType">
+		<xs:complexContent>
+			<xs:extension base="BasicType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DocumentType">
+		<xs:complexContent>
+			<xs:extension base="BasicType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="InstrumentComplexityLevelType">
+		<xs:complexContent>
+			<xs:extension base="BasicType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Identifier">
+		<xs:sequence>
+			<xs:element name="code" type="xs:token" minOccurs="0"/>
+			<xs:element name="synonym" type="Synonym" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Manager">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="certificationEnd" type="xs:dateTime" minOccurs="0"/>
+					<xs:element name="certificationLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="certificationStart" type="xs:dateTime" minOccurs="0"/>
+					<xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+					<xs:element name="externalManager" type="xs:boolean"/>
+					<xs:element name="language" type="xs:string" minOccurs="0"/>
+					<xs:element name="managerAccessRight" type="xs:string" minOccurs="0"/>
+					<xs:element name="managerGroup" type="xs:string" minOccurs="0"/>
+					<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="wuiProfile" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="wuiRole" type="xs:unsignedByte" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ThirdRelation">
+		<xs:sequence>
+			<xs:element name="relationship" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="relThirdEntity" type="Identifier"/>
+			<xs:element name="thirdEntity" type="Identifier"/>
+			<xs:element name="startDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="mode" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="delete"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>	
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ThirdParty">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="businessEntityComposition" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="businessEntityComposition">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="currency" type="Identifier" minOccurs="0"/>
+					<xs:element name="clientRole" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="classification" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="custodianRole" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="Identifier" minOccurs="0"/>
+					<xs:element name="externalBank" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+					<xs:element name="faxNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="intermediaryRole" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="issuerRole" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="language" type="xs:string" minOccurs="0"/>
+					<xs:element name="manager" type="Identifier" minOccurs="0"/>
+					<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="rating" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="IssuerRatingAttribution">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="residenceCountry" type="Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="Identifier" minOccurs="0"/>
+					<xs:element name="sector" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="IssuerSectorAttribution">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="taxationCountry" type="Identifier" minOccurs="0"/>
+					<xs:element name="thirdPartyGroup" type="xs:string" minOccurs="0"/>
+					<xs:element name="type" type="Identifier" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ChronologicalData">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="currency" type="Identifier" minOccurs="0"/>
+			<xs:element name="dataNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="validity" type="xs:date" minOccurs="0"/>
+			<xs:element name="value" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="StockExchange">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="calendar" type="xs:token" minOccurs="0"/>
+					<xs:element name="cashSettlementDays" type="xs:integer" minOccurs="0"/>
+					<xs:element name="closeTime" type="xs:time" minOccurs="0"/>
+					<xs:element name="currency" type="Identifier" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="Identifier" minOccurs="0"/>
+					<xs:element name="marketVenueType" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="referenceIndex" type="Identifier" minOccurs="0"/>
+					<xs:element name="residGeo" type="Identifier" minOccurs="0"/>
+					<xs:element name="securitiesSettlementDays" type="xs:integer" minOccurs="0"/>
+					<xs:element name="settlementDaysRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="type" type="Identifier" minOccurs="0"/>
+					<xs:element name="dayTrade" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Yes</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>No</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="3">
+									<xs:annotation>
+										<xs:documentation>Undefined</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Deposit">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="custodian" type="Identifier" />
+			<xs:element name="name" type="xs:string" minOccurs="0" />
+			<xs:element name="subAccount" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="userDefinedField" type="UserDefinedField"
+				minOccurs="0" maxOccurs="unbounded" />
+
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ChildSector">
+		<xs:complexContent>
+			<xs:extension base="ParentSector">
+				<xs:sequence>
+					<xs:element name="parentSector" type="Identifier"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ParentSector">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="codification">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:maxLength value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Sector">
+		<xs:choice>
+			<xs:element name="issuerSector" type="ParentSector"/>
+			<xs:element name="issuerChildSector" type="ChildSector"/>
+			<xs:element name="instrumentSector" type="ParentSector"/>
+			<xs:element name="instrumentChildSector" type="ChildSector"/>
+		</xs:choice>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="Rating">
+		<xs:choice>
+			<xs:element name="issuerRating" type="BasicRating"/>
+			<xs:element name="instrumentRating" type="BasicRating"/>
+		</xs:choice>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BasicRating">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="agency">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:maxLength value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="rank" type="xs:integer" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ExchangeRate">
+		<xs:sequence>
+			<xs:element name="currency" type="Identifier"/>
+			<xs:element name="datetime" type="xs:dateTime"/>
+			<xs:element name="market" type="Identifier" minOccurs="0"/>
+			<xs:element name="provider" type="Identifier" minOccurs="0"/>
+			<xs:element name="rate" type="xs:decimal"/>
+			<xs:element name="type" type="Identifier" minOccurs="0"/>
+			<xs:element name="underlyCurrency" type="Identifier"/>
+			<xs:element name="quoteFactor" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="inverseFlag" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="exchangeRateInverseFlag" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="Synonym">
+		<xs:sequence>
+			<xs:element name="active" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="beginDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="codification">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="status" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UserDefinedField">
+		<xs:sequence>
+			<xs:element name="name">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="value" type="xs:string" minOccurs="0"/>
+			<xs:element name="type" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="date"/>
+						<xs:enumeration value="datetime"/>
+						<xs:enumeration value="string"/>
+						<xs:enumeration value="decimal"/>
+						<xs:enumeration value="integer"/>
+						<xs:enumeration value="code"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Denomination">
+		<xs:sequence>
+			<xs:element name="language" type="xs:string"/>
+			<xs:element name="longName" type="xs:string"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DataGroup">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="DataGroupProfile">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DataGroupProfileComposition" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="DataGroupProfileComposition">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="DataGroupProfileComposition">
+		<xs:sequence>
+			<xs:element name="deleteAuthorisation" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="updateAuthorisation" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="DataGroup" type="DataGroup" minOccurs="0"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Notepad">
+		<xs:sequence>
+			<xs:element name="date" minOccurs="0">
+				<xs:simpleType>
+					<xs:union memberTypes="xs:date xs:dateTime"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="note" type="xs:string"/>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="type" type="Identifier" minOccurs="0"/>
+			<xs:element name="user" type="xs:string" minOccurs="0"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Country">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="currency" type="Identifier" minOccurs="0"/>
+					<xs:element name="nature">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Currency">
+		<xs:complexContent>
+			<xs:extension base="PMSObject">
+				<xs:sequence>
+					<xs:element name="country" type="Identifier" minOccurs="0"/>
+					<xs:element name="euroConvertionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroExchangeRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="rank" type="xs:nonNegativeInteger" minOccurs="0"/>
+					<xs:element name="roundingRule" type="RoundingRuleEnum"/>
+					<xs:element name="roundingUnit" type="RoundingUnitEnum" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="IssuerSectorAttribution">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="codification">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IssuerRatingAttribution">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="agency">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PMSObject">
+		<xs:sequence>
+			<xs:element name="code" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="synonym" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Synonym">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="multilingualLongName" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Denomination">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="notepad" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Notepad">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="userDefinedField" type="UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Codification">
+		<xs:choice>
+			<xs:element name="ratingCodification" type="BasicCodificaton"/>
+			<xs:element name="sectorCodification" type="BasicCodificaton"/>
+			<xs:element name="synonymCodification" type="SynonymCodification"/>
+		</xs:choice>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="SynonymCodification">
+		<xs:complexContent>
+			<xs:extension base="BasicCodificaton">
+				<xs:sequence>
+					<xs:element name="minimumNumberOfCharacter" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="maximumNumberOfCharacter" type="xs:unsignedByte" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BasicCodificaton">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="entity">
+				<xs:simpleType>
+					<xs:restriction base="xs:Name">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="multilingualLongname" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Denomination">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="InstrumentNatureEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="17"/>
+			<xs:enumeration value="18"/>
+			<xs:enumeration value="19"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="21"/>
+			<xs:enumeration value="22"/>
+			<xs:enumeration value="23"/>
+			<xs:enumeration value="24"/>
+			<xs:enumeration value="25"/>
+			<xs:enumeration value="26"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OperationNatureEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageEnum">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="en"/>
+			<xs:enumeration value="fr"/>
+			<xs:enumeration value="de"/>
+			<xs:enumeration value="it"/>
+			<xs:enumeration value="nl"/>
+			<xs:enumeration value="es"/>
+			<xs:enumeration value="pt"/>
+			<xs:enumeration value="sv"/>
+			<xs:enumeration value="ru"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RoundingRuleEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RoundingUnitEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ModeEnum">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="INSUPD"/>
+			<xs:enumeration value="UPDINS"/>
+			<xs:enumeration value="INSERT"/>
+			<xs:enumeration value="UPDATE"/>
+			<xs:enumeration value="DELETE"/>
+			<xs:enumeration value="MBK"/>
+			<xs:enumeration value="COPY"/>
+			<xs:enumeration value="UPDATE_STATUS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Calendar">
+		<xs:sequence>
+			<xs:element name="code" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="addDaysNumber" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="businessDateRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="nextBusinessDateRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="multilingualLongName" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Denomination">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="calendarDate" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="CalendarDate">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="calendarConvention" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="CalendarConvention">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="userDefinedField" type="UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:simpleType name="BusinessDateRule">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NextBusinessDateRule">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CalendarDate">
+		<xs:sequence>
+			<xs:element name="date" type="xs:date"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="nature" type="xs:unsignedByte"/>
+			<xs:element name="multilingualLongName" type="Denomination" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CalendarConvention">
+		<xs:sequence>
+			<xs:element name="anchorDay" type="xs:unsignedByte"/>
+			<xs:element name="day" type="xs:decimal"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="nature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="offsetSaturday" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="offsetSunday" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="weekdayNumber" type="xs:unsignedByte"/>
+			<xs:element name="weekday" type="xs:unsignedByte"/>
+			<xs:element name="multilingualLongName" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Denomination">
+							<xs:attribute name="mode" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="delete"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="businessEntityComposition">
+		<xs:sequence>
+			<xs:element name="businessEntity" type="Identifier"/>
+			<xs:element name="mainBusinessEntity" type="xs:boolean"/>
+			<xs:element name="role" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="type" type="Identifier" minOccurs="0"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MBObject">
+		<xs:sequence>
+			<xs:element name="name" type="xs:token"/>
+			<xs:element name="value" type="xs:string"/>
+			<xs:element name="type" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="date"/>
+						<xs:enumeration value="datetime"/>
+						<xs:enumeration value="string"/>
+						<xs:enumeration value="decimal"/>
+						<xs:enumeration value="integer"/>
+						<xs:enumeration value="boolean"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="mbFields">
+		<xs:sequence>
+			<xs:element name="mbField" type="MBObject" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Category">
+		<xs:sequence>
+			<xs:element name="categoryDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="categoryGroup" type="xs:string" minOccurs="0"/>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="nature" type="xs:unsignedByte"/>
+			<xs:element name="userDefinedField" type="UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:attributeGroup name="businessEntity_AttrGrp">
+		<xs:attribute name="businessEntity" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+	<xs:complexType name="TimeZone">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dbTimeZoneF" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0"/>
+			<xs:element name="shortName" type="xs:string" minOccurs="0"/>
+			<xs:element name="utcOffset" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:simpleType name="AccountingProfileNatureEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AccountingProfile">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="classification" type="Identifier" minOccurs="0"/>
+			<xs:element name="nature" type="AccountingProfileNatureEnum"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AccountingRuleCompo">
+		<xs:sequence>
+			<xs:element name="accProfile" type="Identifier"/>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="fusionRule">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="instrList" type="Identifier"/>
+			<xs:element name="taxLotMngt">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="taxLotOpRule" type="Identifier" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BeAccProfileHisto">
+		<xs:sequence>
+			<xs:element name="accProfile" type="Identifier"/>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="businessEntity" type="Identifier"/>
+			<xs:element name="endD" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FtConvention">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="classification" type="Identifier" minOccurs="0"/>
+			<xs:element name="nature" type="AccountingProfileNatureEnum"/>
+			<xs:element name="taxStatus" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FtRate">
+		<xs:sequence>
+			<xs:element name="beginD" type="xs:date" minOccurs="0"/>
+			<xs:element name="discountFactor" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ftConvention" type="Identifier" minOccurs="0"/>
+			<xs:element name="instrList" type="Identifier" minOccurs="0"/>
+			<xs:element name="longCapTaxRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="longTermPeriod" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="longTermPeriodUnit">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rank" type="xs:nonNegativeInteger"/>
+			<xs:element name="shortCapTaxRate" type="xs:decimal" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FtRateHistory">
+		<xs:sequence>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="ftConvention" type="Identifier"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FtConventionHistory">
+		<xs:sequence>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="portfolio" type="Identifier"/>
+			<xs:element name="taxConvention" type="Identifier"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessEntityFtConvention">
+		<xs:sequence>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="businessEntity" type="Identifier"/>
+			<xs:element name="ftConvention" type="Identifier" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FiscalPeriod">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FiscalPeriodCompo">
+		<xs:sequence>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="entityType" type="xs:string"/>
+			<xs:element name="fiscalPeriod" type="Identifier"/>
+			<xs:element name="fiscalPeriodFreq" type="xs:integer"/>
+			<xs:element name="fiscalPeriodFreqUnit">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="instrumentNature" type="xs:string"/>
+			<xs:element name="nature_e">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="operationNature" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FiscalPeriodHistory">
+		<xs:sequence>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="endD" type="xs:date" minOccurs="0"/>
+			<xs:element name="fiscalPeriod" type="Identifier"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessEntity">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="fiscalPeriod" type="Identifier"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessEntityCodifCompo">
+		<xs:sequence>
+			<xs:element name="codification" type="Identifier"/>
+			<xs:element name="businessEntity" type="Identifier"/>
+			<xs:element name="entity" type="xs:string" minOccurs="0"/>		
+			<xs:element name="rank" type="xs:integer"/>
+			<xs:element name="synonymEntity" type="xs:string" minOccurs="0"/>			
+			<xs:element name="type" type="Identifier" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+</xs:schema>

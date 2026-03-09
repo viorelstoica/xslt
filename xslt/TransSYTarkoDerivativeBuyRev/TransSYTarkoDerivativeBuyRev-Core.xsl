@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.odcgroup.com/TransactionPMS"
+                xmlns:b="http://www.temenos.com/T24/event/TTI/SyFxForwards"
+                xmlns:c="http://www.temenos.com/T24/event/Common/EventCommon"
+                xmlns:infra="http://www.odcgroup.com/InfraPMS"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                exclude-result-prefixes="b c"
+                version="1.0">
+   <xsl:template name="account1"/>
+   <xsl:template name="account1CcyTradeCcyExchangeRate"/>
+   <xsl:template name="account1NetAmount"/>
+   <xsl:template name="account2"/>
+   <xsl:template name="account2CcyTradeCcyExchangeRate"/>
+   <xsl:template name="account2NetAmount"/>
+   <xsl:template name="accountingDate"/>
+   <xsl:template name="transactionCode">
+      <transactionCode>
+         <xsl:choose>
+            <xsl:when test="b:tapRefId">
+                <xsl:value-of select="concat(b:tapRefId, '_R')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                 <xsl:value-of select="concat(b:id,$COMPANY_POSTFIX_SEPARATOR,b:mnemonic,$COMPANY_POSTFIX_SEPARATOR,'R')"/>
+            </xsl:otherwise>
+         </xsl:choose>      
+      </transactionCode>
+   </xsl:template>
+   <xsl:template name="commonReference"/>
+   <xsl:template name="security">
+      <security>
+         <infra:code>
+             <xsl:choose>
+                <xsl:when test="b:tapRefId">
+                    <xsl:value-of select="b:tapRefId"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="concat('TARKO',$COMPANY_POSTFIX_SEPARATOR,b:id,$COMPANY_POSTFIX_SEPARATOR,b:mnemonic)"/>
+                </xsl:otherwise>
+             </xsl:choose>          
+         </infra:code>
+      </security>
+   </xsl:template>
+   <xsl:template name="tradeCurrency"/>
+   <xsl:template name="tradeDate">
+   	<xsl:if test="b:tradeDate and b:tradeDate != ''">
+		<tradeDate>
+			<xsl:value-of select="b:tradeDate"/>
+		</tradeDate>
+	</xsl:if>
+   </xsl:template>
+   <xsl:template name="tradeCcyGrossAmount"/>
+   <xsl:template name="portfolio">
+      <portfolio>
+         <infra:code>
+            <xsl:value-of select="b:portfolio"/>
+         </infra:code>
+      </portfolio>
+   </xsl:template>
+   <xsl:template name="quantity">
+      <quantity>
+         <xsl:value-of select="'1'"/>
+      </quantity>
+   </xsl:template>
+   <xsl:template name="price"/>
+   <xsl:template name="reversalIndicator">
+      <reversalIndicator>
+         <xsl:value-of select="'1'"/>
+      </reversalIndicator>
+   </xsl:template>
+   <xsl:template name="reversedTransactionCode">
+      <reversedTransactionCode>
+         <xsl:choose>
+            <xsl:when test="b:tapRefId">
+                <xsl:value-of select="b:tapRefId"/>
+            </xsl:when>
+            <xsl:otherwise>
+                 <xsl:value-of select="concat(b:id,$COMPANY_POSTFIX_SEPARATOR,b:mnemonic,$COMPANY_POSTFIX_SEPARATOR,'Open')"/>
+           </xsl:otherwise>
+         </xsl:choose>        
+      </reversedTransactionCode>
+   </xsl:template>
+   <xsl:template name="status">
+      <status>
+         <xsl:call-template name="statusTranslation">
+            <xsl:with-param name="boStatus" select="'ACCOUNTED'"/>
+         </xsl:call-template>
+      </status>
+   </xsl:template>
+   <xsl:template name="type"/>
+   <xsl:template name="valueDate">
+   	<xsl:if test="b:valueDate and b:valueDate != ''">
+		<valueDate>
+      		<xsl:value-of select="b:valueDate"/>
+    	</valueDate>
+	</xsl:if>
+   </xsl:template>
+   <xsl:template name="subType"/>
+   <xsl:template name="transactionFeesTaxesCounter"/>
+   <xsl:template name="broker"/>
+   <xsl:template name="depositaryAccount"/>
+   <xsl:template name="executionSetCriteria"/>
+   <xsl:template name="originalOrderCode"/>
+   <xsl:template name="securityCcyPortfolioCcyExchangeRate"/>
+   <xsl:template name="stockExchange"/>
+   <xsl:template name="tradeCcyNetAmount"/>
+   <xsl:template name="tradeCcyPortfolioCcyExchangeRate"/>
+   <xsl:template name="referenceNature"/>
+   <xsl:template name="referenceTransactionCode"/>
+   <xsl:template name="account3"/>
+   <xsl:template name="account3CcyTradeCcyExchangeRate"/>
+   <xsl:template name="account3NetAmount"/>
+   <xsl:template name="accountingCode"/>
+   <xsl:template name="cashPortfolio"/>
+   <xsl:template name="ContractNumber"/>
+   <xsl:template name="notepad"/>
+   <xsl:template name="portfolioManager"/>
+   <xsl:template name="remark"/>
+   <xsl:template name="sourceSystemCode"/>
+   <xsl:template name="userDefinedField"/>
+   <xsl:template name="mbFields"/>
+   <xsl:template name="accruedInterests"/>
+   <xsl:template name="accruedInterestCounter"/>
+   <xsl:template name="exCoupon"/>
+   <xsl:template name="initiatedBy"/>
+   <xsl:template name="initiator"/>
+   <xsl:template name="limitPrice"/>
+   <xsl:template name="orderType"/>
+   <xsl:template name="orderValidityType"/>
+   <xsl:template name="positionCriteria1"/>
+   <xsl:template name="positionCriteria2"/>
+   <xsl:template name="positionCriteria3"/>
+   <xsl:template name="intermediary"/>			  
+   <xsl:template name="market"/>
+   <xsl:template name="accountCurrency"/> 
+   <xsl:template name="compoundOrderCode"/>
+   <xsl:template name="compoundOrderMaster"/>		  
+   <xsl:template name="compoundOrderSlave"/>				  
+   <xsl:template name="contactMethod"/>
+   <xsl:template name="paymentOptionE"/>
+   <xsl:template name="targetAmount"/>				  
+   <xsl:template name="targetNature"/>				  
+   <xsl:template name="targetObjective"/>
+   <xsl:template name="securityCcyNetAmount"/>
+   <xsl:template name="stopPrice"/>
+   <xsl:template name="trader"/>
+   <xsl:template name="validityDate"/>
+   <xsl:template name="hedgeTrade"/>
+   <xsl:template name="orderTypeD"/>
+</xsl:stylesheet>
+
+<!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios/>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->

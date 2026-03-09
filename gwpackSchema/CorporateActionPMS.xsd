@@ -1,0 +1,1664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by NICOLAS ELSEN (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema targetNamespace="http://www.odcgroup.com/CorporateActionPMS" xmlns:infra="http://www.odcgroup.com/InfraPMS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.odcgroup.com/CorporateActionPMS" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.odcgroup.com/InfraPMS" schemaLocation="InfraPMS.xsd"/>
+	<xs:element name="CorporateActionPMS">
+		<xs:annotation>
+			<xs:documentation>Odyssey Transaction PMS Schema</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DataGroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Attachment" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Link">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="TransferIn" type="AdjustProfitLossObject"/>
+													<xs:element name="TransferOut" type="AdjustGrossAmountAttachment"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NoLink">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="TransferIn" type="SecurityTransferInObject"/>
+													<xs:element name="TransferOut" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BidTender" type="BidTenderObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="BonusIssue" type="AdjustGrossAmountBonusIssue" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="CallOnRights" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="NewSecurity" type="PurchaseCallOnRightsObject"/>
+										<xs:element name="Right">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountCallOnRightsObject"/>
+													<xs:element name="NoLink" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CashDividend" type="DividendObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Conversion" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Link">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="TransferIn" type="ConversionObject"/>
+													<xs:element name="TransferOut" type="AdjustProfitLossObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NoLink">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="TransferIn" type="ConversionObject"/>
+													<xs:element name="TransferOut" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CouponStripping" type="AdjustGrossAmountCouponStrip" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="DecreaseInValue" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Link" type="AdjustGrossAmountDecrInValueObject"/>
+										<xs:element name="NoLink" type="CashTransferObject"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Detachment" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Link">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="TransferIn" type="AdjustGrossAmountDetachmentObject"/>
+													<xs:element name="TransferOut" type="AdjustProfitLossObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NoLink">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="TransferIn" type="SecurityTransferInObject"/>
+													<xs:element name="TransferOut" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DividendOption" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="cash" type="DividendObject"/>
+										<xs:element name="security" type="AdjustGrossAmountDivOpt"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DividendReinvestment" type="DividendReinvestmentObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Drawing" type="RedemptionObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ExchangeOffer" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Cash">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountCashExchOfferObject"/>
+													<xs:element name="NoLink" type="CashTransferObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NewSecurity">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountSecuExchOfferObject"/>
+													<xs:element name="NoLink" type="SecurityTransferInObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OldSecurity">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustProfitLossObject"/>
+													<xs:element name="NoLink" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ExchangeOption" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Cash">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountCashExchOfferObject"/>
+													<xs:element name="NoLink" type="CashTransferObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NewSecurity">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountSecuExchOfferObject"/>
+													<xs:element name="NoLink" type="SecurityTransferInObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OldSecurity">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustProfitLossObject"/>
+													<xs:element name="NoLink" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="FinalMaturity" type="FinalMaturityObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="FullCall" type="RedemptionObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="IncreaseInValue" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Link" type="AdjustGrossAmountIncrInValueObject"/>
+										<xs:element name="NoLink" type="CashTransferObject"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="InstalmentCall" type="AdjustGrossAmountInstalment" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="InterestPayment" type="InterestObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="InterestPaymentWithPrincipal" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="interest" type="InterestObject"/>
+										<xs:element name="principal" type="RedemptionObject"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Merger" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Cash">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountCashExchOfferObject"/>
+													<xs:element name="NoLink" type="CashTransferObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NewSecurity">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountSecuExchOfferObject"/>
+													<xs:element name="NoLink" type="SecurityTransferInObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OldSecurity">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustProfitLossObject"/>
+													<xs:element name="NoLink" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="NameChange" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Link" type="AdjustProfitLossObject"/>
+										<xs:element name="NoLink">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="TransferIn" type="SecurityTransferInObject"/>
+													<xs:element name="TransferOut" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="OddLotOffer" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Purchase" type="OddLotPurchaseObject"/>
+										<xs:element name="Sale" type="OddLotSaleObject"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="OddLotSale" type="OddLotSaleObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="PariPassu" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Link" type="AdjustProfitLossObject"/>
+										<xs:element name="NoLink">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="TransferIn" type="SecurityTransferInObject"/>
+													<xs:element name="TransferOut" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PartialCall" type="RedemptionObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="PayInKind" type="AdjustGrossAmountPayInKind" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="PriorityIssue" type="PriorityIssueObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="PutRedemption" type="RedemptionObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="RepurchaseOffer" type="RepurchaseOfferObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ReverseStockSplit" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Cash">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountCashRevStockSplitObject"/>
+													<xs:element name="NoLink" type="CashTransferObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Security">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="OneLeg" type="AdjustGrossAmountStockSplit"/>
+													<xs:element name="TwoLegs">
+														<xs:complexType>
+															<xs:choice>
+																<xs:element name="Link" type="AdjustProfitLossObject"/>
+																<xs:element name="NoLink">
+																	<xs:complexType>
+																		<xs:choice>
+																			<xs:element name="TransferIn" type="SecurityTransferInObject"/>
+																			<xs:element name="TransferOut" type="SecurityTransferOutObject"/>
+																		</xs:choice>
+																	</xs:complexType>
+																</xs:element>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RightsDistribution" type="AdjustGrossAmountRights" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="RightsIssue" type="AdjustGrossAmountRights" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ScripDividend" type="AdjustGrossAmountScripDiv" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="SharesPremiumDividend" type="DividendObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="SinkingFunds" type="SinkingFundsObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="SpinOff" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="Cash">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustGrossAmountCashSpinOffObject"/>
+													<xs:element name="NoLink" type="CashTransferObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NewSecurity">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link">
+														<xs:complexType>
+															<xs:choice>
+																<xs:element name="Gross" type="AdjustGrossAmountSecuExchOfferObject"/>
+																<xs:element name="Proportional" type="AdjustPropSecuSpinOffObject"/>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="NoLink" type="SecurityTransferInObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OldSecurity">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustProfitLossObject"/>
+													<xs:element name="NoLink" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="StockDividend" type="AdjustGrossAmountDivOpt" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="StockSplit" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="OneLeg" type="AdjustGrossAmountStockSplit"/>
+										<xs:element name="TwoLegs">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustProfitLossObject"/>
+													<xs:element name="NoLink">
+														<xs:complexType>
+															<xs:choice>
+																<xs:element name="TransferIn" type="SecurityTransferInObject"/>
+																<xs:element name="TransferOut" type="SecurityTransferOutObject"/>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Tender" type="TenderObject" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="WarrantExercise" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="NewSecurity" type="PurchaseCallOnRightsObject"/>
+										<xs:element name="Warrant">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="Link" type="AdjustProfitLossObject"/>
+													<xs:element name="NoLink" type="SecurityTransferOutObject"/>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="output" type="xs:string" use="optional"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="mode" type="infra:ModeEnum" use="optional"/>
+			<xs:attributeGroup ref="infra:businessEntity_AttrGrp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="TransactionObject">
+		<xs:sequence>
+			<xs:element name="account1" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account1CcyPositionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account1NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account2CcyPositionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account3CcyPositionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="accountingCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="reversalIndicator" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="reversedTransactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="sourceSystemCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="status" type="xs:unsignedByte"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transactionFeesTaxesCounter" type="FeesTaxesCounter" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="typeInstrument" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InterestObject">
+		<xs:sequence>
+			<xs:element name="account1" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account1CcyInterestCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account1NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account2CcyInterestCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account3CcyInterestCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="accountingCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="interest" type="xs:decimal"/>
+			<xs:element name="interestCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="interestCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="nominalOrUnit" type="xs:decimal"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="reversalIndicator" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="reversedTransactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="security" type="infra:Identifier"/>
+			<xs:element name="securityCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="securityCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="sourceSystemCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="status" type="xs:unsignedByte"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionFeesTaxesCounter" type="FeesTaxesCounter" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="typeInstrument" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="DividendObject">
+		<xs:sequence>
+			<xs:element name="account1" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account1CcyDividendCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account1NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account2CcyDividendCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account3CcyDividendCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="accountingCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="cashDividend" type="xs:decimal"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="dividendCcyGrossAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="dividendCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="dividendCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="dividendCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="nominalOrUnit" type="xs:decimal"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="reversalIndicator" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="reversedTransactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="positionCriteria1" type="xs:integer" minOccurs="0"/>
+			<xs:element name="security" type="infra:Identifier"/>
+			<xs:element name="securityCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="securityCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="sourceSystemCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="splitPortfolio" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="status" type="xs:unsignedByte"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionFeesTaxesCounter" type="FeesTaxesCounter" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="typeInstrument" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="RedemptionObject">
+		<xs:sequence>
+			<xs:element name="account1" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account1CcyRedemptionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account1NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account2CcyRedemptionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account3CcyRedemptionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="accountingCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="positionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="positionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="positionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="redemptionCcyGrossAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="redemptionPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionQuantity" type="xs:decimal"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="reversalIndicator" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="reversedTransactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="security" type="infra:Identifier"/>
+			<xs:element name="securityCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="securityCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="sourceSystemCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="status" type="xs:unsignedByte"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionFeesTaxesCounter" type="FeesTaxesCounter" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="typeInstrument" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+			<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FinalMaturityObject">
+		<xs:sequence>
+			<xs:element name="account1" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account1CcyRedemptionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account1NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account2CcyRedemptionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account3CcyRedemptionCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="accountingCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="accruedInterests" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="positionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="positionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="positionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="redemptionCcyGrossAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="redemptionPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionQuantity" type="xs:decimal"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="reversalIndicator" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="reversedTransactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="security" type="infra:Identifier"/>
+			<xs:element name="securityCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="securityCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="sourceSystemCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="splitPortfolio" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="status" type="xs:unsignedByte"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionFeesTaxesCounter" type="FeesTaxesCounter" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="typeInstrument" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+			<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FeesTaxesCounter">
+		<xs:sequence>
+			<xs:element name="amount" type="xs:decimal"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SaleBaseObject">
+		<xs:sequence>
+			<xs:element name="account1" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account1CcysaleCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account1NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account2CcysaleCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account3CcysaleCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="accountingCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="accruedInterestCounter" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="accruedInterests" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="reversalIndicator" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="reversedTransactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="saleCcyGrossAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="saleCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="saleCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="saleCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="salePrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="security" type="infra:Identifier"/>
+			<xs:element name="securityCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="securityCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="sourceSystemCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="status" type="xs:unsignedByte"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="positionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="positionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="positionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="transactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="saleDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionFeesTaxesCounter" type="FeesTaxesCounter" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="typeInstrument" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OddLotPurchaseObject">
+		<xs:complexContent>
+			<xs:extension base="PurchaseBaseObject">
+				<xs:sequence>
+					<xs:element name="oddLotQuantity" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OddLotSaleObject">
+		<xs:complexContent>
+			<xs:extension base="SaleBaseObject">
+				<xs:sequence>
+					<xs:element name="oddLotQuantity" type="xs:decimal"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TenderObject">
+		<xs:complexContent>
+			<xs:extension base="SaleBaseObject">
+				<xs:sequence>
+					<xs:element name="tenderQuantity" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PurchaseBaseObject">
+		<xs:sequence>
+			<xs:element name="account1" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account1CcyPurchaseCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account1NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account2CcyPurchaseCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account2NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="account3CcyPurchaseCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="account3NetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="accountingCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="accruedInterests" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="accruedInterestCounter" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="cashPortfolio" type="CashPortfolioObject" minOccurs="0"/>
+			<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+			<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+			<xs:element name="contractNumber" type="xs:token" minOccurs="0"/>
+			<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="notepad" type="infra:Notepad" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="positionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="positionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="positionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="purchaseCcyGrossAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchaseCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchaseCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="purchaseCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="purchasePrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remark" type="xs:string" minOccurs="0"/>
+			<xs:element name="reversalIndicator" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="reversedTransactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="security" type="infra:Identifier"/>
+			<xs:element name="securityCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="securityCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="sourceSystemCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="status" type="xs:unsignedByte"/>
+			<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="transactionCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="255"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="purchaseDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="transactionFeesTaxesCounter" type="FeesTaxesCounter" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="typeInstrument" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="valueDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PurchaseCallOnRightsObject">
+		<xs:complexContent>
+			<xs:extension base="PurchaseBaseObject">
+				<xs:sequence>
+					<xs:element name="newSecurityQuantity" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConversionObject">
+		<xs:complexContent>
+			<xs:extension base="PurchaseBaseObject">
+				<xs:sequence>
+					<xs:element name="conversionQuantity" type="xs:decimal"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>			
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BidTenderObject">
+		<xs:complexContent>
+			<xs:extension base="PurchaseBaseObject">
+				<xs:sequence>
+					<xs:element name="bidTenderQuantity" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RepurchaseOfferObject">
+		<xs:complexContent>
+			<xs:extension base="PurchaseBaseObject">
+				<xs:sequence>
+					<xs:element name="repurchaseOfferQuantity" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DividendReinvestmentObject">
+		<xs:complexContent>
+			<xs:extension base="PurchaseBaseObject">
+				<xs:sequence>
+					<xs:element name="reinvestmentQuantity" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PriorityIssueObject">
+		<xs:complexContent>
+			<xs:extension base="PurchaseBaseObject">
+				<xs:sequence>
+					<xs:element name="issueQuantity" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SecurityTransferInObject">
+		<xs:complexContent>
+			<xs:extension base="TransactionObject">
+				<xs:sequence>
+					<xs:element name="accruedInterestCounter" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="accruedInterests" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+					<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="newSecurityQuantity" type="xs:decimal"/>
+					<xs:element name="newSecurity" type="infra:Identifier"/>
+					<xs:element name="newSecuritydepositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCcyGrossAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="newSecurityUnitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SecurityTransferOutObject">
+		<xs:complexContent>
+			<xs:extension base="TransactionObject">
+				<xs:sequence>
+					<xs:element name="accruedInterestCounter" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="accruedInterests" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+					<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="oldSecurityQuantity" type="xs:decimal"/>
+					<xs:element name="oldSecurity" type="infra:Identifier"/>
+					<xs:element name="oldSecuritydepositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCcyGrossAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="oldSecurityUnitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CashTransferObject">
+		<xs:complexContent>
+			<xs:extension base="TransactionObject">
+				<xs:sequence>
+					<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+					<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="cashAmount" type="xs:decimal"/>
+					<xs:element name="currentAccountCcyGrossAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="currentAccountCcyNetAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="currentAccountCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SinkingFundsObject">
+		<xs:complexContent>
+			<xs:extension base="TransactionObject">
+				<xs:sequence>
+					<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="positionCriteria1" type="xs:integer" minOccurs="0"/>
+					<xs:element name="redemptionAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="redemptionNetAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="security" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="securityCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CashInterestObject">
+		<xs:complexContent>
+			<xs:extension base="TransactionObject">
+				<xs:sequence>
+					<xs:element name="balance" type="xs:decimal"/>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+					<xs:element name="interestAmount" type="xs:decimal"/>
+					<xs:element name="InterestCcyPortfolioCcyExchangeRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountBaseObject">
+		<xs:complexContent>
+			<xs:extension base="TransactionObject">
+				<xs:sequence>
+					<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+					<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="originalSecurityDepositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="originalSecurity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="originalSecurityPositionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="originalSecurityPositionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="originalSecurityPositionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="originalSecurityPositionCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="positionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="positionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="positionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="positionCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="profitLossCounter" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountCashRevStockSplitObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="cashAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustPropSecuSpinOffObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustProportionalBaseObject">
+				<xs:sequence>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="securityQuantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="security" type="infra:Identifier"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="costProportion" type="xs:decimal" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustPropCashSpinOffObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustProportionalBaseObject">
+				<xs:sequence>
+					<xs:element name="costProportion" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustProportionalBaseObject">
+		<xs:complexContent>
+			<xs:extension base="TransactionObject">
+				<xs:sequence>
+					<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+					<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="originalDepositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="originalPositionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="originalPositionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="originalPositionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="originalPositionCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="originalSecurity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="positionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="positionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="positionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="positionCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountCashSpinOffObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="cashAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountCallOnRightsObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="rightquantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="right" type="xs:token"/>
+					<xs:element name="rightUnitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountDecrInValueObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+					<xs:element name="decreaseAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountIncrInValueObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="increaseAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountSecuExchOfferObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="securityQuantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="security" type="infra:Identifier"/>
+					<xs:element name="securityUnitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountCashExchOfferObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="cashAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountDetachmentObject">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="security" type="infra:Identifier"/>
+					<xs:element name="unitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountStockSplit">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="deltaQuantity" type="xs:decimal"/>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="security" type="infra:Identifier"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountDivOpt">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="security" type="infra:Identifier"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="stockDividendQuantity" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountScripDiv">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="scriptDividendQuantity" type="xs:decimal"/>
+					<xs:element name="security" type="infra:Identifier"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountBonusIssue">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="bonusIssueQuantity" type="xs:decimal"/>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="security" type="infra:Identifier"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountCouponStrip">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="couponQuantity" type="xs:decimal"/>
+					<xs:element name="couponUnitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponDepositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="coupon" type="infra:Identifier"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountPayInKind">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="payInKindQuantity" type="xs:decimal"/>
+					<xs:element name="security" type="infra:Identifier"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountRights">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="rightDepositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="rightQuantity" type="xs:decimal"/>
+					<xs:element name="rightUnitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="right" type="infra:Identifier"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountInstalment">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="currentAccount" type="infra:Identifier"/>
+					<xs:element name="installmentAmount" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustGrossAmountAttachment">
+		<xs:complexContent>
+			<xs:extension base="AdjustGrossAmountBaseObject">
+				<xs:sequence>
+					<xs:element name="depositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="security" type="infra:Identifier"/>
+					<xs:element name="unitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AdjustProfitLossObject">
+		<xs:complexContent>
+			<xs:extension base="TransactionObject">
+				<xs:sequence>
+					<xs:element name="coaReference" type="xs:token" minOccurs="0"/>
+					<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="initiator" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="newQuantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="newSecurity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="newSecurityDepositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="newSecurityPositionCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="oldQuantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="oldSecurity" type="infra:Identifier"/>
+					<xs:element name="oldSecurityDepositaryAccount" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCriteria1" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCriteria2" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="oldSecurityPositionCriteria3" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="oldSecuritypositionCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="splitPortfolio" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="transactionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="unitaryCostPrice" type="xs:decimal" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CashPortfolioObject">
+		<xs:sequence>
+			<xs:element name="portfolio" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="exchangeRate" type="xs:decimal" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

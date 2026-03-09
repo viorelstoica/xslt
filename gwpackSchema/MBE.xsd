@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema targetNamespace="http://www.odcgroup.com/MBE" xmlns="http://www.odcgroup.com/MBE" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="MBE">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="entity" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="entitySet_ct">
+								<xs:attributeGroup ref="entity_attrgrp"/>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attributeGroup ref="dataset_attrgrp"/>
+			<xs:attribute name="businessEntity" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="recordset_ct">
+		<xs:sequence>
+			<xs:element name="record" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="attributes" type="attributeSet_ct" minOccurs="0"/>
+					</xs:sequence>
+					<xs:attributeGroup ref="record_attrgrp"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="entitySet_ct">
+		<xs:sequence>
+			<xs:element name="codification" type="codification_ct" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="records" type="recordset_ct" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:attributeGroup name="attribute_attrgrp">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="type" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="date"/>
+					<xs:enumeration value="datetime"/>
+					<xs:enumeration value="string"/>
+					<xs:enumeration value="decimal"/>
+					<xs:enumeration value="integer"/>
+					<xs:enumeration value="boolean"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="attributeSet_ct">
+		<xs:sequence>
+			<xs:element name="attribute" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attributeGroup ref="attribute_attrgrp"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:attributeGroup name="entity_attrgrp">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="parent" type="xs:string" use="optional"/>
+		<xs:attribute name="mode" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="INSUPD"/>
+					<xs:enumeration value="INSERT"/>
+					<xs:enumeration value="UPDATE"/>
+					<xs:enumeration value="UPDINS"/>
+					<xs:enumeration value="DELETE"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="record_attrgrp">
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="eventIdentifier" type="xs:unsignedLong" use="optional"/>
+		<xs:attribute name="eventStatus" type="xs:unsignedByte" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="dataset_attrgrp">
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="output" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+	<xs:complexType name="codification_ct">
+		<xs:sequence>
+			<xs:element name="entity" type="xs:string"/>
+			<xs:element name="codification" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

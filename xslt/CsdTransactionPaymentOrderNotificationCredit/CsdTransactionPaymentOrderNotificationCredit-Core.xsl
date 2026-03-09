@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.odcgroup.com/TransactionPMS" xmlns:b="http://www.temenos.com/T24/event/TTI/PaymentOrderNotification" xmlns:infra="http://www.odcgroup.com/InfraPMS"
+                xmlns:ns0="http://www.temenos.com/T24/event/Common/EventCommon" exclude-result-prefixes="b ns0" version="1.0">
+
+	<xsl:template name="account1CcyFTCcyExchangeRate"/>
+	<xsl:template name="account1">
+	   <account1>
+            <infra:code>
+                <xsl:value-of select="b:paymentOrderCreditAccount"/>
+            </infra:code>	       
+	   </account1>
+	</xsl:template>
+	<xsl:template name="account1NetAmount"/>
+	<xsl:template name="account2"/>
+	<xsl:template name="account2CcyFTCcyExchangeRate"/>
+	<xsl:template name="account2NetAmount"/>
+	<xsl:template name="account3"/>
+	<xsl:template name="account3CcyFTCcyExchangeRate"/>
+	<xsl:template name="account3NetAmount"/>
+	<xsl:template name="accountingCode"/>
+	<xsl:template name="accountingDate">
+			<accountingDate>		
+               <xsl:value-of select="b:paymentOrderPaymentExecutionDate"/>			
+        	</accountingDate>
+	</xsl:template>
+	<xsl:template name="cashPortfolio"/>
+	<xsl:template name="commonReference"/>
+	<xsl:template name="contractNumber"/>
+	<xsl:template name="feesTaxesCcyPortfolioCcyExchangeRate"/>
+	<xsl:template name="feesTaxesCounter"/>
+	<xsl:template name="feesTaxesCurrency">
+	<feesTaxesCurrency>
+		<infra:code>
+			<xsl:value-of select="b:CreditMainAccountCurrencyCode"/>
+		</infra:code>
+	</feesTaxesCurrency>
+	</xsl:template>
+	<xsl:template name="feesTaxesAmount">
+	<feesTaxesAmount>
+		<xsl:value-of select="format-number(-1* b:porTransactionCreditMainAmount,$decimalformat,'nan2zero') "/>
+	</feesTaxesAmount>
+	</xsl:template>
+	<xsl:template name="notepad"/>
+	<xsl:template name="portfolioManager"/>
+	<xsl:template name="portfolio">
+		<portfolio>
+			<infra:code>
+			 <xsl:choose>
+				<xsl:when test="b:paymentOrderCreditAccountPortfolioNoList/b:paymentOrderCreditAccountPortfolioNo and b:paymentOrderCreditAccountPortfolioNoList/b:paymentOrderCreditAccountPortfolioNo != ''">
+						<xsl:value-of select="b:paymentOrderCreditAccountPortfolioNoList/b:paymentOrderCreditAccountPortfolioNo"/>
+				</xsl:when>
+				<xsl:otherwise>
+						<xsl:value-of select="b:paymentOrderCreditAccountSamHistId"/>
+				</xsl:otherwise>
+			</xsl:choose>
+			</infra:code>
+		</portfolio>
+	</xsl:template>
+	<xsl:template name="quantity">
+		<quantity>
+			<xsl:value-of select="b:porTransactionCreditMainAmount"/>
+		</quantity>
+	</xsl:template>
+	<xsl:template name="remark">
+		<remark>
+			<xsl:value-of select="b:paymentSystemStatus"/>
+		</remark>
+	</xsl:template>
+	<xsl:template name="reversalIndicator">
+		<xsl:variable name="OperationReversed">
+                <xsl:if test="starts-with(b:paymentStatusAddInfo, $PAYMENT_ORDER_STATUS_REVERSED)">
+				<xsl:value-of select="'1'"/>
+			</xsl:if>
+		</xsl:variable>
+		<xsl:if test="$OperationReversed = '1'">
+			<reversalIndicator>
+				<xsl:value-of select="'1'"/>
+			</reversalIndicator>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template name="reversedTransactionCode">
+		<xsl:variable name="OperationReversed">
+                <xsl:if test="starts-with(b:paymentStatusAddInfo, $PAYMENT_ORDER_STATUS_REVERSED)">
+				<xsl:value-of select="'1'"/>
+			</xsl:if>
+		</xsl:variable>
+		<xsl:variable name="OriginalOperationCode">
+			<xsl:choose>
+				<xsl:when test="b:paymentOrderTapRefId != '' and b:paymentOrderTapOperNature = 'IN'">
+					<xsl:value-of select="b:paymentOrderTapRefId"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="concat('PO_',b:paymentOrderId,'_C',$COMPANY_POSTFIX_SEPARATOR,b:paymentOrderCompanyMnemonic)"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:if test="$OperationReversed = '1'">
+			<reversedTransactionCode>
+				<xsl:value-of select="$OriginalOperationCode"/>
+			</reversedTransactionCode>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template name="sourceSystemCode">
+        <sourceSystemCode>
+            <xsl:value-of select="b:paymentOrderId" />
+        </sourceSystemCode>
+    </xsl:template>
+    <xsl:template name="subType"/>
+	<xsl:template name="status">
+        <status>
+			<xsl:choose>
+                <xsl:when test="b:paymentStatusAddInfo and starts-with(b:paymentStatusAddInfo,$PAYMENT_ORDER_STATUS_CANCELLED)">
+                    <xsl:call-template name="statusTranslation">
+                        <xsl:with-param name="boStatus" select="'CANCELLED'"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="statusTranslation">
+                        <xsl:with-param name="boStatus" select="'ACCOUNTED'"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+			</xsl:choose>
+        </status>
+	</xsl:template>
+	<xsl:template name="transactionCode">
+			<xsl:variable name="OperationReversed">
+                <xsl:if test="starts-with(b:paymentStatusAddInfo, $PAYMENT_ORDER_STATUS_REVERSED)">
+                    <xsl:value-of select="'1'"/>
+                </xsl:if>
+			</xsl:variable>
+			<xsl:variable name="OriginalOperationCode">
+				<xsl:choose>
+					<xsl:when test="b:paymentOrderTapRefId != '' and b:paymentOrderTapOperNature = 'IN'">
+						<xsl:value-of select="b:paymentOrderTapRefId"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="concat('PO_',b:paymentOrderId,'_C',$COMPANY_POSTFIX_SEPARATOR,b:paymentOrderCompanyMnemonic)"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+			<xsl:choose>
+				<xsl:when test="$OperationReversed = '1'">
+					<transactionCode>
+						<xsl:value-of select="concat($OriginalOperationCode,'_R')"/>
+					</transactionCode>
+				</xsl:when>
+				<xsl:otherwise>
+					<transactionCode>
+						<xsl:value-of select="$OriginalOperationCode"/>
+					</transactionCode>
+				</xsl:otherwise>
+			</xsl:choose>
+	</xsl:template>
+	<xsl:template name="transactionDate">
+		<transactionDate>
+        	<xsl:value-of select="b:paymentOrderPaymentExecutionDate"/>
+		</transactionDate>
+	</xsl:template>
+	<xsl:template name="transactionFeesTaxesCounter">
+      <transactionFeesTaxesCounter>
+         <amount>
+             <xsl:choose>
+              <xsl:when test="b:porTransactionCreditMainAmount != b:porTransactionPostingMainAmountCredit">
+                 <xsl:value-of select="format-number(b:porTransactionCreditMainAmount - b:porTransactionPostingMainAmountCredit,'0.##','nan2zero')"/>
+              </xsl:when>
+              <xsl:otherwise>
+                 <xsl:value-of select="0"/>
+              </xsl:otherwise>
+           </xsl:choose>
+         </amount>
+         <currency>
+            <infra:code>
+               <xsl:value-of select="b:CreditMainAccountCurrencyCode"/>
+            </infra:code>
+         </currency>
+         <type>
+            <infra:code>CASH_OP_TOT_CHARGES</infra:code>
+         </type>
+      </transactionFeesTaxesCounter>
+   </xsl:template>
+   <xsl:template name="type"/>
+	<xsl:template name="valueDate">
+	   <valueDate>
+            <xsl:choose>
+                  <xsl:when test="b:paymentOrderCreditValueDate and b:paymentOrderCreditValueDate!= ''">
+                       <xsl:value-of select="b:paymentOrderCreditValueDate"/>                                     
+                  </xsl:when>
+                  <xsl:otherwise>
+                       <xsl:value-of select="b:paymentOrderPaymentExecutionDate"/>                   
+                  </xsl:otherwise>
+            </xsl:choose>
+	   </valueDate>
+	</xsl:template>
+	<xsl:template name="userDefinedField"/>
+	<xsl:template name="mbFields"/>
+	
+	
+
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios/>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->

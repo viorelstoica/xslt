@@ -1,0 +1,35 @@
+tti:
+    application.name: TTI
+jms:
+    initial.factory: org.jboss.naming.remote.client.InitialContextFactory
+    provided.url: http-remoting://localhost:9089
+    connection.factory: jms/RemoteConnectionFactory
+    server.username: SSOUSER1
+    server.password: p!123456
+    ssl.enabled: false
+    ssl.trustStore: C:/tmp/servertrust.keystore
+    ssl.trustStorePassword: 123456
+
+queue:
+    b2f:
+        request.queue: jms:queue:t24IFInboundQueue
+        input.queue: jms:queue:T24_JMS        
+        single.input.queue: jms:queue:T24_IN        
+        batch.input.queue: jms:queue:T24_BATCH_IN        
+        output.queue: jms:queue:XML_B2F
+    f2b:
+        tap.input.queue: jms:queue:XML_F2B
+        tap.slow.queue: jms:queue:SLOW
+        tap.output.queue: jms:queue:XML_T24
+        monitor.queue: jms:queue:MON
+        error.queue: jms:queue:ERROR
+        final.jms.queue.name: jms:queue:XML_B2F
+    ofsml:
+        request: ttiOFSMLQueue
+        reply: ttiOFSMLReplyQueue
+        
+multithreading:
+    cache.size: 100
+    min.connection: 5
+    max.connection: 10
+    idle.connection: 5

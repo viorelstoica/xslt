@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="GWPACK_Master_Config">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Instance_Configuration" type="Instance_Configuration"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Instance_Configuration">
+		<xs:sequence>
+			<xs:element name="Instance_Name"/>
+			<xs:element name="TypeAndMode" type="TypeAndMode" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TypeAndMode">
+		<xs:sequence>
+			<xs:element name="Type_Of_Data"/>
+			<xs:element name="Importation_Mode"/>
+			<xs:element name="Import_Output_Card"/>
+			<xs:element name="TimeStampGeneration"/>
+			<xs:element name="IndexGeneration"/>
+			<xs:element name="SchemaNameGeneration"/>
+			<xs:element name="GWPACKTRY_Generation" minOccurs="0"/>
+			<xs:element name="Importation_Mode_Generation" minOccurs="0"/>
+			<xs:element name="FLH_Generation" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

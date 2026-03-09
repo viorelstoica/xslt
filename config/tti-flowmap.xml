@@ -1,0 +1,659 @@
+<?xml version="1.0"?>
+<TtiFlowMapper>
+	<FlowMap>
+		<Flow>TransactionEntitlement</Flow>
+		<Xslt>TransactionExchangeOffer</Xslt>
+		<Xslt>TransactionLapse</Xslt>
+		<Xslt>TransactionCoaSale</Xslt>
+		<Xslt>TransactionFinalMaturity</Xslt>
+		<Xslt>TransactionReverseStockSplit</Xslt>
+		<Xslt>TransactionDecreaseInValue</Xslt>
+		<Xslt>TransactionIncreaseInValue</Xslt>
+		<Xslt>TransactionInterestPayment</Xslt>
+		<Xslt>TransactionWarrantExercise</Xslt>
+		<Xslt>TransactionOptionDividend</Xslt>
+		<Xslt>TransactionStockDividend</Xslt>
+		<Xslt>TransactionCashDividend</Xslt>
+		<Xslt>TransactionDistribution</Xslt>
+		<Xslt>TransactionCoaPurchase</Xslt>
+		<Xslt>TransactionConversion</Xslt>
+		<Xslt>TransactionRepurchase</Xslt>
+		<Xslt>TransactionStockSplit</Xslt>
+		<Xslt>TransactionTaxRefund</Xslt>
+		<Xslt>TransactionReinvest</Xslt>
+		<Xslt>TransactionSpinOff</Xslt>
+		<Xslt>TransactionMerger</Xslt>
+		<Xslt>TransactionDecreaseInValuePL</Xslt>
+		<Xslt>TransactionIncreaseInValuePL</Xslt>
+		<Xslt>TransactionSinkingRedemption</Xslt>
+		<Xslt>TransactionMultiCurrencyDividend</Xslt>
+		<Xslt>MaintainPortfolioValue</Xslt>
+		<Xslt>TransactionOddlotEvent</Xslt>
+		<Xslt>TransactionOffMarketBuyback</Xslt>
+		<Xslt>TransactionSharePurchasePlan</Xslt>
+		<Xslt>TransactionRightsDistribution</Xslt>
+		<Xslt>TransactionRightsDistributionGenericCOA</Xslt>
+		<Xslt>TransactionSaleNoticeOfRetentionTopUp</Xslt>
+		<Xslt>TransactionRightsExecution</Xslt>
+		<Xslt>TransactionSpinOffProp</Xslt>
+		<Xslt>TransactionWithholdingTaxBooking</Xslt>
+		<Xslt oldNew="true">TransactionTakeoverMultipleSettlements</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentSecurity</Flow>
+		<Xslt>FinancialInstrumentCorporateActions</Xslt>
+		<Xslt>FinancialInstrumentCommodity</Xslt>
+		<Xslt>FinancialInstrumentConvertibleBond</Xslt>
+		<Xslt>FinancialInstrumentDiscountInstrument</Xslt>
+		<Xslt>FinancialInstrumentFixedIncome</Xslt>
+		<Xslt>FinancialInstrumentLombardWeightsSC</Xslt>
+		<Xslt>FinancialInstrumentMiniFutureTurbo</Xslt>
+		<Xslt>FinancialInstrumentMutualFund</Xslt>
+		<Xslt>FinancialInstrumentStock</Xslt>
+		<Xslt>SpAirBagCertificates</Xslt>
+		<Xslt>SpBonusNotes</Xslt>
+		<Xslt>SpCapitalProtectedNotes</Xslt>
+		<Xslt>SpDiscountCertificate</Xslt>
+		<Xslt>SpMemoryCouponNotes</Xslt>
+		<Xslt>SpTwinWinCertificate</Xslt>
+		<Xslt>SpRevConvBondLinked</Xslt>
+		<Xslt>SpRevConvCreditLinked</Xslt>
+		<Xslt>SpRevConvEquityLinked</Xslt>
+		<Xslt>FinancialInstrumentIndexSM</Xslt>
+		<Xslt>FinancialInstrumentOther</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>TransactionAssignExpiryOptionBuyCloseOutRev</Flow>
+		<Xslt>TransactionAssignExpiryOptionBuyCloseOutRev</Xslt>
+		<Xslt>CashPayoutExerciseReversal</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>TransactionAssignExpiryOptionSellCloseOutRev</Flow>
+		<Xslt>TransactionAssignExpiryOptionSellCloseOutRev</Xslt>
+		<Xslt>CashPayoutAssignReversal</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentME</Flow>
+		<Xslt>FinancialInstrumentCommodity</Xslt>
+		<Xslt>FinancialInstrumentConvertibleBond</Xslt>
+		<Xslt>FinancialInstrumentDiscountInstrument</Xslt>
+		<Xslt>FinancialInstrumentFixedIncome</Xslt>
+		<Xslt>FinancialInstrumentMiniFutureTurbo</Xslt>
+		<Xslt>FinancialInstrumentMutualFund</Xslt>
+		<Xslt>FinancialInstrumentStock</Xslt>
+		<Xslt>SpAirBagCertificates</Xslt>
+		<Xslt>SpBonusNotes</Xslt>
+		<Xslt>SpCapitalProtectedNotes</Xslt>
+		<Xslt>SpDiscountCertificate</Xslt>
+		<Xslt>SpMemoryCouponNotes</Xslt>
+		<Xslt>SpTwinWinCertificate</Xslt>
+		<Xslt>SpRevConvBondLinked</Xslt>
+		<Xslt>SpRevConvCreditLinked</Xslt>
+		<Xslt>SpRevConvEquityLinked</Xslt>
+		<Xslt>FinancialInstrumentOther</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>FinancialInstrumentForex</Flow>
+		<Xslt>FinancialInstrumentForward</Xslt>
+		<Xslt>FinancialInstrumentFXSwapGeneric</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>NdDeal</Flow>
+		<Xslt>FinancialInstrumentNdForward</Xslt>
+		<Xslt>NdForwardPurchaseOpening</Xslt>
+		<Xslt>NdForwardPurchaseClosing</Xslt>
+		<Xslt>NdForwardSaleOpening</Xslt>
+		<Xslt>NdForwardSaleClosing</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>SyDci</Flow>
+		<Xslt>FinancialInstrumentSPDCI</Xslt>
+		<Xslt>FinancialInstrumentSPDCIFX</Xslt>
+		<Xslt>FinancialInstrumentSPDCIMM</Xslt>
+		<Xslt>SyDciOpenDeposit</Xslt>
+		<Xslt>SyDciReversal</Xslt>
+		<Xslt>SyDCICloseDeposit</Xslt>
+		<Xslt>SyDCIDepositInterest</Xslt>
+		<Xslt>SyDCIForexSpotSale</Xslt>
+		<Xslt>SyDCIPositions</Xslt>
+		<Xslt>FinancialInstrumentSPDCIFX2</Xslt>
+		<Xslt>DCIUnwindingFee</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>SyAccuDecu</Flow>
+		<Xslt>FinancialInstrumenSPAccuDecu</Xslt>
+		<Xslt>TransactionAccuDecuBuyReversal</Xslt>
+		<Xslt>TransactionSPAccuDecuOpen</Xslt>
+		<Xslt>TransactionSPAccuDecuClose</Xslt>
+		<Xslt>SYBlockUnblockSecPos</Xslt>
+		<Xslt>SYBlockUnblockAccPos</Xslt>
+		<Xslt>AccuDecuUnwindingFee</Xslt>
+		<Xslt>TransactionSPAccuDecuFixCashSettle</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>SyImf</Flow>
+		<Xslt>FinancialInstrumentSyIMF</Xslt>
+		<Xslt>FinancialInstrumentSyIMFDP</Xslt>
+		<Xslt>FinancialInstrumentSyIMFLO</Xslt>
+		<Xslt>IMFDepositInterest</Xslt>
+		<Xslt>IMFLoanInterest</Xslt>
+		<Xslt>UnwindingFee</Xslt>
+		<Xslt>SyIMFOpenDeposit</Xslt>
+		<Xslt>SyIMFOpenLoan</Xslt>
+		<Xslt>SyIMFUnwindDeposit</Xslt>
+		<Xslt>SyIMFUnwindLoan</Xslt>
+		<Xslt>SyIMFCloseDeposit</Xslt>
+		<Xslt>SyIMFCloseLoan</Xslt>
+		<Xslt>SyIMFPositionsDeposit</Xslt>
+		<Xslt>SyIMFPositionsLoan</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">SyImfRollover</Flow>
+		<Xslt>SyIMFDepInc</Xslt>
+		<Xslt>SyIMFIntChange</Xslt>
+		<Xslt>SyIMFDepDec</Xslt>
+		<Xslt>SyIMFLoanInc</Xslt>
+		<Xslt>SyIMFLoanDec</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>TransactionsForex</Flow>
+		<Xslt>ForexSpotPurchase</Xslt>
+		<Xslt>ForexSpotSale</Xslt>
+		<Xslt>ForwardPurchaseOpening</Xslt>
+		<Xslt>ForwardSaleOpening</Xslt>
+		<Xslt>FXSwapOpening</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>PositionsForex</Flow>
+		<Xslt>PositionsFXForward</Xslt>
+		<Xslt>PositionsFXSwap</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FdFidOrder</Flow>
+		<Xslt>FinancialInstrumentFiduciaryInit</Xslt>
+		<Xslt>TransactionFiduciaryInitiate</Xslt>
+		<Xslt>PositionFiduciary</Xslt>
+		<Xslt>PositionFiduciaryFWD</Xslt>
+		<Xslt>FinancialInstrumentFiduciaryIL</Xslt>
+		<Xslt>TransactionCloseFiduciary</Xslt>
+		<Xslt>TransactionFiduciaryTransfer</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>FdFidOrderCob</Flow>
+		<Xslt>TransactionCloseFiduciaryCob</Xslt>
+		<Xslt>FiduciaryAccruedInterest</Xslt>
+		<Xslt>FinInstrumentCloseFiduciaryCob</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FdGroupPayment</Flow>
+		<Xslt>FinancialInstrumentFiduciaryContractNoticeTempl</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FdFiduciary</Flow>
+		<Xslt>FinancialInstrumentFiduciaryContract</Xslt>
+		<Xslt>TransactionOpenFiduciary</Xslt>
+		<Xslt>TransactionFiduciaryAcknowledgeEmatReimb</Xslt>
+		<Xslt>TransactionFiduciaryChangePrincipal</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>LdLoansAndDeposits</Flow>
+		<Xslt>FinancialInstrumentLD</Xslt>
+		<Xslt>RevTransactionOpenLDDeposits</Xslt>
+		<Xslt>RevTransactionOpenLDLoans</Xslt>
+		<Xslt>LDPositionIL</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>BasicInterest</Flow>
+		<Xslt>FinancialInstrumentRateBasic</Xslt>
+		<Xslt>RatePriceBasic</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">LdLoansAndDepositsOldNew</Flow>
+		<Xslt>LDFixedInterestRate</Xslt>
+		<Xslt>LDFloatingRateInterest</Xslt>
+		<Xslt>TransactionOpenLDDeposits</Xslt>
+		<Xslt>TransactionOpenLDLoans</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">IRSswap</Flow>
+		<Xslt>FinancialInstrumentIRS</Xslt>
+		<Xslt>TransactionIRSPurchaseOpen</Xslt>
+		<Xslt>TransactionIRSPurchaseOpenIL</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">DXOrderReturn</Flow>
+		<Xslt>DXOrderCancelAccepted</Xslt>
+		<Xslt>DXOrderCancelRejected</Xslt>
+		<Xslt>DXOrderUpdateAccepted</Xslt>
+		<Xslt>DXOrderUpdateRejected</Xslt>
+	</FlowMap>
+
+	<FlowMap>
+		<Flow>SyFxForwards</Flow>
+		<Xslt>FiPFOption</Xslt>
+		<Xslt>FiPFCallOpt</Xslt>
+		<Xslt>FiPFPutOpt</Xslt>
+		<Xslt>FiPFVanillaOpt</Xslt>
+		<Xslt>FiTarko</Xslt>
+		<Xslt>FiTarkoCallOption</Xslt>
+		<Xslt>FiTarkoPutOption</Xslt>
+		<Xslt>FiTarkoVanillaOption</Xslt>
+		<Xslt>TransactionSYFXOpenDerivativeBuy</Xslt>
+		<Xslt>TransactionSYTarkoOpenDerivativeBuy</Xslt>
+		<Xslt>TransOpenSYFXDerivativeBuyRev</Xslt>
+		<Xslt>TransSYTarkoDerivativeBuyRev</Xslt>
+		<Xslt>PFTarkoUnwindingFee</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>SyFxForwardsCob</Flow>
+		<Xslt>TransactionSYFXOpenDerivativeSell</Xslt>
+		<Xslt>TransactionSYTarkoOpenDerivativeSell</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>DXCustomer</Flow>
+		<Xslt>DXCustomerDeposit</Xslt>
+		<Xslt>DXCustomerThirdParty</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>PaymentOrder</Flow>
+		<Xslt>TransactionPaymentOrderDebit</Xslt>
+		<Xslt>TransactionPaymentOrderCredit</Xslt>
+		<Xslt>TransactionPaymentOrderDebitRev</Xslt>
+		<Xslt>TransactionPaymentOrderCreditRev</Xslt>
+		<Xslt>TransactionPaymentOrderSell</Xslt>
+		<Xslt>CsdTransactionPaymentOrderDebit</Xslt>
+		<Xslt>CsdTransactionPaymentOrderCredit</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>FinancialInstrumentSyContractMaster</Flow>
+		<Xslt>FinancialInstrumentSyMasterPartFwd</Xslt>
+		<Xslt>FinancialInstrumentSyMasterDCI</Xslt>
+		<Xslt>FinancialInstrumentSyMasterAccuDecu</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">PEProductEvents</Flow>
+		<Xslt>PEProductEvents</Xslt>
+		<Xslt>PEParentChildLink</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">PECustomerTxn</Flow>
+		<Xslt>PEInterestPayment</Xslt>
+		<Xslt>PEFundCreateSubscription</Xslt>
+		<Xslt>PEFundChangeOrderStatus</Xslt>
+		<Xslt>TransactionPEIssuerFees</Xslt>
+		<Xslt>T24OrderCancelledUpdate</Xslt>
+	</FlowMap>
+
+	<!-- From the old multi-routing.xml -->
+	<FlowMap>
+		<Flow oldNew="true">PortfolioCashAccounts</Flow>
+		<Xslt>PortfolioCashAccounts</Xslt>
+	</FlowMap>
+
+	<FlowMap>
+		<Flow oldNew="true">Country</Flow>
+		<Xslt>Country</Xslt>
+	</FlowMap>
+
+	<FlowMap>
+		<Flow oldNew="true">Currency</Flow>
+		<Xslt>Currency</Xslt>
+	</FlowMap>
+
+	<FlowMap>
+		<Flow oldNew="true">CurrencyMarket</Flow>
+		<Xslt>CurrencyMarket</Xslt>
+	</FlowMap>
+
+	<FlowMap>
+		<Flow oldNew="true">PriceUpdate</Flow>
+		<Xslt>PriceUpdate</Xslt>
+	</FlowMap>
+
+	<FlowMap>
+		<Flow oldNew="true">RatingAgency</Flow>
+		<Xslt>RatingAgency</Xslt>
+	</FlowMap>
+
+	<FlowMap>
+		<Flow oldNew="true">StockExchange</Flow>
+		<Xslt>StockExchange</Xslt>
+	</FlowMap>
+
+	<FlowMap>
+		<Flow oldNew="true">Customer</Flow>
+		<Xslt>Customer</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">MifidClientClassif</Flow>
+		<Xslt>MifidClientClassif</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">ThirdPartySector</Flow>
+		<Xslt>ThirdPartySector</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CustomerType</Flow>
+		<Xslt>CustomerType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CashAccountType</Flow>
+		<Xslt>CashAccountType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">InstrumentType</Flow>
+		<Xslt>InstrumentType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">InstrumentSubType</Flow>
+		<Xslt>InstrumentSubType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">OperationType</Flow>
+		<Xslt>OperationType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">TransactionOperationType</Flow>
+		<Xslt>TransactionOperationType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FundsTransferOperationType</Flow>
+		<Xslt>FundsTransferOperationType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FXTransactionType</Flow>
+		<Xslt>FXTransactionType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">PtfManagementType</Flow>
+		<Xslt>PtfManagementType</Xslt>
+		<Xslt>StrategyInvStyleType</Xslt>		
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">AAProductGroup</Flow>
+		<Xslt>AAProductGroup</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">AAProductSubType</Flow>
+		<Xslt>AAProductSubType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">MDDealType</Flow>
+		<Xslt>MDDealType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentSector</Flow>
+		<Xslt>FinancialInstrumentSector</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CashAccount</Flow>
+		<Xslt>CashAccount</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentOption</Flow>
+		<Xslt>FinancialInstrumentOption</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentExoticOption</Flow>
+		<Xslt>FinancialInstrumentExoticOption</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentFuture</Flow>
+		<Xslt>FinancialInstrumentFuture</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">PortfolioThirdCompo</Flow>
+		<Xslt>PortfolioThirdCompo</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">Portfolio</Flow>
+		<Xslt>Portfolio</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">DXT24StatusChange</Flow>
+		<Xslt>DXT24StatusChange</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">T24StatusChange</Flow>
+		<Xslt>T24StatusChange</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">T24StatusChangeCancelUpdate</Flow>
+		<Xslt>T24StatusChangeCancelUpdate</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>TimeZone</Flow>
+		<Xslt>TimeZone</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>SecOpenOrder</Flow>
+		<Xslt>TransactionFeesIPO</Xslt>
+		<Xslt>TransactionCashDebitIPO</Xslt>
+		<Xslt>TransactionLockCashIPO</Xslt>
+		<Xslt>TransactionUnlockCashIpoDebit</Xslt>
+		<Xslt oldNew="true">TransactionSecOpenOrder</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>FullPartialExecution</Flow>
+		<Xslt>TransactionFeesIpoZeroAlot</Xslt>
+		<Xslt>TransactionUnlockCashIpoBlock</Xslt>
+		<Xslt>TransactionCashCreditIPO</Xslt>
+		<Xslt oldNew="true">FullPartialExecution</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>PaymentOrderNotification</Flow>
+		<Xslt>TransactionPaymentOrderNotificationDebit</Xslt>
+		<Xslt>TransactionPaymentOrderNotificationCredit</Xslt>
+		<Xslt>TransactionPaymentOrderNotificationSell</Xslt>
+		<Xslt>CsdTransactionPaymentOrderNotificationDebit</Xslt>
+		<Xslt>CsdTransactionPaymentOrderNotificationCredit</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>Cginventory</Flow>
+		<Xslt>AccountingProfile</Xslt>
+		<Xslt>AccountingProfileHistory</Xslt>
+		<Xslt>AccountingRuleCompo</Xslt>
+		<Xslt>ThirdPartyAccProfileHisto</Xslt>
+		<Xslt>BusinessEntityAccProfileHisto</Xslt>
+		<Xslt>FtConvention</Xslt>
+		<Xslt>ThirdPartyFtConvention</Xslt>
+		<Xslt>BusinessEntityFtConvention</Xslt>
+		<Xslt>Ftconventionhistory</Xslt>
+		<Xslt>Ftrate</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>CginventoryAll</Flow>
+		<Xslt>AccountingProfileAll</Xslt>
+		<Xslt>AccountingRuleCompoAll</Xslt>
+		<Xslt>FtConventionAll</Xslt>
+		<Xslt>FtrateAll</Xslt>
+		<Xslt>BusinessEntityAccProfileHistoAll</Xslt>
+		<Xslt>BusinessEntityFtConventionAll</Xslt>
+		<Xslt>ThirdPartyAccProfileHistoAll</Xslt>
+		<Xslt>ThirdPartyFtConventionAll</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>Company</Flow>
+		<Xslt>FiscalPeriod</Xslt>
+		<Xslt>FiscalPeriodCompo</Xslt>
+		<Xslt>BusinessEntityFiscalPeriod</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CgTxnBase</Flow>
+		<Xslt>TaxLotIL</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentExoticOptionSyDx</Flow>
+		<Xslt>FinancialInstrumentExoticOptionSyDx</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentFutureSYDX</Flow>
+		<Xslt>FinancialInstrumentFutureSYDX</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentOptionSyDx</Flow>
+		<Xslt>FinancialInstrumentOptionSyDx</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">Diary</Flow>
+		<Xslt>Diary</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CustomerDocument</Flow>
+		<Xslt>CustomerDocument</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">DocumentType</Flow>
+		<Xslt>DocumentType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">FinancialInstrumentSecurityCob</Flow>
+		<Xslt>FinancialInstrumentSecurityCob</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>SecurityTransfer</Flow>
+		<Xslt>SecurityTransferSecurityTransferIn</Xslt>
+		<Xslt>SecurityTransferSecurityTransferOut</Xslt>
+		<Xslt>SecurityTransferBuy</Xslt>
+		<Xslt>SecurityTransferSell</Xslt>
+		<Xslt>SecurityTransferSecurityTransferInReversal</Xslt>
+		<Xslt>SecurityTransferSecurityTransferOutReversal</Xslt>
+		<Xslt>SecurityTransferBuyReversal</Xslt>
+		<Xslt>SecurityTransferSellReversal</Xslt>
+		<Xslt>SecurityTransferAcknowledgment</Xslt>
+		<Xslt>SecurityTransferDelete</Xslt>
+		<Xslt>SecurityTransferSetEventStatus</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">SecTradeScSettlement</Flow>
+		<Xslt>SecTradeBuyActualSettlement</Xslt>
+		<Xslt>SecTradeSellActualSettlement</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">OrderGroupingForSubscriptionRedemption</Flow>
+		<Xslt>OrderGroupingForSubscriptionRedemption</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">OrderGroupingCutOffDateChange</Flow>
+		<Xslt>OrderGroupingCutOffDateChange</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>LockingTransactionCOA</Flow>
+		<Xslt>LockingTransactionDIARY</Xslt>
+		<Xslt oldNew="true">LockingTransactionOPTION</Xslt>
+		<Xslt>LockingTransactionENTITLEMENT</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>PositionTransferScSettlement</Flow>
+		<Xslt>PTFromToDepositActualSettlement</Xslt>
+		<Xslt>PTPtfToPtfInvActualSettlement</Xslt>
+		<Xslt>PTPtfToPtfWithdrActualSettlement</Xslt>
+		<Xslt>PTPortfolioTransferActualSettlement</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>IRSNotionalPrinChange</Flow>
+		<Xslt>IRSPDN</Xslt>
+		<Xslt>IRSPIN</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">ProductFeeType</Flow>
+		<Xslt>ProductFeeType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">EBLookup</Flow>
+		<Xslt>ProductFeeCategory</Xslt>
+		<Xslt>ProductFeeQuotationType</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">EBLookupESG</Flow>
+		<Xslt>ESGIndicatorDomainValue</Xslt>
+	</FlowMap>		
+	<FlowMap>
+		<Flow oldNew="true">MIFID</Flow>
+		<Xslt>MIFIDFees</Xslt>
+		<Xslt>FinancialInstrumentMifidTMA</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">ChronologicalDataFixedIncome</Flow>
+		<Xslt>ChronologicalDataFixedIncome</Xslt>
+		<Xslt>ChronoDataFund</Xslt>
+                <Xslt>ChronoDataStock</Xslt>
+	</FlowMap>
+	<FlowMap>
+                <Flow oldNew="true">EsfundTraspasoRequest</Flow>
+                <Xslt>TransactionTraspasoAcknowledgment</Xslt>
+                <Xslt>TransactionTraspasoCancel</Xslt>
+                <Xslt>TransactionTraspasoRejected</Xslt>
+         </FlowMap>
+         <FlowMap>
+                 <Flow>PositionTransferDelete</Flow>
+                 <Xslt>PositionTransferDelete</Xslt>
+                 <Xslt>PositionTransferSetEventStatus</Xslt>
+         </FlowMap>
+         <FlowMap>
+                 <Flow oldNew="true">SecurityTransferUpdate</Flow>
+                 <Xslt>SecurityTransferCancelRejected</Xslt>
+         </FlowMap>
+         <FlowMap>
+                 <Flow oldNew="true">PositionTransferUpdate</Flow>
+                 <Xslt>PositionTransferCancelRejected</Xslt>
+         </FlowMap>
+         <FlowMap>
+                 <Flow oldNew="true">AllfndFundSecurity</Flow>
+                 <Xslt>AllfndFundSecurity</Xslt>
+         </FlowMap>
+	<FlowMap>
+		<Flow>generateFxPositions</Flow>
+		<Xslt>FXInstrPrice</Xslt>
+		<Xslt>SplitFxRate</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>ScPosAsset</Flow>
+		<Xslt>ScPosAssetIL</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>UpfrontPaymentWith</Flow>
+		<Xslt>UpfrontPaymentWith</Xslt>
+		<Xslt>UpfrontPaymentInv</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow>OpenUpfrontPaymentOrder</Flow>
+		<Xslt>OpenUpfrontPaymentOrder</Xslt>
+		<Xslt>UpfrontPaymentCancel</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CustomerRelation</Flow>
+		<Xslt>CustomerRelation</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">ClientPersonalDataErasure</Flow>
+		<Xslt>ClientPersonalDataErasureAccount</Xslt>
+		<Xslt>ClientPersonalDataErasurePortfolio</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">ScEsgScores</Flow>
+		<Xslt>ScEsgScoresInstr</Xslt>
+		<Xslt>ScEsgScoresIssuer</Xslt>
+	</FlowMap>	
+	<FlowMap>
+		<Flow oldNew="true">CsdFatcaCustomerSupInfo</Flow>
+		<Xslt>CsdFatcaCustomerSupInfo</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CsdQiCustomerSupInfo</Flow>
+		<Xslt>CsdQiCustomerSupInfo</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CsdThirdPartyInsider</Flow>
+		<Xslt>CsdThirdPartyInsider</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">ChronoDataUnpaidPercentage</Flow>
+		<Xslt>ChronoDataUnpaidPercentage</Xslt>
+		<Xslt>CsdChronoDataUnpaidPercentage</Xslt>
+	</FlowMap>
+	<FlowMap>
+		<Flow oldNew="true">CsdStrategy</Flow>
+		<Xslt>CsdStrategy</Xslt>
+	</FlowMap>
+</TtiFlowMapper>

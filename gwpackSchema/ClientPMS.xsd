@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema targetNamespace="http://www.odcgroup.com/ClientPMS" xmlns:infra="http://www.odcgroup.com/InfraPMS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.odcgroup.com/ClientPMS" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.odcgroup.com/InfraPMS" schemaLocation="InfraPMS.xsd"/>
+	<xs:element name="ClientPMS">
+		<xs:annotation>
+			<xs:documentation>Odyssey Client PMS Schema</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DataGroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Portfolio" type="Portfolio" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="PortfolioOwnership" type="OwnershipPortfolio" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Client" type="Client" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="PortfolioChronologicalData" type="PorfolioChronologicalData" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="PortfolioPerformanceStorageParameter" type="PerformanceStorageParameter" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="AccountingProfileHisto" type="AccountingProfileHisto" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ThirdAccProfileHisto" type="ThirdAccProfileHisto" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ThirdPartyFtConvention" type="ThirdPartyFtConvention" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="InducementFees" type="InducementFees" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="PortfolioEvent" type="PortfolioEvent" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ClientDocument" type="ClientDocument" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="ClientDocumentLink" type="ClientDocumentLink" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="output" type="xs:string" use="optional"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="mode" type="infra:ModeEnum" use="optional"/>
+			<xs:attributeGroup ref="infra:businessEntity_AttrGrp"/>
+			<xs:attribute name="processDeletes" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Client">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="businessEntityComposition" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="infra:businessEntityComposition">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="clientAddress" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ClientAddress">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="clientCategory" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ClientCategory">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="clientGroup" type="xs:string" minOccurs="0"/>
+					<xs:element name="clientLanguage" type="xs:string" minOccurs="0"/>
+					<xs:element name="clientType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+					<xs:element name="faxNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="gdprChild" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="gdprInscope" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="gdprProcessRestriction" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="lastContactDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="legalEntityStatus" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="manager" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="nextContactDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="reportingCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="residenceCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskProfile" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="taxationCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="telexNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="thirdPartyLegalEntityType" type="xs:unsignedByte" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClientAddress">
+		<xs:sequence>
+			<xs:element name="addressType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="clientGroup" type="xs:string" minOccurs="0"/>
+			<xs:element name="country" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="faxNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="fullAddress" type="xs:string"/>
+			<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="postCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ClientCategory">
+		<xs:sequence>
+			<xs:element name="code" type="xs:token" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Portfolio">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="businessEntityComposition" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="infra:businessEntityComposition">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="cashBookingModel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="client" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="creditStatus" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="managementBeginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="managementEndDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="managementType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="marginLending" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="nature" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="ownership" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="PortfolioOwner">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="parentChildIndicator" type="xs:boolean"/>
+					<xs:element name="parentPortfolio" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="paymentInstruction" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="PortfolioPaymentInstruction">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="performanceCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="performanceDataStorageFrequency" type="xs:unsignedShort" minOccurs="0"/>
+					<xs:element name="performanceDataStorageUnit" type="PerformanceDataStorageUnitEnum" minOccurs="0"/>
+					<xs:element name="performanceDetailLevel" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="portfolioManager" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="portfolioGroup" type="xs:string" minOccurs="0"/>
+					<xs:element name="portfolioType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="positionManagementDate" type="PositionManagementDateEnum" minOccurs="0"/>
+					<xs:element name="positionManagementLevel" type="PositionManagementLevelEnum" minOccurs="0"/>
+					<xs:element name="positionManagementRule" type="PositionManagementRuleEnum" minOccurs="0"/>
+					<xs:element name="relationshipManager" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="reportingLanguage" type="xs:string" minOccurs="0"/>
+					<xs:element name="serviceType" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="sharia" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="status" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="trailerFeeEligibility" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="trailerFeePercentage" type="xs:decimal" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OwnershipPortfolio">
+				<xs:sequence>
+					<xs:element name="code" type="xs:token" minOccurs="0"/>
+					<xs:element name="portownership" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="portownership">
+									<xs:attribute name="mode" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="delete"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="portownership">
+		<xs:sequence>
+			<xs:element name="owner" type="infra:Identifier"/>
+			<xs:element name="ownershipPercentage" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ownershipRule">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>	
+	<xs:complexType name="PortfolioOwner">
+		<xs:sequence>
+			<xs:element name="owner" type="infra:Identifier"/>
+			<xs:element name="ownershipPercentage" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ownershipRule">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PositionManagementDateEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PositionManagementRuleEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PerformanceDetailLevelEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PerformanceStorageParameter">
+		<xs:sequence>
+			<xs:element name="currency" type="infra:Identifier"/>
+			<xs:element name="grid" type="xs:token" minOccurs="0"/>
+			<xs:element name="instrumentLevel" type="xs:boolean"/>
+			<xs:element name="oldPerformanceStorageParameter" type="xs:token" minOccurs="0"/>
+			<xs:element name="performanceAttribution" type="xs:boolean"/>
+			<xs:element name="performanceFirstDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="performanceLastDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="positionData" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="returnAnalysis" type="xs:boolean"/>
+			<xs:element name="returnFrequency" type="xs:unsignedByte"/>
+			<xs:element name="returnFirstDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="returnLastDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="standardFirstDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="standardLastDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="standardPerformance" type="xs:boolean"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:simpleType name="PerformanceDataStorageUnitEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PositionManagementLevelEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PorfolioChronologicalData">
+		<xs:sequence>
+			<xs:element name="comment" type="xs:string" minOccurs="0"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="nature" type="xs:unsignedByte"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="validity" type="xs:date" minOccurs="0"/>
+			<xs:element name="value" type="xs:decimal"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="PortfolioPaymentInstruction">
+		<xs:sequence>
+			<xs:element name="account" type="infra:Identifier"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="operationNature" type="xs:unsignedByte"/>
+			<xs:element name="operationType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="operationSubType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AccountingProfileHisto">
+		<xs:sequence>
+			<xs:element name="accProfile" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="endD" type="xs:date" minOccurs="0"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ThirdAccProfileHisto">
+		<xs:sequence>
+			<xs:element name="accProfile" type="infra:Identifier"/>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="endD" type="xs:date" minOccurs="0"/>
+			<xs:element name="third" type="infra:Identifier"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ThirdPartyFtConvention">
+		<xs:sequence>
+			<xs:element name="beginD" type="xs:date"/>
+			<xs:element name="ftConvention" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="third" type="infra:Identifier"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="InducementFees">
+		<xs:sequence>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="deposit" type="infra:Identifier"/>
+			<xs:element name="paymentDate" type="xs:date"/>
+			<xs:element name="paidAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="reimbursement" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="receivedAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="PortfolioEvent">
+		<xs:sequence>
+			<xs:element name="code" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="linkedInstrument" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="portfolio" type="infra:Identifier"/>
+			<xs:element name="quantity" type="xs:decimal"/>
+			<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="nature" type="xs:unsignedByte"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ClientDocument">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="documentCopy" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="documentOwner" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="expiryDate" type="xs:dateTime" minOccurs="0"/>
+			 <xs:element name="language" type="xs:string" minOccurs="0"/>
+			<xs:element name="receivedDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="referenceId" type="xs:string" minOccurs="0"/>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ClientDocumentLink">
+		<xs:sequence>
+			<xs:element name="client" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="document">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+	</xs:complexType>
+</xs:schema>

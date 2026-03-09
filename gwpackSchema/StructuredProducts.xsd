@@ -1,0 +1,2141 @@
+<?xml version="1.0"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema targetNamespace="http://www.odcgroup.com/StructuredProducts" xmlns="http://www.odcgroup.com/StructuredProducts" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:infra="http://www.odcgroup.com/InfraPMS" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.odcgroup.com/InfraPMS" schemaLocation="InfraPMS.xsd"/>
+	<xs:element name="StructuredProducts">
+		<xs:annotation>
+			<xs:documentation>Design based on GWP_StructProd.xslx revision 214492</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DataGroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="GuaranteedReturnInvestment" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="GuaranteedReturnInvestment">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CallableRangeInvestment" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="CallableRangeInvestment">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DualCurrencyInvestment" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="DualCurrencyInvestment">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="AccuDecu" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="AccuDecu">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PartForward" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="PartForward">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="FutureTurbo" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="FutureTurbo">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CapitalProtectedNote" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="CapitalProtectedNote">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReverseConvertibleNoteEquityLinked" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="ReverseConvertibleNoteEquityLinked">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReverseConvertibleNoteBondLinked" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="ReverseConvertibleNoteBondLinked">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReverseConvertibleNoteCreditLinked" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="ReverseConvertibleNoteCreditLinked">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DiscountCertificate" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="DiscountCertificate">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TwinWinCertificate" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="TwinWinCertificate">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BonusNotes" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="BonusNotes">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="MemoryCouponNotes" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="MemoryCouponNotes">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="AirbagCertificates" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="AirbagCertificates">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DigitalInvestment" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="DigitalInvestment">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TowerInvestment" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="TowerInvestment">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ExoticOption" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="ExoticOption">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ChronologicalData" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="InstrumentChronologicalData">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Price" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="Price">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Event" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="Event">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Composition" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="InstrumentComposition">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+											<xs:attribute name="mode" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="IndicatorAttrib" type="IndicatorAttrib" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="BusinessEntityComposition" type="businessEntityCompositionInstrument" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="output" type="xs:string" use="optional"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="mode" type="infra:ModeEnum" use="optional"/>
+			<xs:attributeGroup ref="infra:businessEntity_AttrGrp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="GuaranteedReturnInvestment">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="accrualRule" type="AccrualRuleEnum" minOccurs="0"/>
+					<xs:element name="accruedInterestCalculation" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="accruedInterestRoundingRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="accruedInterestRoundingUnit" type="infra:RoundingUnitEnum" minOccurs="0"/>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="capitalProtection" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="capLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+								<xs:enumeration value="11"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="euroNewInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="fixingDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="participationLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="priceCalculationRule" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="referenceCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="taxCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="threshold" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="tradable" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="valuationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CallableRangeInvestment">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="accrualRule" type="AccrualRuleEnum" minOccurs="0"/>
+					<xs:element name="accruedInterestCalculation" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="accruedInterestRoundingRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="accruedInterestRoundingUnit" type="infra:RoundingUnitEnum" minOccurs="0"/>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+								<xs:enumeration value="11"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="euroNewInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="interestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="lowerBarrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="priceCalculationRule" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="referenceCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="taxCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="tradable" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="upperBarrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="valuationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DualCurrencyInvestment">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="accrualRule" type="AccrualRuleEnum" minOccurs="0"/>
+					<xs:element name="accruedInterestCalculation" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="accruedInterestRoundingRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="accruedInterestRoundingUnit" type="infra:RoundingUnitEnum" minOccurs="0"/>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="category" type="xs:integer" minOccurs="0"/>
+					<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="convertInterest" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>None</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Principal Only</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Principal + Interest</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+								<xs:enumeration value="11"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="euroNewInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="fixingCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="genericFlag" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="interestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="priceCalculationRule" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="referenceCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="subNature" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="taxCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="tradable" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="usageNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Unlisted Instrument</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Structured Notes Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="3">
+									<xs:annotation>
+										<xs:documentation>OTC Derivatives Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="4">
+									<xs:annotation>
+										<xs:documentation>Structured Product Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="5">
+									<xs:annotation>
+										<xs:documentation>OTC Currency Derivatives Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="valuationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="dxContractCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CapitalProtectedNote">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="capitalProtectionLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="capLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="fixingDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>None</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="participationLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="rebate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="subNature" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ReverseConvertibleNoteEquityLinked">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="optionStyle" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ReverseConvertibleNoteBondLinked">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="optionStyle" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ReverseConvertibleNoteCreditLinked">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="optionStyle" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DiscountCertificate">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="capLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TwinWinCertificate">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="participationLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="participationLevelDownSide" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BonusNotes">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="bonusLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="optionStyle" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="participationLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MemoryCouponNotes">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="optionStyle" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AirbagCertificates">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="businessDayConvention" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponStrikeLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponStrikeLevelPercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseQuotePercent" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstObservationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="floatingRateInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="interestCalculationRule">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="optionStyle" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="participationLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DigitalInvestment">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="barrierNature" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="fixingDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TowerInvestment">
+		<xs:complexContent>
+			<xs:extension base="BondLike">
+				<xs:sequence>
+					<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="exerciseQuote" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="fixingDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="rebate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BondLike">
+		<xs:complexContent>
+			<xs:extension base="BasicStructuredProduct">
+				<xs:sequence>
+					<xs:element name="accrualRule" type="AccrualRuleEnum" minOccurs="0"/>
+					<xs:element name="accruedInterestRoundingRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="accruedInterestRoundingUnit" type="infra:RoundingUnitEnum" minOccurs="0"/>
+					<xs:element name="accruedInterestUnitaryRounding" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="accruedInterestCalculation" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="capitalGainTax" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="couponFrequencyNumber" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="couponFrequencyUnit" type="PaymentFrequencyUnit" minOccurs="0"/>
+					<xs:element name="effectiveMaturityDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="eomConvention" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="faceValue" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="firstCouponDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="firstExDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="interestAccrualDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="interestRate" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="issuedAmount" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="issueDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="issuedPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="issuer" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="lastCouponDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="maturityDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="maturityPrice" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="witholdingTax" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="yieldCurve" type="infra:Identifier" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BasicStructuredProduct">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="euroConversionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+								<xs:enumeration value="11"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="euroNewInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="mainStockExchange" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="minimumQuantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="priceCalculationRule" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="provider" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="referenceCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="roundLotQuantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="taxCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="tickSize" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="tradable" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="valuationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StockExchangeIdentifier">
+		<xs:sequence>
+			<xs:element name="code" type="infra:Identifier"/>
+			<xs:element name="currency" type="infra:Identifier"/>
+			<xs:element name="mainPlace" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="requestCode" type="RequestCode" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Price">
+		<xs:sequence>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="provider" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="quotationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="stockExchange" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="value" type="xs:decimal"/>
+			<xs:element name="valueType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueTermType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="priceCalculationRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InstrumentChronologicalData">
+		<xs:sequence>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="dataNature" type="xs:unsignedByte"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="validity" type="xs:date" minOccurs="0"/>
+			<xs:element name="value" type="xs:decimal"/>
+			<xs:element name="provider" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="valueType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FloatingCondition">
+		<xs:sequence>
+			<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="firstBenchmarkDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="firstResetDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="interestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="maximumRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="minimumRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="resetFrequencyNumber" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="resetFrequencyUnit" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="spreadRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="scheduledDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="userDefinedField" type="infra:UserDefinedField" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Coupon">
+		<xs:sequence>
+			<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="coupon" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="code" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="endValidityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="exchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="firstCouponDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CorporateAction">
+		<xs:sequence>
+			<xs:element name="cashSettlement" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="code" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="eventPriority" type="xs:positiveInteger" minOccurs="0"/>
+			<xs:element name="exchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="nature">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="9"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="newInstrument" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="newRatio" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="oldRatio" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="price" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="replaceOld" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="workingDays" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InstrumentComposition">
+		<xs:sequence>
+			<xs:element name="basketBarrier" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="basketBarrierPercent" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="basketExcercicePrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="basketExcercicePricePercent" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="basketInitialFixingPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="basketWeight" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="cheapest" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="compositeInstrument" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="conversionFactor" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="conversionRatio" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="divisor" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="rank" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="value" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RedemptionEvent">
+		<xs:sequence>
+			<xs:element name="announcementDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="code" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="effectiveMaturityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="exchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="nature">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="10"/>
+						<xs:enumeration value="11"/>
+						<xs:enumeration value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="noticeDays" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="redemptionFrequencyNumber" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="redemptionFrequencyUnit" type="PaymentFrequencyUnit" minOccurs="0"/>
+			<xs:element name="redemptionQuote" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionPercentage" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TermEvent">
+		<xs:sequence>
+			<xs:element name="averagingNumber" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="barrier" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="barrierNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="callPutIndicator" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="cashSettlement" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="code" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="currency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="effectiveLeverage" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="endValidityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="exercisePrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="exerciseType" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="fixDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="frequency" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="frequencyUnit" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="gap" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="gearing" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="initialFixingPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="lowerBarrierP" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="maximumValue" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="minimumValue" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="payOffNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="premiumPaymentRule" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="protectedDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="rebateAtHit" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="rebatePayoff" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="scaleFactor" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="season" type="xs:date" minOccurs="0"/>
+			<xs:element name="totalQuantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="totalworkdays" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="upperBarrier" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="upperBarrierNature" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="upperBarrierP" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="upperRebate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="upperRebateAtHit" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="underlyingInstrument" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="underlyingQuantity" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="barrierTimeZone" type="xs:string" minOccurs="0"/>
+			<xs:element name="eventTimeType" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Continuous</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Discrete</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+			</xs:element>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RatingIdentifier">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="agency">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SectorIdentifier">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="codification">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Event">
+		<xs:choice>
+			<xs:element name="coupon">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Coupon">
+							<xs:sequence>
+								<xs:element name="instrument" type="infra:Identifier"/>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="floatingCondition">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="FloatingCondition">
+							<xs:sequence>
+								<xs:element name="instrument" type="infra:Identifier"/>
+							</xs:sequence>
+							<xs:attribute name="mode" type="xs:string" use="optional"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="interestSchedule">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="interestSchedule">
+							<xs:attribute name="mode" type="xs:string" use="optional"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="redemptionEvent">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="RedemptionEvent">
+							<xs:sequence>
+								<xs:element name="instrument" type="infra:Identifier"/>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="structuredInterest">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="structuredInterest">
+							<xs:attribute name="mode" type="xs:string" use="optional"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="termEvent">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="TermEvent">
+							<xs:sequence>
+								<xs:element name="instrument" type="infra:Identifier"/>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="conversionEvent" type="CorporateAction"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="PaymentFrequencyUnit">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation>year</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AccrualRuleEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="17"/>
+			<xs:enumeration value="18"/>
+			<xs:enumeration value="19"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="21"/>
+			<xs:enumeration value="22"/>
+			<xs:enumeration value="23"/>
+			<xs:enumeration value="24"/>
+			<xs:enumeration value="25"/>
+			<xs:enumeration value="26"/>
+			<xs:enumeration value="27"/>
+			<xs:enumeration value="28"/>
+			<xs:enumeration value="29"/>
+			<xs:enumeration value="30"/>
+			<xs:enumeration value="31"/>
+			<xs:enumeration value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RateFrequencyUnit">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RequestCode">
+		<xs:sequence>
+			<xs:element name="codification">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="code" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="interestSchedule">
+		<xs:sequence>
+			<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="interestRate" type="xs:decimal"/>
+			<xs:element name="scheduledDate" type="xs:date"/>
+			<xs:element name="validityDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="structuredInterest">
+		<xs:sequence>
+			<xs:element name="beginDate" type="xs:date"/>
+			<xs:element name="benchmark" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="firstBenchmarkDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="interestRate" type="xs:decimal"/>
+			<xs:element name="interestCalcRule" type="xs:integer"/>
+			<xs:element name="maximumInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="minimumInterestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="validityDate" type="xs:date"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PartForward">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="category" type="xs:integer" minOccurs="0"/>
+					<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+					<xs:element name="compoundingFrequency" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="compoundingFrequencyUnit" type="PaymentFrequencyUnit" minOccurs="0"/>
+					<xs:element name="contractType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="desc" type="xs:string" minOccurs="0"/>
+					<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+								<xs:enumeration value="11"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="euroNewInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="eventType" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="genericFlag" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="issuer" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="mainStockExchange" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="parentInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="priceCalculationRule" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="referenceCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="subNature" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="taxCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="tradable" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="usageNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Unlisted Instrument</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Structured Notes Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="3">
+									<xs:annotation>
+										<xs:documentation>OTC Derivatives Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="4">
+									<xs:annotation>
+										<xs:documentation>Structured Product Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="5">
+									<xs:annotation>
+										<xs:documentation>OTC Currency Derivatives Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="valuationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="dxContractCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AccuDecu">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="category" type="xs:integer" minOccurs="0"/>
+					<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="compoundingFrequency" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="compoundingFrequencyUnit" type="PaymentFrequencyUnit" minOccurs="0"/>
+					<xs:element name="contractType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="desc" type="xs:string" minOccurs="0"/>
+					<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+								<xs:enumeration value="11"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="euroNewInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="eventType" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="fixingDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="genericFlag" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="issuer" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="knockInDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="mainStockExchange" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="priceCalculationRule" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="referenceCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="settlementFrequency" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="settlementFrequencyUnit" type="PaymentFrequencyUnit" minOccurs="0"/>
+					<xs:element name="subNature" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="taxCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="tradable" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="usageNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation>NONE</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Unlisted Instrument</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Structured Notes Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="3">
+									<xs:annotation>
+										<xs:documentation>OTC Derivatives Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="4">
+									<xs:annotation>
+										<xs:documentation>Structured Product Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="5">
+									<xs:annotation>
+										<xs:documentation>OTC Currency Derivatives Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="valuationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="dxContractCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FutureTurbo">
+		<xs:complexContent>
+			<xs:extension base="infra:PMSObject">
+				<xs:sequence>
+					<xs:element name="active" type="xs:boolean"/>
+					<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="dataSecuProf" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="endDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="euroConversionRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+								<xs:enumeration value="11"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="euroNewInstrument" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="issuer" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="knockOutDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="mainBusinessEntity" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="mainStockExchange" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="minimumQuantity" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="priceCalculationRule" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="referenceCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="riskNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="settlementFrequency" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="settlementFrequencyUnit" type="PaymentFrequencyUnit" minOccurs="0"/>
+					<xs:element name="stpOrder" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="subNature" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="subType" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="taxCountry" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="tradable" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="type" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="underlyingCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="valuationRule" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>quoted</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+								<xs:enumeration value="8"/>
+								<xs:enumeration value="9"/>
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="businessEntityCompositionInstrument">
+		<xs:complexContent>
+			<xs:extension base="infra:businessEntityComposition">
+				<xs:sequence>
+					<xs:element name="instrument" type="infra:Identifier"/>
+				</xs:sequence>
+				<xs:attribute name="description" type="xs:string" use="optional"/>
+				<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+				<xs:attribute name="mode" use="optional">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="delete"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ExoticOption">
+		<xs:complexContent>
+			<xs:extension base="BasicStructuredProduct">
+				<xs:sequence>
+					<xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="category" type="xs:integer" minOccurs="0"/>
+					<xs:element name="commonReference" type="xs:string" minOccurs="0"/>
+					<xs:element name="complexity" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="complexityLevel" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="contractMaster" type="xs:string" minOccurs="0"/>
+					<xs:element name="contractSize" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="exerciseCurrency" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="expirationDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="instrumentClass" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="islamicCompliance" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="lastTradeDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="marketDirectiveCategory" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="riskLevel" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="subNature" type="xs:unsignedByte" minOccurs="0"/>
+					<xs:element name="underlying" type="infra:Identifier" minOccurs="0"/>
+					<xs:element name="usageNature" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:unsignedByte">
+								<xs:enumeration value="0"/>
+								<xs:enumeration value="1">
+									<xs:annotation>
+										<xs:documentation>Unlisted Instrument</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="2">
+									<xs:annotation>
+										<xs:documentation>Structured Notes Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="3">
+									<xs:annotation>
+										<xs:documentation>OTC Derivatives Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="4">
+									<xs:annotation>
+										<xs:documentation>Structured Product Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="5">
+									<xs:annotation>
+										<xs:documentation>OTC Currency Derivatives Template</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="yieldCurve" type="infra:Identifier" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="IndicatorAttrib">
+		<xs:sequence>
+					<xs:element name="entityDictId" type="xs:token" minOccurs="0"/>
+					<xs:element name="objectId" type="xs:token" minOccurs="0"/>
+					<xs:element name="type" type="xs:token" minOccurs="0"/>
+					<xs:element name="indicatorValueId" type="xs:token" minOccurs="0"/>	
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+		<xs:attribute name="mode" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="delete"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>		
+	</xs:complexType>
+</xs:schema>

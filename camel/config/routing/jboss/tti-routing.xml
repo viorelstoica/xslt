@@ -1,0 +1,14 @@
+<?xml version='1.0' ?>
+<TtiRoutings>
+	<Routing>
+		<RoutingName>DefaultRouting</RoutingName>
+		<RoutingDestination>JMS</RoutingDestination>
+		<Condition>
+			<Xpath>true()</Xpath>
+		</Condition>
+		<Destination>
+			<DestinationName>jms:queue:T24_JMS</DestinationName>
+			<QueueManagerName></QueueManagerName>
+		</Destination>
+	</Routing>
+</TtiRoutings>

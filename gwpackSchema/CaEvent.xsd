@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema targetNamespace="http://www.odcgroup.com/CaEvent" xmlns:infra="http://www.odcgroup.com/InfraPMS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.odcgroup.com/CaEvent" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.odcgroup.com/InfraPMS" schemaLocation="InfraPMS.xsd"/>
+	<xs:element name="CaEvent">
+		<xs:annotation>
+			<xs:documentation>Odyssey Client PMS Schema</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DataGroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CaGeneral" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="CaGeneral">
+											<xs:attribute name="description" type="xs:string" use="optional"/>
+											<xs:attribute name="sequenceNumber" type="xs:long" use="optional"/>
+											<xs:attribute name="mode" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="output" type="xs:string" use="optional"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="mode" type="infra:ModeEnum" use="optional"/>
+			<xs:attributeGroup ref="infra:businessEntity_AttrGrp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="CaGeneral">
+		<xs:sequence>
+			<xs:element name="announcementDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="code">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="effectiveDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="eventType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="instrument" type="infra:Identifier"/>
+			<xs:element name="mandatory">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="messageType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="nexusStatus">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="processingStatus">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="provider" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="senderReferenceCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="shortDescription" type="xs:string"/>
+			<xs:element name="subEventType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="caDetail" type="CaDetail" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaDetail">
+		<xs:sequence>
+			<xs:element name="addExistingSecu" type="xs:string" minOccurs="0"/>
+			<xs:element name="addSubscribedResultSecu" type="xs:string" minOccurs="0"/>
+			<xs:element name="availableDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="caOptionType" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="conversionPeriodBegindate" type="xs:date" minOccurs="0"/>
+			<xs:element name="conversionPeriodEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="creditedSecurityInstrument" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="debitedSecurityInstrument" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="defaultProcess" type="xs:boolean"/>
+			<xs:element name="dispositionFraction">
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedByte">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="drawDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="exchangeRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="exDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="exercicePeriodBeginDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="exercicePeriodEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="exercicePrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="firstDealingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="fullProviderInfo" type="xs:string" minOccurs="0"/>
+			<xs:element name="grossDividendRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="interestPeriodBeginDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="interestPeriodEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="interestRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="intermediateInstrument" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="intemediateExpirationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="intemediateIndicativePrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="intemediateMarketPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="intermediateTradingPeriodBeginDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="intermediateTradingPeriodEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="intermediateSell" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ipoLotSize" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="issuePrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="issueType" type="xs:integer" minOccurs="0"/>
+			<xs:element name="marketDeadlineDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="marketPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="maxSubscriptionAmt" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="maxSubscriptionPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="meetingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="minHoldingAmt" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="minimumHoldingPeriod" type="xs:integer" minOccurs="0"/>
+			<xs:element name="minimumHoldingPeriodUnit" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="minInitSubscriptionAmt" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="minRedemptionAmt" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="minRedemptionCurr" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="minSipAmt" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="minSubscriptionAmt" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="minSubscriptionCurr" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="minSubscriptionPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="netDividendRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="newToOld" type="xs:string" minOccurs="0"/>
+			<xs:element name="newToRights" type="xs:string" minOccurs="0"/>
+			<xs:element name="nextDetailAnnonceDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="offerPeriodBeginDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="offerPeriodEndDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="offerPricePaid" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="offerPriceReceived" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="offerPriceCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="optionCurrency" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="optionInstrument" type="infra:Identifier" minOccurs="0"/>
+			<xs:element name="optionNumber" type="xs:integer" minOccurs="0"/>
+			<xs:element name="overrideMinHoldingDays" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="paymentDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="protectDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="recordDate" type="xs:date"/>
+			<xs:element name="redemptionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="redemptionDays" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionPeriodBegin" type="xs:date" minOccurs="0"/>
+			<xs:element name="redemptionPeriodEnd" type="xs:date" minOccurs="0"/>
+			<xs:element name="redemptionPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="redemptionRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="refundDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="reinvestmentPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="responseDeadlineDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="rightsToUnderlying" type="xs:string" minOccurs="0"/>
+			<xs:element name="sequenceNumber" type="xs:integer"/>
+			<xs:element name="subscriptionDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="subscriptionEndTime" type="xs:time" minOccurs="0"/>
+			<xs:element name="subscriptionPeriodBegin" type="xs:date" minOccurs="0"/>
+			<xs:element name="subscriptionPeriodEnd" type="xs:date" minOccurs="0"/>
+			<xs:element name="subscriptionPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="withholdingTaxRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="mbFields" type="infra:mbFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="dispositionFractionEnum">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,751 @@
+<StmtRoutings>
+	<!--  _@JPP20240704_172324@_  -->
+	<StmtRouting>
+		<Comment>IN.CR.TXN.CODE </Comment>
+		<TransactionCode>130</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC2</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.CR.TXN.CODE </Comment>
+		<TransactionCode>131</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC2</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Credit Interest </Comment>
+		<TransactionCode>381</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC2</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Cred Int An Acc </Comment>
+		<TransactionCode>382</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC2</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Due </Comment>
+		<TransactionCode>464</TransactionCode>
+		<Rank>3</Rank>
+		<SystemId>IC2</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Due Recd </Comment>
+		<TransactionCode>465</TransactionCode>
+		<Rank>3</Rank>
+		<SystemId>IC2</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.CR.TXN.CODE </Comment>
+		<TransactionCode>130</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC3</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.DR.TXN.CODE </Comment>
+		<TransactionCode>131</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC3</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Cred Int (CR2) </Comment>
+		<TransactionCode>383</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC3</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.CR.TXN.CODE </Comment>
+		<TransactionCode>130</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC4</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.DR.TXN.CODE </Comment>
+		<TransactionCode>131</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC4</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Debit Interest </Comment>
+		<TransactionCode>391</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC4</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.CR.TXN.CODE </Comment>
+		<TransactionCode>130</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC5</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.DR.TXN.CODE </Comment>
+		<TransactionCode>131</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC5</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Debit Int (DR2) </Comment>
+		<TransactionCode>393</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC5</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.CR.TXN.CODE </Comment>
+		<TransactionCode>130</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC6</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.DR.TXN.CODE </Comment>
+		<TransactionCode>131</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC6</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Due </Comment>
+		<TransactionCode>464</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC6</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Acct Trans Chrg </Comment>
+		<TransactionCode>234</TransactionCode>
+		<Rank>3</Rank>
+		<SystemId>IC6</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Due Recd </Comment>
+		<TransactionCode>465</TransactionCode>
+		<Rank>3</Rank>
+		<SystemId>IC6</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Admin Fee </Comment>
+		<TransactionCode>976</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>IC6</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.CR.TXN.CODE </Comment>
+		<TransactionCode>130</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>ICGC</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>IN.DR.TXN.CODE </Comment>
+		<TransactionCode>131</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>ICGC</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Due </Comment>
+		<TransactionCode>464</TransactionCode>
+		<Rank>3</Rank>
+		<SystemId>ICGC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Due Recd </Comment>
+		<TransactionCode>465</TransactionCode>
+		<Rank>3</Rank>
+		<SystemId>ICGC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Commission Paid </Comment>
+		<TransactionCode>961</TransactionCode>
+		<Rank>3</Rank>
+		<SystemId>ICGC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<!--  Fiduciary fees / taxes  -->
+	<StmtRouting>
+		<Comment>Fiduciary Commission Dr </Comment>
+		<TransactionCode>253</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FDO</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_COMMISSION</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Fid Commission Accruals </Comment>
+		<TransactionCode>262</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FDO</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_COMMISSION</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Draft Issue Commission Dr (only from standard documentation) </Comment>
+		<TransactionCode>203</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FDO</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_CHARGE</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Amount Due (only from standard documentation) </Comment>
+		<TransactionCode>464</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FDO</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_TAX</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<TransactionCode>256</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FDO</SystemId>
+		<XsltName>TransactionFiduciaryInterestPayment</XsltName>
+	</StmtRouting>
+	<!--  Fiduciary fees / taxes  -->
+	<StmtRouting>
+		<Comment>Fiduciary Commission Dr </Comment>
+		<TransactionCode>253</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FD</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_COMMISSION</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Fid Order Interest Paid Adj </Comment>
+		<TransactionCode>255</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FD</SystemId>
+		<XsltName>TransactionFiduciaryInterestPayment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Fiduciary Commission calloutr </Comment>
+		<TransactionCode>257</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FD</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_COMMISSION</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Fid Commission Accruals </Comment>
+		<TransactionCode>262</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FD</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_COMMISSION</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Fid Commission Adjustment </Comment>
+		<TransactionCode>266</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FD</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_COMMISSION</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Fiduciary Brokerage </Comment>
+		<TransactionCode>291</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FD</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_CHARGE</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Fiduciary Brokerage Reversal </Comment>
+		<TransactionCode>292</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>FD</SystemId>
+		<XsltName>TransactionFiduciaryFees</XsltName>
+		<BalancePosition>FD_CHARGE</BalancePosition>
+	</StmtRouting>
+	<!--  All TT related account debit/credit operations: Commissions, Charges, Provisions, Invocations 
+	 TT TCx = TELLER TRANSACTION.CODE  -->
+	<StmtRouting>
+		<Comment>TT TC32: Cash Withdrawal in LCY from FCY A/c </Comment>
+		<TransactionCode>2</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC13: Customer Account Transfer </Comment>
+		<TransactionCode>11</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC3: Cash deposited in Central Bank </Comment>
+		<TransactionCode>26</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC9: Cash Deposit - Foreign Currency </Comment>
+		<TransactionCode>35</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Deposit Cheque (On US) </Comment>
+		<TransactionCode>49</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC10-TC33: Cash deposit ...</Comment>
+		<TransactionCode>52</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC13: Customer Account Transfer </Comment>
+		<TransactionCode>61</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC4: Cash Withdrawal in Foreign Currency </Comment>
+		<TransactionCode>85</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC9: Cash Deposit - Foreign Currency </Comment>
+		<TransactionCode>89</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC4:Cash withdrawal in Foreign Currency </Comment>
+		<TransactionCode>90</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC2: Cash deposit - local currency </Comment>
+		<TransactionCode>182</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>TT TC:13: Customer Account Transfer </Comment>
+		<TransactionCode>183</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Transfer in </Comment>
+		<TransactionCode>258</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>ATM Withdrawal </Comment>
+		<TransactionCode>315</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>ATM Deposit </Comment>
+		<TransactionCode>316</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Interac ATM withdrawal </Comment>
+		<TransactionCode>317</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>International ATM Withdrawal </Comment>
+		<TransactionCode>866</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>TT</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<!--  All AC related account debit/credit operations: Commissions, Charges, Provisions, Invocations  -->
+	<StmtRouting>
+		<Comment>Encash Cheque </Comment>
+		<TransactionCode>42</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>cash deposit foreign ccy </Comment>
+		<TransactionCode>89</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>cash withdrawal foreign ccy </Comment>
+		<TransactionCode>90</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Cash Withdrawal Foreign ccy </Comment>
+		<TransactionCode>107</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Credit Interest </Comment>
+		<TransactionCode>381</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Debit Interest </Comment>
+		<TransactionCode>391</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Due </Comment>
+		<TransactionCode>464</TransactionCode>
+		<Rank>2</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Tax Due Recd </Comment>
+		<TransactionCode>465</TransactionCode>
+		<Rank>2</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+		<BalancePosition>CASH_OP_TOT_TAXES</BalancePosition>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>AC.CHARGE REQUEST - Charge manual Fee - Dr</Comment>
+		<TransactionCode>619</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>AC.CHARGE REQUEST - Charge manual Fee - Cr</Comment>
+		<TransactionCode>620</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Pos payment </Comment>
+		<TransactionCode>867</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>ACH Debit </Comment>
+		<TransactionCode>868</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Credit Arrangement </Comment>
+		<TransactionCode>890</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Deposit Withdrawal (Transfer) </Comment>
+		<TransactionCode>897</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Fund Deposit (transfer) </Comment>
+		<TransactionCode>895</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Payroll Credit </Comment>
+		<TransactionCode>2000</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Pension Plan cr </Comment>
+		<TransactionCode>2001</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>utility payment </Comment>
+		<TransactionCode>2002</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Invoice transaction </Comment>
+		<TransactionCode>2003</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Ad-hoc fee Debit</Comment>
+		<TransactionCode>8001</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Ad-hoc fee Credit</Comment>
+		<TransactionCode>8002</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Performance fee Debit</Comment>
+		<TransactionCode>8004</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Performance fee Credit</Comment>
+		<TransactionCode>8005</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<!-- All PP related account debit/credit operations: Commissions, Charges, Provisions, Invocations  -->
+	<!-- PAYMENT.ORDER records are managed by maps TransactionPaymentOrder... -->
+	<StmtRouting>
+		<Comment>Inducement trailer fee</Comment>
+		<TransactionCode>655</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<StmtRouting>
+		<Comment>Inducement trailer fee Sc</Comment>
+		<TransactionCode>656</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+		<!--  FIX FOR TSR-965967 START--> <!-- Cheque Payment -->
+	<StmtRouting>		
+		<TransactionCode>5003</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+		<!-- Domestic clearing (CT) -->
+	<StmtRouting>		
+		<TransactionCode>5007</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+		<!-- SWIFT Payment -->
+	<StmtRouting>
+		<TransactionCode>5025</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+		<!-- Internal transfert -->
+	<StmtRouting>
+		<TransactionCode>5027</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+		<!-- Cheque Payment -->
+	<StmtRouting>
+		<TransactionCode>5004</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+		<!-- Domestic clearing (CT) -->
+	<StmtRouting>
+		<TransactionCode>5008</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+		<!-- Internal transfert -->
+	<StmtRouting>
+		<TransactionCode>5028</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+		<!-- SWIFT Payment -->
+	<StmtRouting>
+		<TransactionCode>5026</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>PP</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+		<!-- AA Cash Accrued Interest TSR-990872-->
+	<StmtRouting>
+		<TransactionCode>831</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>AA</SystemId>
+		<XsltName>TransactionCashInterests</XsltName>
+	</StmtRouting>
+		<!-- FO Initial Margin DB -->
+	<StmtRouting>
+		<TransactionCode>675</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>DX</SystemId>
+		<XsltName>TransactionCashInvestWithdrawal</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+		<!-- 951 - MD - Guarantee Provision Debit -->
+	<StmtRouting>
+		<TransactionCode>951</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>MD</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+		<!-- 952- MD - Guarantee Provision Credit -->
+	<StmtRouting>
+		<TransactionCode>952</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>MD</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+		<!-- 953 - MD - Guarantee Invocation Debit -->
+	<StmtRouting>
+		<TransactionCode>953</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>MD</SystemId>
+		<XsltName>TransactionCashWithdrawal</XsltName>
+	</StmtRouting>
+		<!-- 954 - MD - Guarantee Invocation Credit -->
+	<StmtRouting>
+		<TransactionCode>954</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>MD</SystemId>
+		<XsltName>TransactionCashInvestment</XsltName>
+	</StmtRouting>
+		<!-- 955 - MD - CSN Commission Payment -->
+	<StmtRouting>
+		<TransactionCode>955</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>MD</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<!-- 956 - MD - CSN Commission Receipt -->
+	<StmtRouting>
+		<TransactionCode>956</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>MD</SystemId>
+		<XsltName>TransactionCashReturnFees</XsltName>
+	</StmtRouting>
+	<!-- 957 - MD - Guarantee Issuance Charges -->
+	<StmtRouting>
+		<TransactionCode>957</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>MD</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+	<!-- 958 - MD - Guarantee Recd Advising Chg -->
+	<StmtRouting>
+		<TransactionCode>958</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>MD</SystemId>
+		<XsltName>TransactionCashReturnFees</XsltName>
+	</StmtRouting>
+	<!-- FO Initial Margin DB -->
+	<StmtRouting>
+		<TransactionCode>674</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>DX</SystemId>
+		<XsltName>TransactionCashInvestWithdrawal</XsltName>
+		<BalancePosition/>
+	</StmtRouting>
+	<!-- 176 - CC - Debit Card Charges -->
+	<StmtRouting>
+		<TransactionCode>176</TransactionCode>
+		<Rank>1</Rank>
+		<SystemId>CC</SystemId>
+		<XsltName>TransactionCashFees</XsltName>
+	</StmtRouting>
+</StmtRoutings>

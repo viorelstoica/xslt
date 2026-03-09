@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<MultiEntityConfig active="true">
+	<Companies>
+		<!-- BNK -->
+		<!-- BEG - TSR-800188 - NEL/JPP20240521 - remove CH0010001 from company list 
+		<Company name="CH0010001">
+			<coCode>CH0010001</coCode>
+			<companyCode>CH0010001</companyCode>
+			<currencyCompany>CH0010001</currencyCompany>
+			<customerCompany>CH0010001</customerCompany>
+			<cstCustomerCompany>CH0010001</cstCustomerCompany>
+			<finanFinanCom>CH0010001</finanFinanCom>
+			<financialCom>CH0010001</financialCom>
+			<ftdFinancialCom>CH0010001</ftdFinancialCom>
+			<consolidationMark>N</consolidationMark>
+		</Company>
+		-  END -->
+		<!-- AE1 -->
+		<Company name="AE0010001">
+			<coCode>CH0010001</coCode>
+			<companyCode>AE0010001</companyCode>
+			<currencyCompany>AE0010001</currencyCompany>
+			<customerCompany>CH0010001</customerCompany>
+			<cstCustomerCompany>CH0010001</cstCustomerCompany>
+			<finanFinanCom>AE0010001</finanFinanCom>
+			<financialCom>AE0010001</financialCom>
+			<ftdFinancialCom>AE0010001</ftdFinancialCom>
+			<consolidationMark>N</consolidationMark>
+		</Company>
+		<!-- CA1 -->
+		<Company name="CA0010001">
+			<coCode>CH0010001</coCode>
+			<companyCode>CA0010001</companyCode>
+			<currencyCompany>CA0010001</currencyCompany>
+			<customerCompany>CH0010001</customerCompany>
+			<cstCustomerCompany>CH0010001</cstCustomerCompany>
+			<finanFinanCom>CA0010001</finanFinanCom>
+			<financialCom>CA0010001</financialCom>
+			<ftdFinancialCom>CA0010001</ftdFinancialCom>
+			<consolidationMark>N</consolidationMark>
+		</Company>
+		<!-- LU1 -->
+		<Company name="LU0010001">
+			<coCode>CH0010001</coCode>
+			<companyCode>LU0010001</companyCode>
+			<currencyCompany>LU0010001</currencyCompany>
+			<customerCompany>CH0010001</customerCompany>
+			<cstCustomerCompany>CH0010001</cstCustomerCompany>
+			<finanFinanCom>LU0010001</finanFinanCom>
+			<financialCom>LU0010001</financialCom>
+			<ftdFinancialCom>LU0010001</ftdFinancialCom>
+			<consolidationMark>N</consolidationMark>
+		</Company>
+		<!-- CH1 -->
+		<Company name="CH0010002">
+			<coCode>CH0010001</coCode>
+			<companyCode>CH0010002</companyCode>
+			<currencyCompany>CH0010001</currencyCompany>
+			<customerCompany>CH0010001</customerCompany>
+			<cstCustomerCompany>CH0010001</cstCustomerCompany>
+			<finanFinanCom>CH0010002</finanFinanCom>
+			<financialCom>CH0010002</financialCom>
+			<ftdFinancialCom>CH0010002</ftdFinancialCom>
+			<consolidationMark>N</consolidationMark>
+		</Company>
+			</Companies>
+	<Classification>
+		<FileClassification name="currencyCompany">
+			<Applications>CURRENCY|PERIODIC.INTEREST</Applications>
+		</FileClassification>
+		<FileClassification name="customerCompany">
+			<Applications>OC.CUSTOMER|CUSTOMER|CUSTOMER.SECURITY|SC.MIFID.CLIENT.INFO|CUST.DOCUMENT|CUSTOMER.RELATIONSHIP</Applications>
+		</FileClassification>
+		<FileClassification name="finanFinanCom">
+			<Applications>TRANSACTION|FT.TXN.TYPE.CONDITION</Applications>
+		</FileClassification>
+		<FileClassification name="ftdFinancialCom">
+			<Applications>AA.PRODUCT.GROUP|AA.PRODUCT|BASIC.INTEREST|PAYMENT.ORDER.PRODUCT</Applications>
+		</FileClassification>
+		<FileClassification name="cstCustomerCompany">
+			<Applications>SECTOR|TARGET</Applications>
+		</FileClassification>
+	</Classification>
+	<Rules>
+		<Rule class="temenos.tti.util.be.rule.BeCalcMasterComp">
+			<FlowPattern>AllfndFundSecurity|Country|Synchro|FdGroupPayment|Currency|DocumentType|DXSynonymCodification|AccountSynonymCodification|Calendar|CashAccountType|ChronoDataUnpaidPercentage|ChronologicalDataFixedIncome|Currency|CurrencyMarket|DerivativesPrice|DiaryType|DxStockExchange|FXTransactionType|FinancialInstrumentExoticOption|FinancialInstrumentExoticOptionContractMaster|FinancialInstrumentFuture|FinancialInstrumentFutureContractMaster|FinancialInstrumentIndex|LastPrice|FinancialInstrumentLombardWeightsDX|FinancialInstrumentOption|FinancialInstrumentOptionContractMaster|FinancialInstrumentSector|FinancialInstrumentSecurity|FinancialInstrumentSecurityCob|FinancialInstrumentSyContractMaster|IndexPrice|InstrumentSubType|InstrumentSynonymCodification|InstrumentType|Issuer|Manager|OperationType|Price|PriceUpdate|PtfManagementType|Rating|RatingAgency|StockExchange|TimeZone|FinancialInstrumentOptionDxCo|PEProductEvents|Company|Diary|OrderGroupingForSubscriptionRedemption|OrderGroupingCutOffDateChange|DataSecuProf|FinancialInstrumentRate|FinancialInstrumentYieldCurve|RatePrice|BasicInterest|ProductFeeType|EBLookup|MIFID|ScParameter|ScEsgScores|ScEsgIndicator|EBLookupESG|CsdInversis|CsdThirdPartyInsider</FlowPattern>
+		</Rule>
+		<Rule class="temenos.tti.util.be.rule.BeCalcEventCompid">
+			<FlowPattern>DepositsLoansFloatingConditionIL|PositionsAADepositsLendings|FinancialInstrumentAADepositsInterestRateIL|FinancialInstrumentAADepositsandLoansIL|DataCaptureTransactionCashCredit|DataCaptureTransactionCashDebit|FundsTransferTransactionCashCredit|FundsTransferTransactionCashCreditReversal|FundsTransferTransactionCashDebit|FundsTransferTransactionCashDebitReversal|AcAccrual|CashAccount|CashPosition|ChronologicalDataCAAccruedInterestsLoad|FdFidOrder|FdFidOrderCob|FdFiduciary|FinancialInstrumentForex|FinancialInstrumentGuarantee|ForwardPurchaseClosing|ForwardSaleClosing|FXSwapClosing|IRSswap|LdLoansAndDeposits|LdLoansAndDepositsOldNew|MDDealSubType|MDDealType|NBLAccountClosureExtract|NdDeal|PositionsForex|PositionsGuarantees|TransactionBuyGuaranteeReceived|TransactionRevIssuedGuarantee|TransactionRevReceivedGuarantee|TransactionSellGuaranteeIssued|TransactionsForex|SyAccuDecu|SyVariant|SyDci|SyFxForwards|SyFxForwardsCob|SyImf|SyImfRollover|SyDxPrice|TransactionOpenFiduciary|TransactionAdjustmentGuaranteeQuantity|TransactionFiduciaryInterestPayment|TransactionFiduciaryTransfer|SyTarko|DepositsLoansFloatingCondition|TransactionOpenFiduciary|TransactionAdjustmentGuaranteeQuantity|TransactionFiduciaryInterestPayment|SyTarko|SyPfwd|DepositsLoansFloatingCondition|PaymentOrder|PaymentOrderNotification|ManagementFees|TransactionCloseFiduciary|IRSSaleClosing|AAAFlow|CginventoryAll|SafeCustodyFees|AccountClosure|AccountClosureCOB|IRSNotionalPrinChange|generateFxPositions|ScPosAsset|FinancialInstrumentME|AAAccountAccrual|AAAccountInterest|AAAccountInterestUpdate|ClientPersonalDataErasure|ScBackValInt</FlowPattern>
+		</Rule>
+		<Rule class="temenos.tti.util.be.rule.BeCalcEventCompidCashextr">
+			<FlowPattern>AcEntry</FlowPattern>
+		</Rule>
+		<Rule class="temenos.tti.util.be.rule.BeCalcCustomer">
+			<FlowPattern>OcCustomer|Customer|CustomerDocument|CustomerRelation|CustomerSecurity|Deposit|DepositCustomerUpdate|DXCustomer|MifidClientClassif|CsdFatcaCustomerSupInfo|CsdQiCustomerSupInfo</FlowPattern>
+			<FieldName>sector</FieldName>
+			<FieldPattern>1500|1501|1503|1599|1600|1601|1699|3000|3001|3002|3003|3005|3499|9999</FieldPattern>
+		</Rule>
+		<Rule class="temenos.tti.util.be.rule.BeCalcDistrib">
+			<FlowPattern>CurrencyExchangeRate</FlowPattern>
+		</Rule>
+		<Rule class="temenos.tti.util.be.rule.BeCalcDistribOrMaster">
+			<FlowPattern>TransactionOperationType|ThirdPartySector|CustomerType|FundsTransferOperationType|AAProductGroup|AAProductSubType|PaymentOrderProduct</FlowPattern>
+		</Rule>
+		<Rule class="temenos.tti.util.be.rule.BeCalcPtf">
+			<FlowPattern>Portfolio|PortfolioCashAccounts|PortfolioThirdCompo|FinancialInstrumentExoticOptionSyDx|FinancialInstrumentFutureSYDX|FinancialInstrumentOptionSyDx|InducementFees|OpenUpfrontPaymentOrder|CloseUpfrontPaymentOrder|UpfrontPaymentWith|CsdStrategy</FlowPattern>
+		</Rule>
+		<Rule class="temenos.tti.util.be.rule.BeCalcHubruleOwncomp">
+			<FlowPattern>T24AFBStatusChange|EsfundTraspasoRequest|SecurityTransferUpdate|PositionTransferUpdate|DerivativeConversion|FuturePosition|LockedSecurityPosition|LockingTransaction|UnlockingTransaction|LockingTransactionCOA|OptionPosition|PositionTransferFromToDeposit|PositionTransferFromToDepositReversal|PositionTransferPtfToPtfInv|PositionTransferPtfToPtfInvReversal|PositionTransferPtfToPtfWithdr|PositionTransferPtfToPtfWithdrReversal|PositionTransferPortfolioTransfer|PositionTransferPortfolioTransferReversal|SecurityPosition|SecurityTransfer|STBuyActualSettlement|STSellActualSettlement|STTransferInActualSettlement|STTransferOutActualSettlement|TransactionCoAssignManual|TransactionCoExerciseManual|TransactionCoExpireManualBuy|TransactionCoExpireManualSell|TransactionDerivativeMargin|TransactionDerivativeMarginRev|TransactionEntitlement|TransactionMaturityFutureBuy|TransactionMaturityFutureBuyCloseOutRev|TransactionMaturityFutureSell|TransactionMaturityFutureSellCloseOutRev|TransactionOpenDerivativeBuy|TransactionOpenDerivativeBuyReversal|TransactionOpenDerivativeSell|TransactionOpenDerivativeSellReversal|TransactionRightsDistribution|TransactionSecurityBookValueAdjust|TransactionSecurityBuy|TransactionSecurityBuyReversal|TransactionSecuritySell|TransactionSecuritySellReversal|TransactionSettleFutureBuy|TransactionSettleFutureSell|TransactionSettleOptionBuy|TransactionSettleOptionSell|OrderAcknowledgment|OrderAdjustStatus|T24StatusChange|T24StatusChangeCancelUpdate|FullPartialExecution|DXFullPartialExecution|DXOrderAcknowledgment|DXOrderReturn|DXT24StatusChange|COBPurgeOrder|DXOrderCancelAccepted|T24StatusChangeCancelUpdate|DXOrderCancelRejected|DXOrderUpdateRejected|COBPurgeOrder|DXOrderCancelAccepted|T24StatusChangeCancelUpdate|DXOrderCancelRejected|DXOrderUpdateRejected|TransactionAssignExpiryOptionBuyCloseOutRev|TransactionAssignExpiryOptionSellCloseOutRev|DXOrderUpdateAccepted|SecOpenOrder|PECustomerTxn|PEManagementFees|CgTxnBase|TaxLot|Cginventory|PositionTransferAcknowledgment|PositionTransferDelete|SecTradeScSettlement|PositionTransferScSettlement</FlowPattern>
+		</Rule>
+		<Rule class="temenos.tti.util.be.rule.BeCalcHubruleTapEntComp">
+			<FlowPattern>DXOrderAcknowledgment|OrderAcknowledgment|FullPartialExecution</FlowPattern>
+		</Rule>							  
+		<!-- Note - no mapped TTI flow is currently having classification None. Country used to have this, but has in TAP been moved to Master -->
+		<Rule class="temenos.tti.util.be.rule.BeCalcNone">
+			<FlowPattern>None</FlowPattern>
+		</Rule>
+		<TapMasterBE>CH0010001</TapMasterBE>
+	</Rules>
+	<Partial>
+		<Flow>
+			<Pattern>FinancialInstrumentSecurity</Pattern>
+			<XPath>compLevelAttribGroup/compLevelAttrib</XPath>
+		</Flow>
+	</Partial>
+</MultiEntityConfig>

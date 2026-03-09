@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ODYSSEY ASSET MANAGEMENT (ODYSSEY ASSET MANAGEMENT) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="GWPACK_OUTPUT">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="OUTPUT_FILENAME" type="xs:string"/>
+				<xs:element name="REPORT_BY_CMD" type="REPORT_BY_CMD" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="SUMMARY_INFORMATION" type="SUMMARY_INFORMATION"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="REPORT_BY_CMD">
+		<xs:sequence>
+			<xs:element name="MAIN_REM_LINE" type="xs:string" minOccurs="0"/>
+			<xs:element name="CMD_LINE" type="xs:string"/>
+			<xs:element name="ATT_LINE" type="xs:string"/>
+			<xs:element name="DATA_LINES_IN_ERROR_OR_WARNING" type="DATA_LINES_IN_ERROR_OR_WARNING" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SUMMARY_INFORMATION" type="SUMMARY_INFORMATION"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SET_LINES_ERROR">
+		<xs:sequence>
+			<xs:element name="SET_LINE"/>
+			<xs:element name="ERROR_LINE" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DATA_LINES_IN_ERROR_OR_WARNING">
+		<xs:sequence>
+			<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0"/>
+			<xs:element name="SET_LINES_ERROR" type="SET_LINES_ERROR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ATTRIBUTE_INFORMATION" type="ATTRIBUTE_INFORMATION" maxOccurs="unbounded"/>
+			<xs:element name="ERROR_OR_WARNING" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ERROR"/>
+						<xs:enumeration value="WARNING"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MESSAGE" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ATTRIBUTE_INFORMATION">
+		<xs:sequence>
+			<xs:element name="NUMBER" type="xs:long"/>
+			<xs:element name="NAME" type="xs:string"/>
+			<xs:element name="VALUE" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SUMMARY_INFORMATION">
+		<xs:sequence>
+			<xs:element name="Nb_ERR" type="xs:long"/>
+			<xs:element name="Nb_SUC" type="xs:long"/>
+			<xs:element name="Nb_WRN" type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

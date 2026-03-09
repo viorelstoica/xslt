@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.odcgroup.com/FiPMS" xmlns:b="http://www.temenos.com/T24/event/TTI/DerivativesPrice" xmlns:ns0="http://www.temenos.com/T24/event/Common/EventCommon" xmlns:infra="http://www.odcgroup.com/InfraPMS" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="b ns0" version="1.0">
+	<!-- START of protected area  -->
+	<!-- <xsl:template name="userDefinedField">
+		<userDefinedField>
+			<name>ud_bbgticker_t</name>
+			<value>
+				<xsl:value-of select="b:altIndNameGroup[@index='9']/b:altIndId"/>
+			</value>
+		</userDefinedField>
+	</xsl:template> -->
+	<!-- END of protected area  -->
+</xsl:stylesheet>

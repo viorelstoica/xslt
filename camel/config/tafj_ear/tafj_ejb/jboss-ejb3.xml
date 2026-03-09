@@ -1,0 +1,33 @@
+<session>
+    <ejb-name>OFSMLProcessingBean</ejb-name>
+    <resource-ref>
+        <res-ref-name>jdbc/t24DataSource</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/jdbc/t24DS</jndi-name>
+    </resource-ref>
+    <resource-ref>
+        <res-ref-name>jdbc/t24RODataSource</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/jdbc/t24RODS</jndi-name>
+    </resource-ref>
+    <resource-ref>
+        <res-ref-name>jdbc/t24LockingDataSource</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/jdbc/t24LockingDS</jndi-name>
+    </resource-ref>
+    <resource-ref>
+        <res-ref-name>jms/TopicConnectionFactory</res-ref-name>
+        <res-type>javax.jms.ConnectionFactory</res-type>
+        <jndi-name>java:/ConnectionFactory</jndi-name>
+    </resource-ref>
+    <resource-ref>
+        <res-ref-name>jms/tecEventsTopic</res-ref-name>
+        <res-type>javax.jms.Topic</res-type>
+        <jndi-name>java:/topic/tecEventsTopic</jndi-name>
+    </resource-ref>
+    <resource-ref>
+        <res-ref-name>eis/PrintHold</res-ref-name>
+        <res-type>javax.resource.cci.ConnectionFactory</res-type>
+        <jndi-name>java:/eis/PrintHold</jndi-name>
+    </resource-ref>
+</session>

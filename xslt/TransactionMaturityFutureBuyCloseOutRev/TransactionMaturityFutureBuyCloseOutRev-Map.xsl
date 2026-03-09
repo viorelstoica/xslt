@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.odcgroup.com/TransactionPMS" xmlns:b="http://www.temenos.com/T24/event/TTI/TransactionMaturityFutureBuyCloseOutRev"
+                xmlns:batch="http://www.temenos.com/T24/event/TTI/BatchTransactionMaturityFutureBuyCloseOutRev" xmlns:c="http://www.temenos.com/T24/event/TTI/MultiTransactionMaturityFutureBuyCloseOutRev" xmlns:infra="http://www.odcgroup.com/InfraPMS"
+                xmlns:multibatch="http://www.temenos.com/T24/event/TTI/BatchMultiTransactionMaturityFutureBuyCloseOutRev" xmlns:ns0="http://www.temenos.com/T24/event/Common/EventCommon" exclude-result-prefixes="b c batch multibatch ns0" version="1.0">
+	<xsl:import href="../GlobalTemplate/GlobalTemplate-Core.xsl"/>
+	<xsl:import href="../GlobalTemplate/GlobalTemplate-Custo.xsl"/>
+	<xsl:import href="TransactionMaturityFutureBuyCloseOutRev-Core.xsl"/>
+	<xsl:import href="TransactionMaturityFutureBuyCloseOutRev-Custo.xsl"/>
+	<xsl:import href="TransactionMaturityFutureBuyCloseOutRev.xsl"/>
+
+	<xsl:output encoding="UTF-8" indent="yes" method="xml"/>
+	<!-- 	
+			No templates defined here.
+			This master file will execute
+			the templates from the core and custo files.
+	-->
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios>
+		<scenario default="yes" name="TransactionMaturityFutureBuyCloseOutRev" userelativepaths="yes" externalpreview="yes" url="..\..\TestFiles\TransactionMaturityFutureBuyCloseOutRev\TransactionMaturityFutureBuyCloseOutRev.xml" htmlbaseurl=""
+		          outputurl="..\..\TestFiles\TransactionMaturityFutureBuyCloseOutRev\TransactionMaturityFutureBuyCloseOutRevGWP.xml" processortype="jaxp" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline=""
+		          additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/>
+	</scenarios>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->

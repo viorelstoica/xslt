@@ -1,0 +1,34 @@
+Change log of customizations
+----------------------------
+2025/05/10 - TSR-1019616 L3 Development: Add value 674/DX in $TTI_HOME/config/stmt-routing.xml
+2025/04/29 - TSR-1007251 UAT SignOff : DMA Orders : Settlement date of the execution is not captured by TAP and TRANSACT
+2025/04/25 - TSR-1007173 UAT SignOff : Derivatives Orders : Future Gross Amount calculation
+           - 
+2025/04/17 - L3 - missing sat 905 for FI_other position (may have another missing sat for pos)
+2025/04/15 - TSR-1007361 - L3 Development: Add value 956/MD (and a few others) in $TTI_HOME/config/stmt-routing.xml
+           - REQ153929: TAP Import for T24_FI_GICS_INDUSTRY field
+2025/04/14 - 186324: UAT SignOff : Fund Order : SETR message changes not triggered for CH entity via TAP
+2025/04/12 - TSR-989067 TTI TransactionCashDividend crashes 
+2025/04/08 - TSR-1001499 - L3 Development: Add value 675/DX in $TTI_HOME/config/stmt-routing.xml
+2022/09/29 - Initial version based on ISB
+2022/10/26 - Fix DEV2 env. in tti-routing.xml
+2023/07/14 - Apply Merge with TTI 9.0.3 (R23 AMR)
+2023/07/14 - Apply MB-ESP-TTI_9.0.0 (R23 AMR)
+2023/10/12 - Fixed wrong queue (type and name)
+2023/10/12 - Global Template added
+2023/10/25 - integrated R23.7 MB Packs and reatained Custo same as L3 confirmed there is no more changes post R23.
+2023/11/09 - TSR-699042,TSR-655252,TSR-655271,TSR-691411 (integrated)
+2023/11/30 - Latest HF03 changes for GWP/TTI
+2024/01/12 - Merged Synchordis provided custo changes
+2024/01/12 - Merged with latest R23.7 HF (includes 9.2.1, 9.2.2, 9.2.3 and 9.2.4)
+2024/02/20 - JPP20240220 - TSR-754365 - SP99-FLOW-SP&DERIVATIVES.
+2024/03/01 - Merged and code ported with R23.10 HF03 changes.
+2024/03/11 - Code ported with R23.10. HF04 changes
+2024/04/22 - Merged with H05 code. Ready to make custo with official HF05 9.5.3 Image from Product.
+2024/05/17 - L3 delivery merged
+2024/05/22 - JPP reviewed and Merged the lastest.
+2024/05/24 - fix in Portfolio by L3
+2024/06/19 - Merged with TTI 9.5.4
+2024/06/28 - Merged with TTI L1 and L2 9.5.5. Also Merged L3 code
+2014/09/12 - HF18 Merged with TTI 9.5.12 ESP 9.5.8
+2014/12/13 - HF27 Merged with TTI 9.5.17 ESP 9.5.10
