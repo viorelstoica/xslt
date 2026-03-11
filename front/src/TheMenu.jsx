@@ -19,18 +19,9 @@ function TheMenu({onFileName}) {
         </Form.Select>
         <Nav className="justify-content-end">
           <Nav.Link href="/folders">Folders</Nav.Link>
-          <NavDropdown title="GWPACK" id="nav-dropdown">
-            <NavDropdown.Item href="/report1">Errors per day</NavDropdown.Item>
-            <NavDropdown.Item href="/report2">Errors per entity</NavDropdown.Item>
-            <NavDropdown.Item href="/report3">Error lines</NavDropdown.Item>
-            <NavDropdown.Item href="/gwptimespent">Time spent in gwpack</NavDropdown.Item>
+          <NavDropdown title="tti" id="nav-dropdown">
+            <NavDropdown.Item href="/msgin">msgin</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="TTI" id="nav-dropdown">
-            <NavDropdown.Item href="/ttipermin">ttipermin</NavDropdown.Item>
-            <NavDropdown.Item href="/ttipermincateg">ttipermincateg</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.3">delay</NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link href="/tti">Tti</Nav.Link>
           <Nav.Link href="/test">Test</Nav.Link>
         </Nav>
 

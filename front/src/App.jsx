@@ -7,6 +7,7 @@ import Test from './Test'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import MsginHist from './MsginHist';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/msgin" element={<MsginHist file={fileName}/>} />
           <Route path="/test" element={<Test file={fileName}/>} />
         </Routes>
       </BrowserRouter>

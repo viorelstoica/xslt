@@ -10,6 +10,14 @@ body { margin: 0 ; padding: 0; height: 100%;}
   border: 1px solid green;
 }
 
+#MsginHistDiv { 
+  margin: 0 ; 
+  padding: 0; 
+  height: 90%; 
+  width: 99%;
+  border: 1px solid green;
+}
+
 .MainPage {
   margin: 5px;
   height: 90%;
