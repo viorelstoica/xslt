@@ -27,6 +27,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+app.get('/dates', (req, res) => {
+    let folders = fs.readdirSync(`${logPath}/`).sort((a, b) => a > b ? -1 : a < b ? 1 : 0)
+    res.status(200).json(folders)
+})
+
 app.get('/file/:name', (req, res) => {
     fs.readFile(`${baseDataFolder}/${req.params.name}`, 'utf8', (err, data) => {
         if (err) {
@@ -45,16 +50,54 @@ app.get('/msgin/:date/:uuid', (req, res) => {
     // logs/data/2026-02-23/trace/FinancialInstruments/20260223_020232_295_59_msgin_BatchMultiFinancialInstrumentSecurity_f712aaa5-6317-4273-aabc-3e84263b2dee.xml
     var folders = fs.readdirSync(`${logPath}/${date}/trace`)
     folders.forEach(async (fo) => {
-        console.log(`reading dir ${fo}`)
         var files = fs.readdirSync(`${logPath}/${date}/trace/${fo}`)
         files.forEach(fi => {
-            console.log(`checking ${fi}`)
-            if(fi.match(uuid)) 
-                ret.push(fi)
+            if(fi.match(uuid)) {
+                let tokens = fi.split("_")
+                ret.push({date: tokens[0].slice(0,4)+'-'+tokens[0].slice(4,6)+'-'+tokens[0].slice(6,8), time: tokens[1].slice(0,2)+':'+tokens[1].slice(2,4)+':'+tokens[1].slice(4,6), milli: tokens[2], thread: tokens[3], step: tokens[4], flow: tokens[5], uuid: tokens[6].slice(0, tokens[6].length-4)})
+            }
         })
+    })
+    /*
+    in the front we need something like:
+    {
+    "category": "d",
+    "start": new Date("2019-01-10 06:15").getTime(),
+    "end": new Date("2019-01-10 06:30").getTime(),
+    "settings": { "fill": colorSet.getIndex(14) },
+    "icon": water,
+    "text": "Drink water"
+    },
+    */
+    var ret2 = []
+    ret.forEach(e => {
+
     })
     res.status(200).json(ret)
 })
 
+app.get('/msgin/:date', (req, res) => {
+    const date = req.params.date
+    var ret = []
+    var folders = fs.readdirSync(`${logPath}/${date}/trace`)
+    folders.forEach(async (fo) => {
+        var files = fs.readdirSync(`${logPath}/${date}/trace/${fo}`)
+        files.forEach(fi => {
+            if(fi.match('msgin')) {
+                let tokens = fi.split("_")
+                ret.push({ 
+                    date: tokens[0].slice(0,4)+'-'+tokens[0].slice(4,6)+'-'+tokens[0].slice(6,8), 
+                    time: tokens[1].slice(0,2)+':'+tokens[1].slice(2,4)+':'+tokens[1].slice(4,6), 
+                    milli: tokens[2], 
+                    thread: tokens[3], 
+                    step: tokens[4], 
+                    flow: tokens[5], 
+                    //uuid: tokens[6].slice(0, tokens[6].length-4)
+                })
+            }
+        })
+    })
+    res.status(200).json(ret)
+})
 
 

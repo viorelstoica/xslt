@@ -1,1 +1,5 @@
  grep "test=.\$diaryType"  xslt/GlobalTemplate/GlobalTemplate-Custo.xsl | cut -d \> -f 2|cut -d \< -f 1|sort -u|tr -s '[[:punct:][:space:]]' '\n'|sort
+viratial scrolling or
+react window
+https://blog.logrocket.com/render-large-lists-react-5-methods-examples/
+I would implement lazy loading and add to the dropdown when user scroll to the bottom of the dropdown.

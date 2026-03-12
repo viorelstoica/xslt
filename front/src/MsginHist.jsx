@@ -1,7 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Loader from './Loader'
 
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useEffect, useState } from 'react';
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import * as am5timeline from "@amcharts/amcharts5/timeline";
@@ -23,216 +24,182 @@ var drink = "data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMyIgZW5hYmxlLWJhY2tnc
 var drunk = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDI5OS40NTMgMjk5LjQ1MyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjk5LjQ1MyAyOTkuNDUzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8ZyBpZD0iWE1MSURfMTQ1NF8iPg0KCTxnPg0KCQk8Zz4NCgkJCTxjaXJjbGUgY3g9IjE3Ny42NjciIGN5PSIzMy41MDciIHI9IjMzLjUwOCIvPg0KCQkJPHBhdGggZD0iTTIzNC4xOTQsOTYuNjE1bC00OS43MzIsMTYuODY2bC0zOC45Ny0zMC4wNzZsMzQuMjI0LDE0LjQxMmMtMC4xMDctOS44ODUtNi43MjMtMTguODk3LTE2LjczNi0yMS41OTlsLTM4Ljk3Mi0xMC41MTUNCgkJCQljLTEyLjA2OS0zLjI1Ny0yNC40OTMsMy44ODgtMjcuNzUsMTUuOTU4Yy0wLjY5NCwyLjU3Mi0xNi44NDQsNjEuMjktMjcuMDgzLDk4LjU0MmMtMi40MTEsOC43NzQtMi41MDEsMTguMDY0LTAuMjE4LDI2Ljg3Mw0KCQkJCWMzLjMxOCwxMi44MDQsNy45NzksMzAuNzk0LDE0LjQ2NCw1NS44MTlsLTUxLjc1NS0wLjI3MWMtMC4wMzIsMC0wLjA2NSwwLTAuMDk3LDBjLTEwLjAxNiwwLTE4LjE2Miw4LjA5My0xOC4yMTUsMTguMTIxDQoJCQkJYy0wLjA1MywxMC4wNjEsOC4wNjEsMTguMjYsMTguMTIxLDE4LjMxMmw3NS40MjEsMC4zOTVjMC4wMzEsMCwwLjA2NCwwLDAuMDk1LDBjMTEuOTE3LTAuMDAxLDIwLjYxOS0xMS4yNjksMTcuNjM1LTIyLjc4Ng0KCQkJCWwtMTguNjg0LTcyLjEwNmwxMi42ODYsMy40MjNsMTcuMDU1LDY1LjgxOGMyLjI4LDguOCwwLjMyNSwxOC4zMzMtNS4yMjMsMjUuNTMxbDIyLjc5NiwwLjEyYzAuMDMxLDAsMC4wNjQsMCwwLjA5NSwwDQoJCQkJYzExLjkxNi0wLjAwMSwyMC42MTktMTEuMjY5LDE3LjYzNS0yMi43ODZsLTE4LjkzMS03My4wNjJsMTIuNzI5LTQ3LjE3OWMtMS40MTktMS40MTksMS40NDcsMi4xODUtMzcuODQtNDguOTg1bDQ1LjQxMywzNS4wNDkNCgkJCQljNC4wMjksMy4xMSw5LjM0MSwzLjk4OSwxNC4xNTEsMi4zNTlsNTcuNDM5LTE5LjQ4MWM3Ljk0MS0yLjY5MiwxMi4xOTUtMTEuMzExLDkuNTAyLTE5LjI1Mg0KCQkJCUMyNTAuNzUzLDk4LjE3NywyNDIuMTM0LDkzLjkyMywyMzQuMTk0LDk2LjYxNXoiLz4NCgkJCTxwYXRoIGQ9Ik0yODAuNzI2LDYzLjgxM2gtNDEuNjU3Yy0yLjk2OSwwLTUuMzc1LDIuNDA2LTUuMzc1LDUuMzc1YzAsMi45NjksMi40MDcsNS4zNzUsNS4zNzUsNS4zNzVoMC40NjRsMC41MjYsNi4wODENCgkJCQljMTIuMjc1LDAuNDAzLDIzLjU4NSw4LjI3OSwyNy43NjMsMjAuNTk3YzMuNjYxLDEwLjc5NiwwLjg5NiwyMi4yMTYtNi4yMzYsMzAuMTE3aDEwLjA2NmMyLjA5MiwwLDMuODM2LTEuNiw0LjAxNi0zLjY4NA0KCQkJCWw0LjU5Mi01My4xMTFoMC40NjVjMi45NjksMCw1LjM3NS0yLjQwNiw1LjM3NS01LjM3NVMyODMuNjk0LDYzLjgxMywyODAuNzI2LDYzLjgxM3oiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K";
 var bed = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDkwLjcgNDkwLjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5MC43IDQ5MC43OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTQzNi4yLDE1NC42SDE4Mi40Yy0xMi40LDAtMzMuMSw0LjctMzMuMSwzNi42VjI0MGgzMjB2LTQ4LjhDNDY5LjMsMTU5LjQsNDQ4LjYsMTU0LjYsNDM2LjIsMTU0LjZ6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwb2x5Z29uIHBvaW50cz0iODAuMywyNTAuNiAzMiwyNTAuNiAzMiw4MCAwLDgwIDAsNDEwLjcgMzIsNDEwLjcgMzIsMzI1LjMgNDU4LjcsMzI1LjMgNDU4LjcsNDEwLjYgNDkwLjcsNDEwLjYgNDkwLjcsMjUwLjYgCQkNCgkJCSIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8Y2lyY2xlIGN4PSI4NS4zIiBjeT0iMTk3LjMiIHI9IjQ0LjciLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==";
 
-function MsginHist({ types }) {
+function MsginHist({ date, uuid }) {
 
-    function drawMsginHist(root) {
-        root.setThemes([
-            am5themes_Animated.new(root)
-        ]);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-
-          var chart = root.container.children.push(am5timeline.CurveChart.new(root, { wheelY: "zoomX" }));
-
-  var yRenderer = am5timeline.AxisRendererCurveY.new(root, {
-    axisLocation: -0.1
-  })
-
-  yRenderer.labels.template.setAll({
-    forceHidden: true
-  });
-
-  yRenderer.grid.template.set("forceHidden", true);
-
-  // Create axes and their renderers
-  var xRenderer = am5timeline.AxisRendererCurveX.new(root, {
-    points: [{ x: -600, y: 50 }, { x: 600, y: 50 }]
-,
-    yRenderer: yRenderer,
-    strokeDasharray: [2, 3],
-    strokeOpacity: 0.5,
-    stroke: am5.color(0x000000)
-  });
-
-  xRenderer.labels.template.setAll({
-    centerY: am5.p50,
-    fontSize: 11,
-    minPosition: 0.01
-  });
-
-  xRenderer.labels.template.setup = function (target) {
-    target.set("layer", 30);
-    target.set("background", am5.Rectangle.new(root, {
-      fill: am5.color(0xffffff),
-      fillOpacity: 1
-    }));
+  const dataFetch = async () => {
+    const response = await fetch(`http://localhost:3000/msgin/${date}/${uuid}`)
+    const json = await response.json()
+    setData(json)
+    setLoading(false)
   }
 
-  var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
-    maxDeviation: 0,
-    categoryField: "category",
-    renderer: yRenderer
-  }));
+  useEffect(() => {
+    dataFetch()
+  }, []);
 
-  var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
-    baseInterval: { timeUnit: "minute", count: 1 },
-    renderer: xRenderer,
-    tooltip: am5.Tooltip.new(root, {})
-  }));
+  useLayoutEffect(() => {
+    let root = am5.Root.new("MsginHistDiv");
+    if(!!data)
+      drawMsginHist(root)
+    return () => {
+      root.dispose();
+    };
+  }, [data]);
 
-  // Data
-  var colorSet = chart.get("colors");
 
-  var series = chart.series.push(am5timeline.CurveColumnSeries.new(root, {
-    xAxis: xAxis,
-    yAxis: yAxis,
-    baseAxis: yAxis,
-    categoryYField: "category",
-    valueXField: "end",
-    openValueXField: "start",
-    maskBullets: false
-  }));
+  if (loading) {
+    return (
+      <div id="MsginHistDiv">
+        <Loader />
+      </div>
+    )
+  }
+  else {
+    return (
+      <div id="MsginHistDiv"></div>
+    )
+  }
 
-  series.columns.template.setAll({
-    height: am5.percent(10),
-    templateField: "settings",
-    strokeOpacity: 0
-  })
 
-  series.bullets.push(function (root, series, dataItem) {
-    var container = am5.Container.new(root, {
-      centerY: am5.p100
+  function drawMsginHist(root) {
+    root.setThemes([
+      am5themes_Animated.new(root)
+    ]);
+
+
+    var chart = root.container.children.push(am5timeline.CurveChart.new(root, { wheelY: "zoomX" }));
+
+    var yRenderer = am5timeline.AxisRendererCurveY.new(root, {
+      axisLocation: -0.1
+    })
+
+    yRenderer.labels.template.setAll({
+      forceHidden: true
     });
 
-    container.children.push(am5.PointedRectangle.new(root, {
-      cornerRadius: 5,
-      width: 32,
-      height: 32,
-      pointerBaseWidth: 16,
-      centerY: am5.p100,
-      centerX: am5.p50,
-      templateField: "settings",
-      pointerX: 16,
-      pointerY: 40,
-      strokeOpacity: 0,
-      shadowColor: am5.color(0x000000),
-      shadowBlur: 5,
-      shadowOffsetX: 2,
-      shadowOffsetY: 2,
-      tooltipText: dataItem.dataContext.text,
-      tooltipY: 0
-    }))
+    yRenderer.grid.template.set("forceHidden", true);
 
-    container.children.push(am5.Picture.new(root, {
-      centerY: 32,
-      centerX: am5.p50,
-      width: 20,
-      height: 20,
-      src: dataItem.dataContext.icon
-    }));
-
-    return am5.Bullet.new(root, {
-      sprite: container
+    // Create axes and their renderers
+    var xRenderer = am5timeline.AxisRendererCurveX.new(root, {
+      points: [{ x: -600, y: 50 }, { x: 600, y: 50 }]
+      ,
+      yRenderer: yRenderer,
+      strokeDasharray: [2, 3],
+      strokeOpacity: 0.5,
+      stroke: am5.color(0x000000)
     });
-  })
 
-  series.data.setAll([
-  {
-    "category": "a",
-    "start": new Date("2019-01-10 06:00").getTime(),
-    "end": new Date("2019-01-10 06:00").getTime(),
-    "settings": { "fill": colorSet.getIndex(15) },
-    "icon": alarm,
-    "text": "Wake up!"
-  }, 
-  {
-    "category": "b",
-    "start": new Date("2019-01-10 06:15").getTime(),
-    "end": new Date("2019-01-10 06:15").getTime(),
-    "settings": { "fill": colorSet.getIndex(15) },
-    "icon": alarm,
-    "text": "Wake up!"
-  }, 
-  {
-    "category": "c",
-    "start": new Date("2019-01-10 06:20").getTime(),
-    "end": new Date("2019-01-10 06:20").getTime(),
-    "settings": { "fill": colorSet.getIndex(15) },
-    "icon": alarm,
-    "text": "Wake up!"
-  }, 
-  {
-    "category": "a",
-    "start": new Date("2019-01-10 06:15").getTime(),
-    "end": new Date("2019-01-10 06:30").getTime(),
-    "settings": { "fill": colorSet.getIndex(14) },
-    "icon": water,
-    "text": "Drink water"
-  },
-  {
-    "category": "e",
-    "start": new Date("2019-01-10 06:15").getTime(),
-    "end": new Date("2019-01-10 06:30").getTime(),
-    "settings": { "fill": colorSet.getIndex(14) },
-    "icon": water,
-    "text": "Drink water"
-  },
-  {
-    "category": "d",
-    "start": new Date("2019-01-10 06:15").getTime(),
-    "end": new Date("2019-01-10 06:30").getTime(),
-    "settings": { "fill": colorSet.getIndex(14) },
-    "icon": water,
-    "text": "Drink water"
-  },
-  {
-    "category": "a",
-    "start": new Date("2019-01-10 06:30").getTime(),
-    "end": new Date("2019-01-10 07:00").getTime(),
-    "settings": { "fill": colorSet.getIndex(13) },
-    "icon": exercise,
-    "text": "Exercise"
-  },
-  {
-    "category": "a",
-    "start": new Date("2019-01-10 07:00").getTime(),
-    "end": new Date("2019-01-10 07:30").getTime(),
-    "settings": { "fill": colorSet.getIndex(12) },
-    "icon": breakfast,
-    "text": "Have breakfast"
-  }].sort(function (a, b) {
-    return (a.category < b.category) ? -1 : (a.category > b.category) ? 1 : 0;
-  }))
+    xRenderer.labels.template.setAll({
+      centerY: am5.p50,
+      fontSize: 11,
+      minPosition: 0.01
+    });
 
-
-  yAxis.data.setAll([
-    { category: "a" }, 
-    { category: "b" }, 
-    { category: "c" },
-    { category: "d" }, 
-    { category: "e" },
-    { category: "f" }, 
-    { category: "g" },
-    { category: "h" }
-  ]);
-
-  // Animate chart and series in
-  // https://www.amcharts.com/docs/v5/concepts/animations/#Initial_animation
-  series.appear(1000);
-  chart.appear(1000, 100);
-
+    xRenderer.labels.template.setup = function (target) {
+      target.set("layer", 30);
+      target.set("background", am5.Rectangle.new(root, {
+        fill: am5.color(0xffffff),
+        fillOpacity: 1
+      }));
     }
 
-    useLayoutEffect(() => {
-        let root = am5.Root.new("MsginHistDiv");
-        drawMsginHist(root)
-        return () => {
-            root.dispose();
-        };
-    }, []);
+    var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
+      maxDeviation: 0,
+      categoryField: "category",
+      renderer: yRenderer
+    }));
 
-    return (
-        <div id="MsginHistDiv"></div>
-    );
+    var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
+      baseInterval: { timeUnit: "minute", count: 1 },
+      renderer: xRenderer,
+      tooltip: am5.Tooltip.new(root, {})
+    }));
+
+    // Data
+    var colorSet = chart.get("colors");
+
+    var series = chart.series.push(am5timeline.CurveColumnSeries.new(root, {
+      xAxis: xAxis,
+      yAxis: yAxis,
+      baseAxis: yAxis,
+      categoryYField: "category",
+      valueXField: "end",
+      openValueXField: "start",
+      maskBullets: false
+    }));
+
+    series.columns.template.setAll({
+      height: am5.percent(10),
+      templateField: "settings",
+      strokeOpacity: 0
+    })
+
+    series.bullets.push(function (root, series, dataItem) {
+      var container = am5.Container.new(root, {
+        centerY: am5.p100
+      });
+
+      container.children.push(am5.PointedRectangle.new(root, {
+        cornerRadius: 5,
+        width: 32,
+        height: 32,
+        pointerBaseWidth: 16,
+        centerY: am5.p100,
+        centerX: am5.p50,
+        templateField: "settings",
+        pointerX: 16,
+        pointerY: 40,
+        strokeOpacity: 0,
+        shadowColor: am5.color(0x000000),
+        shadowBlur: 5,
+        shadowOffsetX: 2,
+        shadowOffsetY: 2,
+        tooltipText: dataItem.dataContext.text,
+        tooltipY: 0
+      }))
+
+      container.children.push(am5.Picture.new(root, {
+        centerY: 32,
+        centerX: am5.p50,
+        width: 20,
+        height: 20,
+        src: dataItem.dataContext.icon
+      }));
+
+      return am5.Bullet.new(root, {
+        sprite: container
+      });
+    })
+
+    let data2 = []
+    data.forEach(e => {
+      data2.push({
+        category: e.flow, 
+        start: new Date(`${e.date} ${e.time}`).getTime(), 
+        end: new Date(`${e.date} ${e.time}`).getTime(),
+        "settings": { "fill": colorSet.getIndex(15) },
+        "icon": alarm,
+        "text": "Wake up!"
+      })
+    });
+    series.data.setAll(data2.sort(function (a, b) {
+        return (a.category < b.category) ? -1 : (a.category > b.category) ? 1 : 0;
+      }))
+    console.log(data2)
+    let categs = Array.from(new Set(data2.map(item => item.category))).map(c => ({category: c}))
+    console.log(categs)
+    yAxis.data.setAll(categs)
+
+    // Animate chart and series in
+    // https://www.amcharts.com/docs/v5/concepts/animations/#Initial_animation
+    series.appear(1000);
+    chart.appear(1000, 100);
+
+  }
+
 }
 
 export default MsginHist
