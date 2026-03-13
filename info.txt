@@ -3,3 +3,5 @@ viratial scrolling or
 react window
 https://blog.logrocket.com/render-large-lists-react-5-methods-examples/
 I would implement lazy loading and add to the dropdown when user scroll to the bottom of the dropdown.
+
+deploy in the kubernetes cluster

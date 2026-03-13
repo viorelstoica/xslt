@@ -113,7 +113,7 @@ function MsginHist({ date, uuid }) {
     }));
 
     var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
-      baseInterval: { timeUnit: "minute", count: 1 },
+      baseInterval: { timeUnit: "second", count: 1 },
       renderer: xRenderer,
       tooltip: am5.Tooltip.new(root, {})
     }));
@@ -173,7 +173,7 @@ function MsginHist({ date, uuid }) {
         sprite: container
       });
     })
-
+    console.log(data)
     let data2 = []
     data.forEach(e => {
       data2.push({
@@ -182,7 +182,7 @@ function MsginHist({ date, uuid }) {
         end: new Date(`${e.date} ${e.time}`).getTime(),
         "settings": { "fill": colorSet.getIndex(15) },
         "icon": alarm,
-        "text": "Wake up!"
+        "text": e.step+'-'+e.flow
       })
     });
     series.data.setAll(data2.sort(function (a, b) {
